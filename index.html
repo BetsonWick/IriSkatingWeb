@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IriSkating — Figure Skating Lessons</title>
+  <meta name="description" content="IriSkating — figure skating lessons for kids and adults. Book group and individual lessons with coach Irina.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ SVG icon library ============ -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20.5c0-3.9 3.6-6.3 8-6.3s8 2.4 8 6.3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3.4"/><path d="M2.8 19.5c0-3.1 2.8-5 6.2-5s6.2 1.9 6.2 5"/><circle cx="17" cy="10" r="2.5"/><path d="M16.6 14.7c2.8.3 4.9 1.9 4.9 4.3"/></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.6"/><path d="M5 20.5c0-3.7 3.1-6 7-6s7 2.3 7 6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h5"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><path d="M7 14.5l3-3 2.5 2.5L17 9.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-5.4-7-11.2a7 7 0 1 1 14 0c0 5.8-7 11.2-7 11.2z"/><circle cx="12" cy="10.2" r="2.6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5l5.5 5.5-5.5 5.5"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6.5 9.5l5.5 5.5 5.5-5.5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M10.2 8.8v6.4l5.4-3.2z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.7 2.6 4 5.4 4 8.5s-1.3 5.9-4 8.5c-2.7-2.6-4-5.4-4-8.5s1.3-5.9 4-8.5z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 1.9"/></symbol>
+    <symbol id="i-level" viewBox="0 0 24 24"><path d="M5 20v-5.5M12 20V9.5M19 20v-16"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 14a3 3 0 0 1-3 3H9l-4.5 3.6V6.5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M19.5 4.5C11 5 5.5 9.5 5.5 16.5c0 1.5.3 2.7.8 3 5.5-.4 13.2-5.5 13.2-15z"/><path d="M5.5 19.5C8.5 14 13 9.5 18 6.5"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4.5 3.2 11.3c-.8.3-.8 1.4.1 1.7l4.5 1.4 1.7 5c.2.8 1.3.9 1.8.2l2.4-3.1 4.5 3.3c.7.5 1.6.1 1.8-.8L22 5.9c.2-.9-.6-1.7-1-1.4z"/><path d="M8.5 14.5 18.5 6.8"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m4.5 8 7.5 5.5L19.5 8"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3.5l1.7 4.8 4.8 1.7-4.8 1.7L12 16.5l-1.7-4.8-4.8-1.7 4.8-1.7z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5.5 4.2 5.5 9.2A5.5 5.5 0 0 1 12 21.5 5.5 5.5 0 0 1 6.5 12.2C6.5 9.8 8 7.5 9.5 6c.3 1.2.9 2.2 1.7 2.8C11.5 7 11.8 4.6 12 3z"/></symbol>
+    <symbol id="i-skate" viewBox="0 0 24 24"><path d="M4 14.5h9.5a4 4 0 0 0 4-4V6a1.5 1.5 0 0 0-3 0v3.5H10"/><path d="M4 14.5c0 2 1 3.5 3.5 3.5h9c2 0 3.5-1.2 3.5-3"/><path d="M5 20.5h14"/></symbol>
+  </svg>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="IriSkating — home">
+        <svg class="brand-mark" viewBox="0 0 40 44" aria-hidden="true">
+          <defs>
+            <linearGradient id="brandG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+          <path d="M31 7.5C29.5 4 25 3 21.5 4.6 16.5 6.9 16 13 20 16c3.2 2.4 8.5 2.3 11.5 5.5 4 4.3 2.5 11.5-3 13.9-4.5 1.9-9.6.5-11.5-3"
+                fill="none" stroke="url(#brandG)" stroke-width="5.5" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">IriSkating</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main">
+        <a class="nav-link active" href="#home" data-i18n="nav.home">Home</a>
+        <a class="nav-link" href="#coach" data-i18n="nav.coach">Coach</a>
+        <a class="nav-link" href="#lessons" data-i18n="nav.lessons">Lessons</a>
+        <a class="nav-link" href="#news" data-i18n="nav.news">News</a>
+        <a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-select" id="langSelect">
+          <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+            <svg class="icon"><use href="#i-globe"/></svg>
+            <span id="langCurrent">EN</span>
+            <svg class="icon chev"><use href="#i-chevron"/></svg>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language">
+            <li role="option" data-lang="en" aria-selected="true"><span class="flag">🇬🇧</span>English<svg class="icon lang-check"><use href="#i-check"/></svg></li>
+            <li role="option" data-lang="ru" aria-selected="false"><span class="flag">🇷🇺</span>Русский<svg class="icon lang-check"><use href="#i-check"/></svg></li>
+            <li role="option" data-lang="zh" aria-selected="false"><span class="flag">🇨🇳</span>中文<svg class="icon lang-check"><use href="#i-check"/></svg></li>
+            <li role="option" data-lang="fr" aria-selected="false"><span class="flag">🇫🇷</span>Français<svg class="icon lang-check"><use href="#i-check"/></svg></li>
+          </ul>
+        </div>
+
+        <button class="btn btn-ghost hide-sm" data-proto data-i18n="nav.signin">Sign in</button>
+        <button class="btn btn-primary hide-sm" data-proto data-i18n="nav.signup">Sign up</button>
+
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Your path to excellence</p>
+          <h1 class="hero-title">
+            <span data-i18n="hero.title1">Figure skating</span><br>
+            <span class="grad-text" data-i18n="hero.title2">inspires.</span>
+          </h1>
+          <p class="lead" data-i18n="hero.subtitle">Learn, train and grow with a coach who competed at the top level — programs for kids and adults, from first steps on the ice to confident jumps and spins.</p>
+          <div class="hero-cta">
+            <button class="btn btn-primary btn-lg" data-book="individual">
+              <span data-i18n="hero.cta1">Start booking</span>
+              <svg class="icon"><use href="#i-arrow"/></svg>
+            </button>
+            <button class="btn btn-outline btn-lg" data-proto="video">
+              <svg class="icon"><use href="#i-play"/></svg>
+              <span data-i18n="hero.cta2">Watch video</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <svg class="hero-scene" viewBox="0 0 560 440" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="skG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#a78bfa"/><stop offset=".55" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/>
+              </linearGradient>
+              <radialGradient id="heroGlow" cx=".5" cy=".45" r=".75">
+                <stop offset="0" stop-color="#7c3aed" stop-opacity=".55"/>
+                <stop offset=".55" stop-color="#4c1d95" stop-opacity=".25"/>
+                <stop offset="1" stop-color="#0b0f24" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="iceG" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#a78bfa" stop-opacity="0"/>
+                <stop offset=".5" stop-color="#c4b5fd" stop-opacity=".5"/>
+                <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect width="560" height="440" fill="#0b0f24"/>
+            <ellipse cx="285" cy="215" rx="255" ry="200" fill="url(#heroGlow)"/>
+            <!-- bokeh -->
+            <circle cx="80" cy="70" r="3.5" fill="#c4b5fd" opacity=".5"/>
+            <circle cx="150" cy="150" r="2" fill="#e9d5ff" opacity=".6"/>
+            <circle cx="470" cy="90" r="4" fill="#c4b5fd" opacity=".45"/>
+            <circle cx="505" cy="230" r="2.4" fill="#67e8f9" opacity=".5"/>
+            <circle cx="390" cy="60" r="2.2" fill="#f5d0fe" opacity=".5"/>
+            <circle cx="60" cy="250" r="2.2" fill="#f5d0fe" opacity=".4"/>
+            <!-- sparkles -->
+            <g fill="#e9d5ff">
+              <path d="M120 60l1.6 4.6 4.6 1.6-4.6 1.6-1.6 4.6-1.6-4.6-4.6-1.6 4.6-1.6z" opacity=".9"/>
+              <path d="M440 150l1.3 3.6 3.6 1.3-3.6 1.3-1.3 3.6-1.3-3.6-3.6-1.3 3.6-1.3z" opacity=".7"/>
+              <path d="M480 320l1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1z" opacity=".6"/>
+              <path d="M200 40l1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1z" opacity=".6"/>
+            </g>
+            <!-- ice + trail -->
+            <path d="M30 388 Q 280 362 530 388" stroke="url(#iceG)" stroke-width="2.5" fill="none"/>
+            <path d="M252 356 C 200 350, 160 322, 152 288 C 146 262, 168 248, 186 258 C 202 267, 198 288, 180 290"
+                  stroke="#a78bfa" stroke-width="2" fill="none" opacity=".35"/>
+            <!-- skater silhouette (spiral / arabesque) -->
+            <g stroke="url(#skG)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <!-- bun + head -->
+              <circle cx="165" cy="72" r="10" fill="url(#skG)" stroke="none"/>
+              <circle cx="152" cy="90" r="21" stroke-width="9"/>
+              <!-- torso -->
+              <path d="M163 110 C 196 136, 234 174, 266 206" stroke-width="24"/>
+              <!-- skirt -->
+              <path d="M256 194 C 300 206, 344 224, 372 248 C 336 258, 286 256, 250 238 Z" fill="url(#skG)" stroke="none" opacity=".9"/>
+              <!-- arms -->
+              <path d="M176 122 C 140 128, 100 130, 58 112" stroke-width="10"/>
+              <path d="M198 140 C 242 152, 292 160, 338 152" stroke-width="10"/>
+              <!-- supporting leg -->
+              <path d="M266 212 C 262 256, 258 304, 254 348" stroke-width="15"/>
+              <!-- free leg -->
+              <path d="M280 210 C 330 196, 396 178, 456 158" stroke-width="15"/>
+              <!-- boots -->
+              <path d="M243 348 q -3 15 12 17 l 20 0 q 6 -10 -3 -17" fill="url(#skG)" stroke="none"/>
+              <path d="M446 150 q -2 14 11 15 l 18 0 q 5 -9 -3 -15" fill="url(#skG)" stroke="none"/>
+              <!-- blades -->
+              <path d="M238 372 q 26 7 48 -3" stroke-width="3"/>
+              <path d="M440 172 q 22 8 42 -3" stroke-width="3"/>
+            </g>
+          </svg>
+          <div class="hero-note">Better<br>Skaters<br>Together</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Special offer strip ============ -->
+    <section class="offers">
+      <div class="container offers-grid">
+        <div class="offer-card offer-main">
+          <span class="offer-badge"><svg class="icon"><use href="#i-flame"/></svg><span data-i18n="offer.badge">Special offer</span></span>
+          <p class="offer-title" data-i18n="offer.title">Book your next lesson and get the best deals!</p>
+          <svg class="offer-doodle" viewBox="0 0 140 60" aria-hidden="true">
+            <path d="M8 44 C 40 50, 80 40, 112 16" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+            <path d="M100 14 L 114 14 L 108 27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+          </svg>
+        </div>
+
+        <div class="offer-card offer-tile offer-group">
+          <div class="offer-head">
+            <span class="offer-ico"><svg class="icon"><use href="#i-users"/></svg></span>
+            <span class="chip chip-violet"><svg class="icon"><use href="#i-sparkle"/></svg><span data-i18n="offer.group.tag">Best value</span></span>
+          </div>
+          <h3 data-i18n="offer.group.title">Group lessons</h3>
+          <p class="offer-desc" data-i18n="offer.group.desc">Learn together, grow faster</p>
+          <p class="offer-price"><b>$10</b><span data-i18n="offer.group.per">per lesson</span></p>
+          <button class="btn btn-gradient btn-sm" data-book="group">
+            <span data-i18n="offer.group.cta">Book group lesson</span>
+            <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+
+        <div class="offer-card offer-tile offer-ind">
+          <div class="offer-head">
+            <span class="offer-ico"><svg class="icon"><use href="#i-person"/></svg></span>
+          </div>
+          <h3 data-i18n="offer.ind.title">Individual lessons</h3>
+          <p class="offer-desc" data-i18n="offer.ind.desc">Personal approach, maximum results</p>
+          <p class="offer-price"><b>$20</b><span data-i18n="offer.ind.per">per lesson</span></p>
+          <button class="btn btn-gradient btn-sm" data-book="individual">
+            <span data-i18n="offer.ind.cta">Book individual lesson</span>
+            <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+
+        <div class="offer-card offer-tile offer-fit">
+          <div class="offer-head">
+            <span class="offer-ico"><svg class="icon"><use href="#i-leaf"/></svg></span>
+          </div>
+          <h3 data-i18n="offer.fit.title">Weight loss program</h3>
+          <p class="offer-desc" data-i18n="offer.fit.desc">Get in shape, improve your endurance and feel great</p>
+          <p class="offer-price"><b>$15</b><span data-i18n="offer.fit.per">per program</span></p>
+          <a class="btn btn-gradient btn-sm" href="#lessons">
+            <span data-i18n="offer.fit.cta">Learn more</span>
+            <svg class="icon"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Quick tiles ============ -->
+    <section class="tiles">
+      <div class="container tiles-grid">
+        <a class="tile" href="#coach">
+          <span class="tile-ico"><svg class="icon"><use href="#i-user"/></svg></span>
+          <span class="tile-txt"><b data-i18n="tiles.coach.title">Coach</b><span data-i18n="tiles.coach.desc">Meet your coach</span></span>
+          <svg class="icon tile-arrow"><use href="#i-chevron"/></svg>
+        </a>
+        <a class="tile" href="#lessons">
+          <span class="tile-ico"><svg class="icon"><use href="#i-calendar"/></svg></span>
+          <span class="tile-txt"><b data-i18n="tiles.lessons.title">Lessons</b><span data-i18n="tiles.lessons.desc">On-ice &amp; off-ice</span></span>
+          <svg class="icon tile-arrow"><use href="#i-chevron"/></svg>
+        </a>
+        <a class="tile" href="#news">
+          <span class="tile-ico"><svg class="icon"><use href="#i-news"/></svg></span>
+          <span class="tile-txt"><b data-i18n="tiles.news.title">News</b><span data-i18n="tiles.news.desc">Competitions &amp; stories</span></span>
+          <svg class="icon tile-arrow"><use href="#i-chevron"/></svg>
+        </a>
+        <a class="tile" href="#contact">
+          <span class="tile-ico"><svg class="icon"><use href="#i-chat"/></svg></span>
+          <span class="tile-txt"><b data-i18n="tiles.contact.title">Contact</b><span data-i18n="tiles.contact.desc">Book your first lesson</span></span>
+          <svg class="icon tile-arrow"><use href="#i-chevron"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ Events + News ============ -->
+    <section class="events-news" id="news">
+      <div class="container en-grid">
+        <div class="events-col">
+          <div class="sec-head">
+            <h2 data-i18n="events.title">Upcoming events</h2>
+            <a class="view-all" href="#" data-proto><span data-i18n="events.viewall">View all</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="events-grid">
+            <article class="event-card ev-1">
+              <span class="chip chip-violet" data-i18n="event1.badge">Competition</span>
+              <p class="ev-date" data-i18n="event1.date">Nov 12–16, 2026</p>
+              <h3 data-i18n="event1.name">Grand Prix Final 2026</h3>
+              <p class="ev-place"><svg class="icon"><use href="#i-pin"/></svg><span data-i18n="event1.place">Tokyo, Japan</span></p>
+              <button class="round-btn" data-proto aria-label="Open event"><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </article>
+            <article class="event-card ev-2">
+              <span class="chip chip-blue" data-i18n="event2.badge">Workshop</span>
+              <p class="ev-date" data-i18n="event2.date">Apr 5, 2027</p>
+              <h3 data-i18n="event2.name">Jump technique workshop</h3>
+              <p class="ev-place"><svg class="icon"><use href="#i-pin"/></svg><span data-i18n="event2.place">Online</span></p>
+              <button class="round-btn" data-proto aria-label="Open event"><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </article>
+            <article class="event-card ev-3">
+              <span class="chip chip-pink" data-i18n="event3.badge">Camp</span>
+              <p class="ev-date" data-i18n="event3.date">Jul 14–28, 2027</p>
+              <h3 data-i18n="event3.name">Summer training camp</h3>
+              <p class="ev-place"><svg class="icon"><use href="#i-pin"/></svg><span data-i18n="event3.place">Lake Placid, USA</span></p>
+              <button class="round-btn" data-proto aria-label="Open event"><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </article>
+          </div>
+        </div>
+
+        <div class="news-col">
+          <div class="sec-head">
+            <h2 data-i18n="news.title">Latest news</h2>
+            <a class="view-all" href="#" data-proto><span data-i18n="news.viewall">View all</span><svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="news-list">
+            <article class="news-card nw-1">
+              <span class="chip chip-violet" data-i18n="news1.badge">Results</span>
+              <p class="ev-date" data-i18n="news1.date">Oct 18, 2026</p>
+              <h3 data-i18n="news1.title">Our students' first medals</h3>
+              <p class="news-excerpt" data-i18n="news1.excerpt">Medals, personal bests and highlights from the autumn cup…</p>
+              <button class="round-btn" data-proto aria-label="Read news"><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </article>
+            <article class="news-card nw-2">
+              <span class="chip chip-cyan" data-i18n="news2.badge">Training</span>
+              <p class="ev-date" data-i18n="news2.date">Oct 2, 2026</p>
+              <h3 data-i18n="news2.title">5 ways to improve your spin</h3>
+              <p class="news-excerpt" data-i18n="news2.excerpt">Simple tips from coach Irina for faster, more centered spins…</p>
+              <button class="round-btn" data-proto aria-label="Read news"><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Coach ============ -->
+    <section class="coach" id="coach">
+      <div class="container coach-grid">
+        <div class="coach-photo" aria-hidden="true">
+          <svg class="coach-scene" viewBox="0 0 380 460" preserveAspectRatio="xMidYMax slice">
+            <defs>
+              <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#a78bfa"/><stop offset=".6" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/>
+              </linearGradient>
+              <radialGradient id="cGlow" cx=".5" cy=".4" r=".8">
+                <stop offset="0" stop-color="#7c3aed" stop-opacity=".5"/>
+                <stop offset="1" stop-color="#0b0f24" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="380" height="460" fill="#0c1130"/>
+            <ellipse cx="190" cy="210" rx="185" ry="200" fill="url(#cGlow)"/>
+            <g fill="#e9d5ff">
+              <path d="M60 80l1.6 4.6 4.6 1.6-4.6 1.6-1.6 4.6-1.6-4.6-4.6-1.6 4.6-1.6z" opacity=".8"/>
+              <path d="M310 120l1.3 3.6 3.6 1.3-3.6 1.3-1.3 3.6-1.3-3.6-3.6-1.3 3.6-1.3z" opacity=".6"/>
+              <path d="M300 330l1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1z" opacity=".5"/>
+            </g>
+            <g stroke="url(#cg)" fill="none" stroke-linecap="round">
+              <!-- ponytail -->
+              <path d="M232 128 C 258 118, 270 138, 262 162 C 257 178, 244 186, 234 184" stroke-width="13"/>
+              <!-- head -->
+              <circle cx="196" cy="128" r="34" stroke-width="12"/>
+              <!-- neck + shoulders -->
+              <path d="M196 168 L 196 192" stroke-width="16"/>
+              <path d="M116 268 C 124 216, 156 192, 196 192 C 236 192, 268 216, 276 268" stroke-width="34"/>
+              <!-- jacket zip line -->
+              <path d="M196 208 L 196 268" stroke-width="3" opacity=".6"/>
+            </g>
+          </svg>
+          <span class="coach-tag"><svg class="icon"><use href="#i-sparkle"/></svg> IriSkating</span>
+        </div>
+
+        <div class="coach-info">
+          <p class="eyebrow" data-i18n="coach.eyebrow">Your coach</p>
+          <h2><span data-i18n="coach.name">Irina</span></h2>
+          <p class="coach-role" data-i18n="coach.role">Founder &amp; head coach of IriSkating</p>
+          <p class="coach-bio" data-i18n="coach.bio">Former competitive skater with 15 years of coaching experience. Irina works with kids and adults — from the very first steps on the ice to clean double jumps and confident spins. Her motto: technique first, joy always.</p>
+
+          <div class="coach-stats">
+            <div class="stat"><b>15+</b><span data-i18n="coach.stat1">years of experience</span></div>
+            <div class="stat"><b>200+</b><span data-i18n="coach.stat2">students trained</span></div>
+            <div class="stat"><b>40+</b><span data-i18n="coach.stat3">student medals</span></div>
+          </div>
+
+          <h3 class="mini-title" data-i18n="coach.specsTitle">Specializations</h3>
+          <div class="chips">
+            <span class="chip chip-soft" data-i18n="spec.jumps">Jump technique</span>
+            <span class="chip chip-soft" data-i18n="spec.spins">Spins</span>
+            <span class="chip chip-soft" data-i18n="spec.dance">Ice dance</span>
+            <span class="chip chip-soft" data-i18n="spec.choreo">Choreography</span>
+            <span class="chip chip-soft" data-i18n="spec.office">Off-ice training</span>
+            <span class="chip chip-soft" data-i18n="spec.all">Kids &amp; adults</span>
+          </div>
+
+          <div class="coach-langs">
+            <h3 class="mini-title" data-i18n="coach.langsTitle">Languages</h3>
+            <p data-i18n="coach.langsVal">English · Русский</p>
+          </div>
+
+          <button class="btn btn-primary btn-lg" data-book="individual">
+            <span data-i18n="coach.cta">Book a lesson with Irina</span>
+            <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Lessons ============ -->
+    <section class="lessons" id="lessons">
+      <div class="container">
+        <p class="eyebrow center" data-i18n="lessons.eyebrow">Lessons</p>
+        <h2 class="center" data-i18n="lessons.title">Choose your format</h2>
+        <p class="subtitle center" data-i18n="lessons.subtitle">Group energy or personal attention — every lesson follows a proven methodology.</p>
+
+        <div class="lessons-grid">
+          <article class="lesson-card">
+            <span class="lesson-ico li-violet"><svg class="icon"><use href="#i-users"/></svg></span>
+            <h3 data-i18n="lesson1.title">Group lessons</h3>
+            <p class="lesson-desc" data-i18n="lesson1.desc">Learn together, grow faster. Small groups of 6–8 skaters.</p>
+            <ul class="lesson-meta">
+              <li><svg class="icon"><use href="#i-clock"/></svg><span data-i18n="lesson1.duration">60 min</span></li>
+              <li><svg class="icon"><use href="#i-level"/></svg><span data-i18n="lesson1.level">Beginner +</span></li>
+              <li><svg class="icon"><use href="#i-calendar"/></svg><span data-i18n="lesson1.schedule">Tue &amp; Thu · 18:00</span></li>
+            </ul>
+            <div class="lesson-foot">
+              <p class="offer-price"><b>$10</b><span data-i18n="lesson1.per">per lesson</span></p>
+              <button class="btn btn-gradient btn-sm" data-book="group"><span data-i18n="lesson1.cta">Book group lesson</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </div>
+          </article>
+
+          <article class="lesson-card">
+            <span class="lesson-ico li-pink"><svg class="icon"><use href="#i-person"/></svg></span>
+            <h3 data-i18n="lesson2.title">Individual lessons</h3>
+            <p class="lesson-desc" data-i18n="lesson2.desc">Personal approach, maximum results. A program built around your goals.</p>
+            <ul class="lesson-meta">
+              <li><svg class="icon"><use href="#i-clock"/></svg><span data-i18n="lesson2.duration">45–60 min</span></li>
+              <li><svg class="icon"><use href="#i-level"/></svg><span data-i18n="lesson2.level">Any level</span></li>
+              <li><svg class="icon"><use href="#i-calendar"/></svg><span data-i18n="lesson2.schedule">By agreement</span></li>
+            </ul>
+            <div class="lesson-foot">
+              <p class="offer-price"><b>$20</b><span data-i18n="lesson2.per">per lesson</span></p>
+              <button class="btn btn-gradient btn-sm" data-book="individual"><span data-i18n="lesson2.cta">Book individual lesson</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </div>
+          </article>
+
+          <article class="lesson-card">
+            <span class="lesson-ico li-cyan"><svg class="icon"><use href="#i-skate"/></svg></span>
+            <h3 data-i18n="lesson3.title">First steps (kids 4–7)</h3>
+            <p class="lesson-desc" data-i18n="lesson3.desc">Playful first steps on the ice: balance, fearless falls and the first glide.</p>
+            <ul class="lesson-meta">
+              <li><svg class="icon"><use href="#i-clock"/></svg><span data-i18n="lesson3.duration">45 min</span></li>
+              <li><svg class="icon"><use href="#i-level"/></svg><span data-i18n="lesson3.level">Kids 4–7</span></li>
+              <li><svg class="icon"><use href="#i-calendar"/></svg><span data-i18n="lesson3.schedule">Sat · 11:00</span></li>
+            </ul>
+            <div class="lesson-foot">
+              <p class="offer-price"><b>$10</b><span data-i18n="lesson3.per">per lesson</span></p>
+              <button class="btn btn-gradient btn-sm" data-book="kids"><span data-i18n="lesson3.cta">Book kids lesson</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </div>
+          </article>
+
+          <article class="lesson-card">
+            <span class="lesson-ico li-green"><svg class="icon"><use href="#i-leaf"/></svg></span>
+            <h3 data-i18n="lesson4.title">Fitness &amp; weight loss</h3>
+            <p class="lesson-desc" data-i18n="lesson4.desc">Get in shape, improve endurance and feel great — a skating-based fitness program.</p>
+            <ul class="lesson-meta">
+              <li><svg class="icon"><use href="#i-clock"/></svg><span data-i18n="lesson4.duration">60 min</span></li>
+              <li><svg class="icon"><use href="#i-level"/></svg><span data-i18n="lesson4.level">Adults</span></li>
+              <li><svg class="icon"><use href="#i-calendar"/></svg><span data-i18n="lesson4.schedule">Mon &amp; Wed · 19:00</span></li>
+            </ul>
+            <div class="lesson-foot">
+              <p class="offer-price"><b>$15</b><span data-i18n="lesson4.per">per program</span></p>
+              <button class="btn btn-gradient btn-sm" data-book="fitness"><span data-i18n="lesson4.cta">Book program</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-head">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 data-i18n="contact.title">Ready to step on the ice?</h2>
+          <p class="subtitle" data-i18n="contact.subtitle">Message us in a messenger you like — or book a lesson in two clicks.</p>
+          <button class="btn btn-primary btn-lg" data-book="individual">
+            <span data-i18n="contact.cta">Book a lesson</span>
+            <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+
+        <div class="contact-cards">
+          <a class="contact-row" href="#" data-proto>
+            <span class="contact-ico ci-blue"><svg class="icon"><use href="#i-tg"/></svg></span>
+            <span class="contact-txt"><b data-i18n="contact.tg.title">Telegram</b><span data-i18n="contact.tg.desc">Fastest way — we reply within an hour</span></span>
+            <svg class="icon tile-arrow"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="contact-row" href="#" data-proto>
+            <span class="contact-ico ci-pink"><svg class="icon"><use href="#i-ig"/></svg></span>
+            <span class="contact-txt"><b data-i18n="contact.ig.title">Instagram</b><span data-i18n="contact.ig.desc">Videos from lessons and student results</span></span>
+            <svg class="icon tile-arrow"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="contact-row" href="#" data-proto>
+            <span class="contact-ico ci-violet"><svg class="icon"><use href="#i-mail"/></svg></span>
+            <span class="contact-txt"><b data-i18n="contact.mail.title">Email</b><span data-i18n="contact.mail.desc">For questions about programs and prices</span></span>
+            <svg class="icon tile-arrow"><use href="#i-arrow"/></svg>
+          </a>
+          <div class="contact-row static">
+            <span class="contact-ico ci-cyan"><svg class="icon"><use href="#i-pin"/></svg></span>
+            <span class="contact-txt"><b data-i18n="contact.rink.title">The rink</b><span data-i18n="contact.rink.desc">Ice Arena, 10 Ice Street — sessions Tue–Sun</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#home">
+          <svg class="brand-mark" viewBox="0 0 40 44" aria-hidden="true">
+            <path d="M31 7.5C29.5 4 25 3 21.5 4.6 16.5 6.9 16 13 20 16c3.2 2.4 8.5 2.3 11.5 5.5 4 4.3 2.5 11.5-3 13.9-4.5 1.9-9.6.5-11.5-3" fill="none" stroke="url(#brandG)" stroke-width="5.5" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-name">IriSkating</span>
+        </a>
+        <p class="footer-tagline" data-i18n="footer.tagline">Figure skating lessons for kids and adults — learn, train and grow with IriSkating.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#home" data-i18n="nav.home">Home</a>
+        <a href="#coach" data-i18n="nav.coach">Coach</a>
+        <a href="#lessons" data-i18n="nav.lessons">Lessons</a>
+        <a href="#news" data-i18n="nav.news">News</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p data-i18n="footer.rights">© 2026 IriSkating. All rights reserved.</p>
+      <span class="chip chip-soft" data-i18n="footer.note">Prototype build</span>
+    </div>
+  </footer>
+
+  <!-- ============ Booking modal ============ -->
+  <div class="modal-overlay" id="bookModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
+      <button class="modal-close" id="bookClose" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button>
+
+      <div id="bookFormView">
+        <h3 id="bookTitle" data-i18n="modal.title">Book a lesson</h3>
+        <p class="modal-sub" data-i18n="modal.subtitle">Leave a request — Irina will contact you to confirm the time.</p>
+
+        <form id="bookForm" novalidate>
+          <div class="form-row">
+            <label>
+              <span data-i18n="modal.name">Your name</span>
+              <input type="text" id="bkName" name="name" required autocomplete="name" data-i18n-ph="modal.namePh" placeholder="Anna">
+            </label>
+            <label>
+              <span data-i18n="modal.contact">Phone or email</span>
+              <input type="text" id="bkContact" name="contact" required autocomplete="email" data-i18n-ph="modal.contactPh" placeholder="you@example.com">
+            </label>
+          </div>
+
+          <label>
+            <span data-i18n="modal.type">Lesson type</span>
+            <select id="bkType" name="type">
+              <option value="group" data-i18n="modal.group">Group lessons</option>
+              <option value="individual" data-i18n="modal.individual">Individual lessons</option>
+              <option value="kids" data-i18n="modal.kids">First steps (kids)</option>
+              <option value="fitness" data-i18n="modal.fitness">Fitness &amp; weight loss</option>
+            </select>
+          </label>
+
+          <div class="form-row">
+            <label>
+              <span data-i18n="modal.date">Preferred date</span>
+              <input type="date" id="bkDate" name="date" required>
+            </label>
+            <label>
+              <span data-i18n="modal.time">Preferred time</span>
+              <select id="bkTime" name="time">
+                <option value="morning" data-i18n="modal.morning">Morning</option>
+                <option value="afternoon" data-i18n="modal.afternoon">Afternoon</option>
+                <option value="evening" data-i18n="modal.evening">Evening</option>
+                <option value="any" selected data-i18n="modal.any">Any time</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span data-i18n="modal.comment">Comment</span>
+            <textarea id="bkComment" name="comment" rows="3" data-i18n-ph="modal.commentPh" placeholder="Anything we should know?"></textarea>
+          </label>
+
+          <p class="form-error" id="bookError" hidden></p>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <span data-i18n="modal.submit">Send request</span>
+            <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+        </form>
+      </div>
+
+      <div id="bookSuccessView" hidden>
+        <div class="success-ico"><svg class="icon"><use href="#i-check"/></svg></div>
+        <h3 data-i18n="modal.successTitle">Request sent! 🎉</h3>
+        <p class="modal-sub" data-i18n="modal.successText">Thank you! This is a prototype — your request is saved locally in the browser. Soon it will go straight to Irina's Telegram.</p>
+        <p class="success-summary" id="bookSummary"></p>
+        <div class="success-actions">
+          <button class="btn btn-outline" id="bookAgain"><span data-i18n="modal.another">Book another lesson</span></button>
+          <button class="btn btn-primary" id="bookDone"><span data-i18n="modal.close">Close</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Toast ============ -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

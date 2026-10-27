@@ -55,7 +55,7 @@
 
   <!-- name chip -->
   <rect x="56" y="56" width="110" height="24" rx="6" fill="#000000" opacity=".45"/>
-  <text x="111" y="72" text-anchor="middle" font-size="12" fill="#ffffff">Iren · Coach</text>
+  <text x="111" y="72" text-anchor="middle" font-size="12" fill="#ffffff">Irene · Coach</text>
 
   <!-- call control bar -->
   <g transform="translate(330 522)">

@@ -87,13 +87,13 @@
         badge: "Training",
         date: "Oct 2, 2026",
         title: "5 ways to improve your spin",
-        excerpt: "Simple tips from coach Iren for faster, more centered spins…",
+        excerpt: "Simple tips from coach Irene for faster, more centered spins…",
       },
       coach: {
         eyebrow: "Your coach",
-        name: "Iren",
+        name: "Irene",
         role: "Certified Figure Skating & Fitness Coach",
-        bio: "Iren works with kids and adults — from the very first steps on the ice to clean single, double and triple jumps, confident spins and strong skating skills. Her motto: technique first, joy always.",
+        bio: "Irene works with kids and adults — from the very first steps on the ice to clean single, double and triple jumps, confident spins and strong skating skills. Her motto: technique first, joy always.",
         stat1v: "4th",
         stat1: "place at the Russian Championships",
         stat2v: "Russian Cup",
@@ -105,7 +105,7 @@
         specsTitle: "Specialties",
         langsTitle: "Languages",
         langsVal: "English · Русский",
-        cta: "Book a lesson with Iren",
+        cta: "Book a lesson with Irene",
       },
       spec: {
         jumps: "Single, double & triple jumps",
@@ -118,7 +118,7 @@
       lessons: {
         eyebrow: "Lessons",
         title: "Choose your format",
-        subtitle: "Train with Iren from anywhere in the world — live online lessons, video feedback and a home fitness program.",
+        subtitle: "Train with Irene from anywhere in the world — live online lessons, video feedback and a home fitness program.",
       },
       lesson1: {
         title: "Individual online lesson",
@@ -158,7 +158,7 @@
       },
       modal: {
         title: "Book a lesson",
-        subtitle: "Leave a request — Iren will contact you to confirm the time.",
+        subtitle: "Leave a request — Irene will contact you to confirm the time.",
         name: "Your name",
         namePh: "Anna",
         contact: "Phone or email",
@@ -179,7 +179,7 @@
         submit: "Send request",
         successTitle: "Request sent! 🎉",
         successText:
-          "Thank you! This is a prototype — your request is saved locally in the browser. Soon it will go straight to Iren's Telegram.",
+          "Thank you! This is a prototype — your request is saved locally in the browser. Soon it will go straight to Irene's Telegram.",
         another: "Book another lesson",
         close: "Close",
       },
@@ -284,13 +284,13 @@
         badge: "Тренировки",
         date: "2 окт 2026",
         title: "5 способов улучшить вращение",
-        excerpt: "Простые советы от тренера Ирен для быстрого и уверенного вращения…",
+        excerpt: "Простые советы от тренера Ирены для быстрого и уверенного вращения…",
       },
       coach: {
         eyebrow: "Ваш тренер",
-        name: "Ирен",
+        name: "Ирена",
         role: "Сертифицированный тренер по фигурному катанию и фитнесу",
-        bio: "Ирен с детьми и взрослыми — от самых первых шагов на льду до чистых одинарных, двойных и тройных прыжков, уверенных вращений и поставленного скольжения. Её девиз: сначала техника, и всегда — радость.",
+        bio: "Ирена занимается с детьми и взрослыми — от самых первых шагов на льду до чистых одинарных, двойных и тройных прыжков, уверенных вращений и поставленного скольжения. Её девиз: сначала техника, и всегда — радость.",
         stat1v: "4-е место",
         stat1: "на чемпионате России",
         stat2v: "Кубок России",
@@ -302,7 +302,7 @@
         specsTitle: "Специализации",
         langsTitle: "Языки",
         langsVal: "Русский · English",
-        cta: "Записаться к Ирен",
+        cta: "Записаться к Ирене",
       },
       spec: {
         jumps: "Одинарные, двойные и тройные прыжки",
@@ -315,7 +315,7 @@
       lessons: {
         eyebrow: "Занятия",
         title: "Выберите свой формат",
-        subtitle: "Тренируйтесь с Ирен из любой точки мира — живые онлайн-занятия, разбор видео и домашняя фитнес-программа.",
+        subtitle: "Тренируйтесь с Иреной из любой точки мира — живые онлайн-занятия, разбор видео и домашняя фитнес-программа.",
       },
       lesson1: {
         title: "Индивидуальный онлайн-урок",
@@ -355,7 +355,7 @@
       },
       modal: {
         title: "Запись на занятие",
-        subtitle: "Оставьте заявку — Ирен свяжется с вами и подтвердит время.",
+        subtitle: "Оставьте заявку — Ирена свяжется с вами и подтвердит время.",
         name: "Ваше имя",
         namePh: "Анна",
         contact: "Телефон или email",
@@ -376,7 +376,7 @@
         submit: "Отправить заявку",
         successTitle: "Заявка отправлена! 🎉",
         successText:
-          "Спасибо! Это прототип — заявка сохранена локально в браузере. Скоро она будет уходить прямо в Telegram Ирен.",
+          "Спасибо! Это прототип — заявка сохранена локально в браузере. Скоро она будет уходить прямо в Telegram Ирены.",
         another: "Записаться ещё раз",
         close: "Закрыть",
       },
@@ -481,13 +481,13 @@
         badge: "训练",
         date: "2026年10月2日",
         title: "提升旋转的5个方法",
-        excerpt: "来自伊莲教练的简单建议，让旋转更快更稳……",
+        excerpt: "来自伊琳教练的简单建议，让旋转更快更稳……",
       },
       coach: {
         eyebrow: "您的教练",
-        name: "伊莲",
+        name: "伊琳",
         role: "认证花样滑冰与体能教练",
-        bio: "伊莲同时指导儿童与成人——从冰上第一步到干净利落的单周跳、两周跳、三周跳，稳定的旋转与扎实的滑行技术。她的理念：技术为先，快乐常伴。",
+        bio: "伊琳同时指导儿童与成人——从冰上第一步到干净利落的单周跳、两周跳、三周跳，稳定的旋转与扎实的滑行技术。她的理念：技术为先，快乐常伴。",
         stat1v: "第4名",
         stat1: "俄罗斯锦标赛",
         stat2v: "俄罗斯杯",
@@ -499,7 +499,7 @@
         specsTitle: "专业方向",
         langsTitle: "语言",
         langsVal: "Русский · English",
-        cta: "预约伊莲的课程",
+        cta: "预约伊琳的课程",
       },
       spec: {
         jumps: "单周跳、两周跳、三周跳",
@@ -512,7 +512,7 @@
       lessons: {
         eyebrow: "课程",
         title: "选择适合你的形式",
-        subtitle: "随时随地与伊莲一起训练——线上直播课程、视频解析和家庭健身计划。",
+        subtitle: "随时随地与伊琳一起训练——线上直播课程、视频解析和家庭健身计划。",
       },
       lesson1: {
         title: "一对一线上课程",
@@ -552,7 +552,7 @@
       },
       modal: {
         title: "预约课程",
-        subtitle: "留下申请，伊莲会与您联系确认时间。",
+        subtitle: "留下申请，伊琳会与您联系确认时间。",
         name: "您的姓名",
         namePh: "安娜",
         contact: "电话或邮箱",
@@ -573,7 +573,7 @@
         submit: "提交预约",
         successTitle: "预约已发送！🎉",
         successText:
-          "感谢您！当前为原型演示——预约已保存在浏览器本地。不久后将直接发送到伊莲的 Telegram。",
+          "感谢您！当前为原型演示——预约已保存在浏览器本地。不久后将直接发送到伊琳的 Telegram。",
         another: "再约一节",
         close: "关闭",
       },
@@ -678,13 +678,13 @@
         badge: "Entraînement",
         date: "2 oct. 2026",
         title: "5 façons d'améliorer votre rotation",
-        excerpt: "Des conseils simples de l'entraîneuse Iren pour tourner plus vite et plus droit…",
+        excerpt: "Des conseils simples de l'entraîneuse Irene pour tourner plus vite et plus droit…",
       },
       coach: {
         eyebrow: "Votre entraîneuse",
-        name: "Iren",
+        name: "Irene",
         role: "Entraîneuse certifiée de patinage artistique et de fitness",
-        bio: "Iren accompagne enfants et adultes — des tout premiers pas sur la glace aux sauts simples, doubles et triples maîtrisés, aux pirouettes assurées et à une belle qualité de glisse. Sa devise : la technique d'abord, le plaisir toujours.",
+        bio: "Irene accompagne enfants et adultes — des tout premiers pas sur la glace aux sauts simples, doubles et triples maîtrisés, aux pirouettes assurées et à une belle qualité de glisse. Sa devise : la technique d'abord, le plaisir toujours.",
         stat1v: "4e",
         stat1: "place aux Championnats de Russie",
         stat2v: "Coupe de Russie",
@@ -696,7 +696,7 @@
         specsTitle: "Spécialisations",
         langsTitle: "Langues",
         langsVal: "Русский · English",
-        cta: "Réserver avec Iren",
+        cta: "Réserver avec Irene",
       },
       spec: {
         jumps: "Sauts simples, doubles et triples",
@@ -709,7 +709,7 @@
       lessons: {
         eyebrow: "Cours",
         title: "Choisissez votre format",
-        subtitle: "Entraînez-vous avec Iren partout dans le monde — cours en ligne en direct, analyse vidéo et programme fitness à la maison.",
+        subtitle: "Entraînez-vous avec Irene partout dans le monde — cours en ligne en direct, analyse vidéo et programme fitness à la maison.",
       },
       lesson1: {
         title: "Cours en ligne individuel",
@@ -749,7 +749,7 @@
       },
       modal: {
         title: "Réserver un cours",
-        subtitle: "Laissez une demande — Iren vous contactera pour confirmer l'horaire.",
+        subtitle: "Laissez une demande — Irene vous contactera pour confirmer l'horaire.",
         name: "Votre nom",
         namePh: "Anna",
         contact: "Téléphone ou e-mail",
@@ -770,7 +770,7 @@
         submit: "Envoyer la demande",
         successTitle: "Demande envoyée ! 🎉",
         successText:
-          "Merci ! Ceci est un prototype — votre demande est enregistrée localement dans le navigateur. Bientôt, elle ira directement sur le Telegram d'Iren.",
+          "Merci ! Ceci est un prototype — votre demande est enregistrée localement dans le navigateur. Bientôt, elle ira directement sur le Telegram d'Irene.",
         another: "Réserver un autre cours",
         close: "Fermer",
       },

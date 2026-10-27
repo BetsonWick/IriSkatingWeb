@@ -30,7 +30,7 @@
       <path d="M-12 46 L -16 76 M12 46 L 16 76" stroke="#23252d" stroke-width="11" stroke-linecap="round"/>
     </g>
     <rect x="52" y="52" width="112" height="24" rx="6" fill="#000000" opacity=".45"/>
-    <text x="108" y="68" text-anchor="middle" font-size="12" fill="#ffffff">Iren · Coach</text>
+    <text x="108" y="68" text-anchor="middle" font-size="12" fill="#ffffff">Irene · Coach</text>
 
     <!-- tile 2 -->
     <rect x="456" y="40" width="404" height="228" rx="12" fill="url(#iceB)"/>

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="iceA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2f9ff"/><stop offset="1" stop-color="#bcd8f3"/>
+    </linearGradient>
+    <linearGradient id="iceB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef6ff"/><stop offset="1" stop-color="#aacdec"/>
+    </linearGradient>
+    <linearGradient id="iceC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eaf3fd"/><stop offset="1" stop-color="#9cc6ec"/>
+    </linearGradient>
+    <linearGradient id="iceD" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6fbff"/><stop offset="1" stop-color="#c4dcf6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="620" fill="#1e1f26"/>
+
+  <!-- 2x2 group call -->
+  <g>
+    <!-- tile 1: coach -->
+    <rect x="40" y="40" width="404" height="228" rx="12" fill="url(#iceA)"/>
+    <g transform="translate(242 168)">
+      <path d="M-22 -6 C -38 -14, -50 -24, -60 -34" stroke="#ec4899" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <path d="M22 -6 C 38 -14, 50 -24, 60 -34" stroke="#ec4899" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <rect x="-24" y="-10" width="48" height="56" rx="16" fill="#ec4899"/>
+      <text x="0" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">COACH</text>
+      <circle cx="0" cy="-26" r="16" fill="#edb98a"/>
+      <path d="M-16 -30 a16 16 0 0 1 32 0" fill="#3a2b28"/>
+      <path d="M-12 46 L -16 76 M12 46 L 16 76" stroke="#23252d" stroke-width="11" stroke-linecap="round"/>
+    </g>
+    <rect x="52" y="52" width="112" height="24" rx="6" fill="#000000" opacity=".45"/>
+    <text x="108" y="68" text-anchor="middle" font-size="12" fill="#ffffff">Iren · Coach</text>
+
+    <!-- tile 2 -->
+    <rect x="456" y="40" width="404" height="228" rx="12" fill="url(#iceB)"/>
+    <g transform="translate(658 168)">
+      <path d="M-20 -4 C -34 -10, -44 -18, -54 -28" stroke="#3e7ed6" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path d="M20 -4 C 34 -10, 44 -18, 54 -28" stroke="#3e7ed6" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <rect x="-22" y="-10" width="44" height="54" rx="15" fill="#3e7ed6"/>
+      <circle cx="0" cy="-26" r="15" fill="#c98d5e"/>
+      <path d="M-15 -30 a15 15 0 0 1 30 0 v14 h-30 z" fill="#2c2f3a"/>
+      <path d="M-12 44 L -15 72 M12 44 L 15 72" stroke="#23252d" stroke-width="10" stroke-linecap="round"/>
+    </g>
+    <rect x="468" y="52" width="62" height="24" rx="6" fill="#000000" opacity=".45"/>
+    <text x="499" y="68" text-anchor="middle" font-size="12" fill="#ffffff">Anna</text>
+
+    <!-- tile 3 -->
+    <rect x="40" y="280" width="404" height="228" rx="12" fill="url(#iceC)"/>
+    <g transform="translate(242 408)">
+      <path d="M-18 -6 C -6 -14, 6 -14, 18 -6" stroke="#3bb29a" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <rect x="-22" y="-10" width="44" height="54" rx="15" fill="#3bb29a"/>
+      <circle cx="0" cy="-26" r="15" fill="#8d5a3b"/>
+      <path d="M-15 -34 a15 15 0 0 1 30 6 l -30 0 z" fill="#171a22"/>
+      <path d="M-12 44 L -15 72 M12 44 L 15 72" stroke="#23252d" stroke-width="10" stroke-linecap="round"/>
+    </g>
+    <rect x="52" y="292" width="62" height="24" rx="6" fill="#000000" opacity=".45"/>
+    <text x="83" y="308" text-anchor="middle" font-size="12" fill="#ffffff">Mike</text>
+
+    <!-- tile 4 -->
+    <rect x="456" y="280" width="404" height="228" rx="12" fill="url(#iceD)"/>
+    <g transform="translate(658 408)">
+      <path d="M-20 -2 C -8 -12, 8 -12, 20 -2" stroke="#8a5cd6" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <rect x="-22" y="-10" width="44" height="54" rx="15" fill="#8a5cd6"/>
+      <circle cx="0" cy="-26" r="15" fill="#edb98a"/>
+      <path d="M-15 -26 a15 15 0 0 1 30 0" fill="#4a2c20"/>
+      <path d="M16 -26 q 8 14 2 26" stroke="#4a2c20" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <path d="M-12 44 L -15 72 M12 44 L 15 72" stroke="#23252d" stroke-width="10" stroke-linecap="round"/>
+    </g>
+    <rect x="468" y="292" width="66" height="24" rx="6" fill="#000000" opacity=".45"/>
+    <text x="501" y="308" text-anchor="middle" font-size="12" fill="#ffffff">Sofia</text>
+
+    <g fill="none" stroke="#ffffff" stroke-opacity=".1">
+      <rect x="40" y="40" width="404" height="228" rx="12"/>
+      <rect x="456" y="40" width="404" height="228" rx="12"/>
+      <rect x="40" y="280" width="404" height="228" rx="12"/>
+      <rect x="456" y="280" width="404" height="228" rx="12"/>
+    </g>
+  </g>
+
+  <!-- call control bar -->
+  <g transform="translate(330 522)">
+    <rect width="240" height="52" rx="26" fill="#26282f"/>
+    <g transform="translate(38 26)" fill="#d5d7de">
+      <rect x="-5" y="-9" width="10" height="18" rx="5"/>
+      <path d="M-10 -2 a10 10 0 0 0 20 0" fill="none" stroke="#d5d7de" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="8" x2="0" y2="13" stroke="#d5d7de" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(104 26)">
+      <rect x="-11" y="-8" width="16" height="16" rx="4" fill="#d5d7de"/>
+      <path d="M5 -2 L 12 -6 V 6 L 5 2 Z" fill="#d5d7de"/>
+    </g>
+    <g transform="translate(170 26)">
+      <rect x="-24" y="-13" width="48" height="26" rx="13" fill="#e74c4c"/>
+      <rect x="-8" y="-6" width="10" height="12" rx="2" fill="#ffffff" transform="rotate(35 0 0)"/>
+      <rect x="-4" y="-10" width="10" height="20" rx="2" fill="#ffffff" transform="rotate(35 0 0)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="ice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfeeff"/><stop offset="1" stop-color="#a9cdf0"/>
+    </linearGradient>
+    <radialGradient id="dim" cx=".5" cy=".45" r=".8">
+      <stop offset="0" stop-color="#0e1230" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#0e1230" stop-opacity=".7"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="620" fill="#1e1f26"/>
+  <rect x="40" y="40" width="820" height="460" rx="14" fill="url(#ice)"/>
+  <rect x="40" y="40" width="820" height="460" rx="14" fill="url(#dim)"/>
+  <!-- rink hint -->
+  <line x1="40" y1="250" x2="860" y2="250" stroke="#3b6fd4" stroke-width="10" stroke-opacity=".4"/>
+  <circle cx="450" cy="250" r="80" fill="none" stroke="#d24d4d" stroke-width="8" stroke-opacity=".35"/>
+  <!-- skater silhouette hint -->
+  <g transform="translate(450 240)" stroke="#f0f4ff" stroke-linecap="round" fill="none" opacity=".55">
+    <circle cx="-30" cy="-58" r="12" stroke-width="6"/>
+    <path d="M-24 -42 C -6 -28, 12 -12, 26 4" stroke-width="12"/>
+    <path d="M-30 -40 C -58 -34, -84 -34, -108 -46" stroke-width="6"/>
+    <path d="M26 4 C 54 -2, 84 -10, 108 -18" stroke-width="8"/>
+    <path d="M22 8 L 18 52" stroke-width="8"/>
+    <path d="M14 60 h 16" stroke-width="3"/>
+  </g>
+
+  <!-- play button -->
+  <circle cx="450" cy="270" r="64" fill="#ec4899" opacity=".92"/>
+  <circle cx="450" cy="270" r="64" fill="none" stroke="#ffffff" stroke-width="4" stroke-opacity=".7"/>
+  <path d="M430 234 L 488 270 L 430 306 Z" fill="#ffffff"/>
+
+  <!-- progress bar -->
+  <rect x="80" y="452" width="740" height="5" rx="3" fill="#ffffff" opacity=".25"/>
+  <rect x="80" y="452" width="180" height="5" rx="3" fill="#ec4899"/>
+  <circle cx="260" cy="454.5" r="8" fill="#ffffff"/>
+
+  <text x="80" y="430" font-size="15" fill="#ffffff" opacity=".85">iriskating · training</text>
+  <text x="820" y="430" text-anchor="end" font-size="14" fill="#ffffff" opacity=".7">00:07 / 01:12</text>
+</svg>

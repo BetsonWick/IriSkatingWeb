@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IriSkating — Figure Skating Lessons</title>
-  <meta name="description" content="IriSkating — figure skating lessons for kids and adults. Book group and individual lessons with coach Irina.">
+  <meta name="description" content="IriSkating — figure skating lessons for kids and adults. Book group and individual lessons with coach Iren.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,67 +112,10 @@
           </div>
         </div>
 
-        <div class="hero-art" aria-hidden="true">
-          <svg class="hero-scene" viewBox="0 0 560 440" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="skG" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#a78bfa"/><stop offset=".55" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/>
-              </linearGradient>
-              <radialGradient id="heroGlow" cx=".5" cy=".45" r=".75">
-                <stop offset="0" stop-color="#7c3aed" stop-opacity=".55"/>
-                <stop offset=".55" stop-color="#4c1d95" stop-opacity=".25"/>
-                <stop offset="1" stop-color="#0b0f24" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="iceG" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#a78bfa" stop-opacity="0"/>
-                <stop offset=".5" stop-color="#c4b5fd" stop-opacity=".5"/>
-                <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <rect width="560" height="440" fill="#0b0f24"/>
-            <ellipse cx="285" cy="215" rx="255" ry="200" fill="url(#heroGlow)"/>
-            <!-- bokeh -->
-            <circle cx="80" cy="70" r="3.5" fill="#c4b5fd" opacity=".5"/>
-            <circle cx="150" cy="150" r="2" fill="#e9d5ff" opacity=".6"/>
-            <circle cx="470" cy="90" r="4" fill="#c4b5fd" opacity=".45"/>
-            <circle cx="505" cy="230" r="2.4" fill="#67e8f9" opacity=".5"/>
-            <circle cx="390" cy="60" r="2.2" fill="#f5d0fe" opacity=".5"/>
-            <circle cx="60" cy="250" r="2.2" fill="#f5d0fe" opacity=".4"/>
-            <!-- sparkles -->
-            <g fill="#e9d5ff">
-              <path d="M120 60l1.6 4.6 4.6 1.6-4.6 1.6-1.6 4.6-1.6-4.6-4.6-1.6 4.6-1.6z" opacity=".9"/>
-              <path d="M440 150l1.3 3.6 3.6 1.3-3.6 1.3-1.3 3.6-1.3-3.6-3.6-1.3 3.6-1.3z" opacity=".7"/>
-              <path d="M480 320l1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1z" opacity=".6"/>
-              <path d="M200 40l1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1z" opacity=".6"/>
-            </g>
-            <!-- ice + trail -->
-            <path d="M30 388 Q 280 362 530 388" stroke="url(#iceG)" stroke-width="2.5" fill="none"/>
-            <path d="M252 356 C 200 350, 160 322, 152 288 C 146 262, 168 248, 186 258 C 202 267, 198 288, 180 290"
-                  stroke="#a78bfa" stroke-width="2" fill="none" opacity=".35"/>
-            <!-- skater silhouette (spiral / arabesque) -->
-            <g stroke="url(#skG)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <!-- bun + head -->
-              <circle cx="165" cy="72" r="10" fill="url(#skG)" stroke="none"/>
-              <circle cx="152" cy="90" r="21" stroke-width="9"/>
-              <!-- torso -->
-              <path d="M163 110 C 196 136, 234 174, 266 206" stroke-width="24"/>
-              <!-- skirt -->
-              <path d="M256 194 C 300 206, 344 224, 372 248 C 336 258, 286 256, 250 238 Z" fill="url(#skG)" stroke="none" opacity=".9"/>
-              <!-- arms -->
-              <path d="M176 122 C 140 128, 100 130, 58 112" stroke-width="10"/>
-              <path d="M198 140 C 242 152, 292 160, 338 152" stroke-width="10"/>
-              <!-- supporting leg -->
-              <path d="M266 212 C 262 256, 258 304, 254 348" stroke-width="15"/>
-              <!-- free leg -->
-              <path d="M280 210 C 330 196, 396 178, 456 158" stroke-width="15"/>
-              <!-- boots -->
-              <path d="M243 348 q -3 15 12 17 l 20 0 q 6 -10 -3 -17" fill="url(#skG)" stroke="none"/>
-              <path d="M446 150 q -2 14 11 15 l 18 0 q 5 -9 -3 -15" fill="url(#skG)" stroke="none"/>
-              <!-- blades -->
-              <path d="M238 372 q 26 7 48 -3" stroke-width="3"/>
-              <path d="M440 172 q 22 8 42 -3" stroke-width="3"/>
-            </g>
-          </svg>
+        <div class="hero-art">
+          <div class="hero-media" id="heroMedia" data-i18n-aria="hero.mediaAria" aria-label="Training photos and videos"></div>
+          <button class="hs-arrow hs-prev" type="button" aria-label="Previous slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="hs-arrow hs-next" type="button" aria-label="Next slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
           <div class="hero-note">Better<br>Skaters<br>Together</div>
         </div>
       </div>
@@ -296,9 +239,9 @@
 
         <div class="coach-info">
           <p class="eyebrow" data-i18n="coach.eyebrow">Your coach</p>
-          <h2><span data-i18n="coach.name">Irina</span></h2>
+          <h2><span data-i18n="coach.name">Iren</span></h2>
           <p class="coach-role" data-i18n="coach.role">Certified Figure Skating &amp; Fitness Coach</p>
-          <p class="coach-bio" data-i18n="coach.bio">Irina works with kids and adults — from the very first steps on the ice to clean single, double and triple jumps, confident spins and strong skating skills. Her motto: technique first, joy always.</p>
+          <p class="coach-bio" data-i18n="coach.bio">Iren works with kids and adults — from the very first steps on the ice to clean single, double and triple jumps, confident spins and strong skating skills. Her motto: technique first, joy always.</p>
 
           <div class="coach-stats">
             <div class="stat"><b data-i18n="coach.stat1v">4th</b><span data-i18n="coach.stat1">place at the Russian Championships</span></div>
@@ -323,7 +266,7 @@
           </div>
 
           <button class="btn btn-primary btn-lg" data-book="individual">
-            <span data-i18n="coach.cta">Book a lesson with Irina</span>
+            <span data-i18n="coach.cta">Book a lesson with Iren</span>
             <svg class="icon"><use href="#i-arrow"/></svg>
           </button>
         </div>
@@ -335,7 +278,7 @@
       <div class="container">
         <p class="eyebrow center" data-i18n="lessons.eyebrow">Lessons</p>
         <h2 class="center" data-i18n="lessons.title">Choose your format</h2>
-        <p class="subtitle center" data-i18n="lessons.subtitle">Train with Irina from anywhere in the world — live online lessons, video feedback and a home fitness program.</p>
+        <p class="subtitle center" data-i18n="lessons.subtitle">Train with Iren from anywhere in the world — live online lessons, video feedback and a home fitness program.</p>
 
         <div class="lessons-grid">
           <article class="lesson-card">
@@ -451,7 +394,7 @@
               <span class="chip chip-cyan" data-i18n="news2.badge">Training</span>
               <p class="ev-date" data-i18n="news2.date">Oct 2, 2026</p>
               <h3 data-i18n="news2.title">5 ways to improve your spin</h3>
-              <p class="news-excerpt" data-i18n="news2.excerpt">Simple tips from coach Irina for faster, more centered spins…</p>
+              <p class="news-excerpt" data-i18n="news2.excerpt">Simple tips from coach Iren for faster, more centered spins…</p>
               <button class="round-btn" data-proto aria-label="Read news"><svg class="icon"><use href="#i-arrow"/></svg></button>
             </article>
           </div>
@@ -530,7 +473,7 @@
 
       <div id="bookFormView">
         <h3 id="bookTitle" data-i18n="modal.title">Book a lesson</h3>
-        <p class="modal-sub" data-i18n="modal.subtitle">Leave a request — Irina will contact you to confirm the time.</p>
+        <p class="modal-sub" data-i18n="modal.subtitle">Leave a request — Iren will contact you to confirm the time.</p>
 
         <form id="bookForm" novalidate>
           <div class="form-row">
@@ -587,7 +530,7 @@
       <div id="bookSuccessView" hidden>
         <div class="success-ico"><svg class="icon"><use href="#i-check"/></svg></div>
         <h3 data-i18n="modal.successTitle">Request sent! 🎉</h3>
-        <p class="modal-sub" data-i18n="modal.successText">Thank you! This is a prototype — your request is saved locally in the browser. Soon it will go straight to Irina's Telegram.</p>
+        <p class="modal-sub" data-i18n="modal.successText">Thank you! This is a prototype — your request is saved locally in the browser. Soon it will go straight to Iren's Telegram.</p>
         <p class="success-summary" id="bookSummary"></p>
         <div class="success-actions">
           <button class="btn btn-outline" id="bookAgain"><span data-i18n="modal.another">Book another lesson</span></button>
@@ -601,6 +544,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="js/i18n.js"></script>
+  <script src="js/slideshow.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6e8de"/><stop offset="1" stop-color="#e9cdbf"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9b8a6"/><stop offset="1" stop-color="#c9a491"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="620" fill="#1e1f26"/>
+
+  <!-- main tile: home workout room -->
+  <g>
+    <rect x="40" y="40" width="820" height="460" rx="14" fill="url(#room)"/>
+    <rect x="40" y="330" width="820" height="170" rx="0" fill="url(#floor)"/>
+    <rect x="40" y="40" width="820" height="460" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".12"/>
+    <!-- window light -->
+    <rect x="620" y="80" width="180" height="150" rx="10" fill="#fff4e6" opacity=".8"/>
+    <line x1="710" y1="80" x2="710" y2="230" stroke="#d8b39c" stroke-width="6"/>
+    <!-- plant -->
+    <g transform="translate(790 320)">
+      <path d="M0 0 C -20 -30, -8 -60, 2 -74 C 12 -60, 22 -30, 0 0" fill="#5cae7c"/>
+      <path d="M0 0 C -30 -14, -38 -38, -34 -56 C -14 -50, -2 -28, 0 0" fill="#4c9c6b"/>
+      <rect x="-26" y="-2" width="52" height="40" rx="8" fill="#d98a6a"/>
+    </g>
+    <!-- yoga mat -->
+    <rect x="150" y="420" width="420" height="52" rx="24" fill="#f5b8cf"/>
+    <!-- dumbbells -->
+    <g transform="translate(120 446)">
+      <rect x="-34" y="-10" width="68" height="20" rx="10" fill="#d98a6a"/>
+      <rect x="-44" y="-16" width="16" height="32" rx="6" fill="#c47a5c"/>
+      <rect x="28" y="-16" width="16" height="32" rx="6" fill="#c47a5c"/>
+    </g>
+    <!-- coach: lunge stretch, arms up -->
+    <g transform="translate(400 300)">
+      <ellipse cx="0" cy="130" rx="90" ry="12" fill="#b07e66" opacity=".45"/>
+      <path d="M-28 -34 C -46 -66, -52 -96, -48 -124" stroke="#ec4899" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M28 -34 C 46 -66, 52 -96, 48 -124" stroke="#ec4899" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <circle cx="-48" cy="-128" r="9" fill="#edb98a"/>
+      <circle cx="48" cy="-128" r="9" fill="#edb98a"/>
+      <rect x="-34" y="-40" width="68" height="84" rx="22" fill="#ec4899"/>
+      <text x="0" y="10" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="1">COACH</text>
+      <circle cx="0" cy="-62" r="22" fill="#edb98a"/>
+      <path d="M-22 -68 a22 22 0 0 1 44 0" fill="#3a2b28"/>
+      <circle cx="13" cy="-80" r="9" fill="#3a2b28"/>
+      <path d="M-20 44 L -46 116 M20 44 L 8 116" stroke="#23252d" stroke-width="15" stroke-linecap="round"/>
+      <path d="M-50 122 h 22 M4 122 h 18" stroke="#3b3f4d" stroke-width="9" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- name chip -->
+  <rect x="56" y="56" width="110" height="24" rx="6" fill="#000000" opacity=".45"/>
+  <text x="111" y="72" text-anchor="middle" font-size="12" fill="#ffffff">Iren · Coach</text>
+
+  <!-- call control bar -->
+  <g transform="translate(330 522)">
+    <rect width="240" height="52" rx="26" fill="#26282f"/>
+    <g transform="translate(38 26)" fill="#d5d7de">
+      <rect x="-5" y="-9" width="10" height="18" rx="5"/>
+      <path d="M-10 -2 a10 10 0 0 0 20 0" fill="none" stroke="#d5d7de" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="8" x2="0" y2="13" stroke="#d5d7de" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(104 26)">
+      <rect x="-11" y="-8" width="16" height="16" rx="4" fill="#d5d7de"/>
+      <path d="M5 -2 L 12 -6 V 6 L 5 2 Z" fill="#d5d7de"/>
+    </g>
+    <g transform="translate(170 26)">
+      <rect x="-24" y="-13" width="48" height="26" rx="13" fill="#e74c4c"/>
+      <rect x="-8" y="-6" width="10" height="12" rx="2" fill="#ffffff" transform="rotate(35 0 0)"/>
+      <rect x="-4" y="-10" width="10" height="20" rx="2" fill="#ffffff" transform="rotate(35 0 0)"/>
+    </g>
+  </g>
+</svg>

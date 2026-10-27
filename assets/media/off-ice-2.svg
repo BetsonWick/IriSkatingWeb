@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="room2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7e9f0"/><stop offset="1" stop-color="#ecd3de"/>
+    </linearGradient>
+    <linearGradient id="floor2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9bccb"/><stop offset="1" stop-color="#c9a3b6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="620" fill="#1e1f26"/>
+
+  <!-- main tile: SkateFit home studio -->
+  <g>
+    <rect x="40" y="40" width="820" height="460" rx="14" fill="url(#room2)"/>
+    <rect x="40" y="340" width="820" height="160" fill="url(#floor2)"/>
+    <rect x="40" y="40" width="820" height="460" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".12"/>
+    <!-- round mirror -->
+    <circle cx="160" cy="180" r="86" fill="#fdf3f8"/>
+    <circle cx="160" cy="180" r="86" fill="none" stroke="#d9a8bd" stroke-width="8"/>
+    <path d="M120 210 q 30 -50 80 -60" stroke="#ffffff" stroke-width="10" fill="none" opacity=".8"/>
+    <!-- shelf plant -->
+    <g transform="translate(780 336)">
+      <path d="M0 0 C -16 -24, -6 -46, 2 -58 C 10 -46, 18 -24, 0 0" fill="#d387ae"/>
+      <rect x="-22" y="-2" width="44" height="34" rx="7" fill="#b06a8e"/>
+    </g>
+    <!-- mat -->
+    <rect x="180" y="428" width="460" height="48" rx="24" fill="#b5e3d0"/>
+    <!-- kettlebell -->
+    <g transform="translate(660 440)">
+      <path d="M-16 -18 a18 14 0 1 1 32 0" fill="none" stroke="#2e3140" stroke-width="8"/>
+      <path d="M-24 -14 h48 l-8 44 h-32 z" fill="#2e3140"/>
+    </g>
+    <!-- heart rate line -->
+    <path d="M80 100 h 60 l 10 -16 l 14 32 l 10 -16 h 50" stroke="#ec4899" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+    <!-- coach: seated side stretch -->
+    <g transform="translate(400 360)">
+      <ellipse cx="0" cy="90" rx="100" ry="12" fill="#a9768f" opacity=".45"/>
+      <path d="M-6 -20 C -34 -46, -44 -74, -40 -100" stroke="#ec4899" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <circle cx="-40" cy="-106" r="9" fill="#edb98a"/>
+      <path d="M-20 30 C -8 6, 14 0, 34 6" stroke="#ec4899" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <circle cx="40" cy="8" r="9" fill="#edb98a"/>
+      <rect x="-30" y="-24" width="72" height="60" rx="22" fill="#ec4899"/>
+      <text x="6" y="14" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">COACH</text>
+      <circle cx="12" cy="-46" r="22" fill="#edb98a"/>
+      <path d="M-10 -52 a22 22 0 0 1 44 0" fill="#3a2b28"/>
+      <circle cx="26" cy="-64" r="9" fill="#3a2b28"/>
+      <path d="M-24 36 L -58 56 L -84 58" stroke="#23252d" stroke-width="15" stroke-linecap="round" fill="none"/>
+      <path d="M42 36 L 62 56" stroke="#23252d" stroke-width="15" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- name chip -->
+  <rect x="56" y="56" width="138" height="24" rx="6" fill="#000000" opacity=".45"/>
+  <text x="125" y="72" text-anchor="middle" font-size="12" fill="#ffffff">Iren · SkateFit</text>
+
+  <!-- call control bar -->
+  <g transform="translate(330 522)">
+    <rect width="240" height="52" rx="26" fill="#26282f"/>
+    <g transform="translate(38 26)" fill="#d5d7de">
+      <rect x="-5" y="-9" width="10" height="18" rx="5"/>
+      <path d="M-10 -2 a10 10 0 0 0 20 0" fill="none" stroke="#d5d7de" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="8" x2="0" y2="13" stroke="#d5d7de" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(104 26)">
+      <rect x="-11" y="-8" width="16" height="16" rx="4" fill="#d5d7de"/>
+      <path d="M5 -2 L 12 -6 V 6 L 5 2 Z" fill="#d5d7de"/>
+    </g>
+    <g transform="translate(170 26)">
+      <rect x="-24" y="-13" width="48" height="26" rx="13" fill="#e74c4c"/>
+      <rect x="-8" y="-6" width="10" height="12" rx="2" fill="#ffffff" transform="rotate(35 0 0)"/>
+      <rect x="-4" y="-10" width="10" height="20" rx="2" fill="#ffffff" transform="rotate(35 0 0)"/>
+    </g>
+  </g>
+</svg>

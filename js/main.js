@@ -30,6 +30,11 @@
       if (value !== undefined) el.setAttribute("placeholder", value);
     });
 
+    $$("[data-i18n-aria]").forEach((el) => {
+      const value = t(dict, el.getAttribute("data-i18n-aria"));
+      if (value !== undefined) el.setAttribute("aria-label", value);
+    });
+
     document.documentElement.setAttribute("lang", dict === "zh" ? "zh-CN" : dict);
 
     const meta = LANGS.find((l) => l.code === dict);
@@ -44,6 +49,9 @@
     } catch (err) {
       /* storage unavailable — fine for a prototype */
     }
+
+    // let dynamic components (hero slideshow) re-render localized bits
+    document.dispatchEvent(new CustomEvent("irilang", { detail: { lang: dict } }));
   }
 
   function initLang() {

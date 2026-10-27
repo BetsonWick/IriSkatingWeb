@@ -53,8 +53,8 @@
     } catch (err) {
       /* ignore */
     }
-    const browser = (navigator.language || "en").slice(0, 2).toLowerCase();
-    applyLang(saved || (I18N[browser] ? browser : "en"));
+    // English is the default; only an explicit saved choice overrides it
+    applyLang(saved || "en");
 
     const select = $("#langSelect");
     const btn = $("#langBtn");

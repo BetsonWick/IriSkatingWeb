@@ -29,25 +29,7 @@
       offer: {
         badge: "Special offer",
         title: "Book your next lesson and get the best deals!",
-        group: {
-          tag: "Best value",
-          title: "Group online class",
-          desc: "Learn together, grow faster",
-          per: "per person",
-          cta: "Join the class",
-        },
-        ind: {
-          title: "Individual online lesson",
-          desc: "Personal approach, maximum results",
-          per: "per lesson",
-          cta: "Book online lesson",
-        },
-        fit: {
-          title: "SkateFit weight loss program",
-          desc: "Get in shape, improve your endurance and feel great",
-          per: "per program",
-          cta: "Learn more",
-        },
+        bookNow: "Book now",
       },
       tiles: {
         coach: { title: "Coach", desc: "Meet your coach" },
@@ -227,25 +209,7 @@
       offer: {
         badge: "Спецпредложение",
         title: "Запишитесь на занятие и получите лучшие условия!",
-        group: {
-          tag: "Лучшая цена",
-          title: "Групповой онлайн-класс",
-          desc: "Тренируйтесь вместе — прогресс быстрее",
-          per: "за человека",
-          cta: "Присоединиться к группе",
-        },
-        ind: {
-          title: "Индивидуальный онлайн-урок",
-          desc: "Персональный подход, максимальный результат",
-          per: "за урок",
-          cta: "Записаться онлайн",
-        },
-        fit: {
-          title: "SkateFit — программа снижения веса",
-          desc: "Приведите себя в форму, укрепите выносливость и почувствуйте лёгкость",
-          per: "за программу",
-          cta: "Подробнее",
-        },
+        bookNow: "Забронировать",
       },
       tiles: {
         coach: { title: "Тренер", desc: "Познакомьтесь с тренером" },
@@ -425,25 +389,7 @@
       offer: {
         badge: "特别优惠",
         title: "预约下一节课程，享受最优惠价格！",
-        group: {
-          tag: "超值之选",
-          title: "小组线上课",
-          desc: "一起训练，进步更快",
-          per: "每人",
-          cta: "加入小组课",
-        },
-        ind: {
-          title: "一对一线上课程",
-          desc: "个性化指导，效果最大化",
-          per: "每节课",
-          cta: "预约线上课",
-        },
-        fit: {
-          title: "SkateFit 减重计划",
-          desc: "塑形健体，提升耐力，焕发活力",
-          per: "每套计划",
-          cta: "了解更多",
-        },
+        bookNow: "立即预订",
       },
       tiles: {
         coach: { title: "教练", desc: "认识你的教练" },
@@ -623,25 +569,7 @@
       offer: {
         badge: "Offre spéciale",
         title: "Réservez votre prochain cours et profitez des meilleures offres !",
-        group: {
-          tag: "Meilleur choix",
-          title: "Cours en ligne en groupe",
-          desc: "Progresser ensemble, plus vite",
-          per: "par personne",
-          cta: "Rejoindre le groupe",
-        },
-        ind: {
-          title: "Cours en ligne individuel",
-          desc: "Approche personnalisée, résultats maximum",
-          per: "par cours",
-          cta: "Réserver en ligne",
-        },
-        fit: {
-          title: "Programme SkateFit — perte de poids",
-          desc: "Retrouvez la forme, gagnez en endurance et sentez-vous bien",
-          per: "par programme",
-          cta: "En savoir plus",
-        },
+        bookNow: "Réserver",
       },
       tiles: {
         coach: { title: "Entraîneuse", desc: "Découvrez votre entraîneuse" },

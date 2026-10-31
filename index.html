@@ -89,7 +89,7 @@
   <main>
     <!-- ============ Hero ============ -->
     <section class="hero" id="home">
-      <div class="container hero-grid">
+      <div class="container">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="hero.eyebrow">Your path to excellence</p>
           <h1 class="hero-title">
@@ -108,19 +108,19 @@
             </button>
           </div>
         </div>
-
-        <div class="hero-art">
-          <div class="hero-media" id="heroMedia" data-i18n-aria="hero.mediaAria" aria-label="Training photos and videos"></div>
-          <button class="hs-arrow hs-prev" type="button" aria-label="Previous slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
-          <button class="hs-arrow hs-next" type="button" aria-label="Next slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
-          <div class="hero-note">Better<br>Skaters<br>Together</div>
-        </div>
       </div>
     </section>
 
     <!-- ============ Special offer strip ============ -->
     <section class="offers">
       <div class="container offers-grid">
+        <div class="hero-art" aria-label="Training photos and videos">
+          <div class="hero-media" id="heroMedia" data-i18n-aria="hero.mediaAria" aria-label="Training photos and videos"></div>
+          <button class="hs-arrow hs-prev" type="button" aria-label="Previous slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="hs-arrow hs-next" type="button" aria-label="Next slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="hero-note">Better<br>Skaters<br>Together</div>
+        </div>
+
         <div class="offer-card offer-main">
           <span class="offer-badge"><svg class="icon"><use href="#i-flame"/></svg><span data-i18n="offer.badge">Special offer</span></span>
           <p class="offer-title" data-i18n="offer.title">Book your next lesson and get the best deals!</p>
@@ -128,44 +128,8 @@
             <path d="M8 44 C 40 50, 80 40, 112 16" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9"/>
             <path d="M100 14 L 114 14 L 108 27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
           </svg>
-        </div>
-
-        <div class="offer-card offer-tile offer-group">
-          <div class="offer-head">
-            <span class="offer-ico"><svg class="icon"><use href="#i-users"/></svg></span>
-            <span class="chip chip-violet"><svg class="icon"><use href="#i-sparkle"/></svg><span data-i18n="offer.group.tag">Best value</span></span>
-          </div>
-          <h3 data-i18n="offer.group.title">Group online class</h3>
-          <p class="offer-desc" data-i18n="offer.group.desc">Learn together, grow faster</p>
-          <p class="offer-price"><b>$15</b><span data-i18n="offer.group.per">per person</span></p>
-          <button class="btn btn-gradient btn-sm" data-book="group">
-            <span data-i18n="offer.group.cta">Join the class</span>
-            <svg class="icon"><use href="#i-arrow"/></svg>
-          </button>
-        </div>
-
-        <div class="offer-card offer-tile offer-ind">
-          <div class="offer-head">
-            <span class="offer-ico"><svg class="icon"><use href="#i-person"/></svg></span>
-          </div>
-          <h3 data-i18n="offer.ind.title">Individual online lesson</h3>
-          <p class="offer-desc" data-i18n="offer.ind.desc">Personal approach, maximum results</p>
-          <p class="offer-price"><b>$29</b><span data-i18n="offer.ind.per">per lesson</span></p>
-          <button class="btn btn-gradient btn-sm" data-book="individual">
-            <span data-i18n="offer.ind.cta">Book online lesson</span>
-            <svg class="icon"><use href="#i-arrow"/></svg>
-          </button>
-        </div>
-
-        <div class="offer-card offer-tile offer-fit">
-          <div class="offer-head">
-            <span class="offer-ico"><svg class="icon"><use href="#i-leaf"/></svg></span>
-          </div>
-          <h3 data-i18n="offer.fit.title">SkateFit weight loss program</h3>
-          <p class="offer-desc" data-i18n="offer.fit.desc">Get in shape, improve your endurance and feel great</p>
-          <p class="offer-price"><b>$12</b><span data-i18n="offer.fit.per">per program</span></p>
-          <a class="btn btn-gradient btn-sm" href="#lessons">
-            <span data-i18n="offer.fit.cta">Learn more</span>
+          <a class="btn btn-light btn-lg offer-btn" href="#lessons">
+            <span data-i18n="offer.bookNow">Book now</span>
             <svg class="icon"><use href="#i-arrow"/></svg>
           </a>
         </div>

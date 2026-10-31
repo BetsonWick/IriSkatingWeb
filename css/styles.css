@@ -338,14 +338,9 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
    Hero
    ============================================================ */
 
-.hero { padding: 46px 0 10px; }
+.hero { padding: 64px 0 34px; }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 44px;
-  align-items: center;
-}
+.hero-copy { max-width: 760px; }
 
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 3.9rem);
@@ -355,7 +350,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .lead {
   color: var(--muted);
   font-size: 1.08rem;
-  max-width: 520px;
+  max-width: 640px;
 }
 
 .hero-cta {
@@ -367,12 +362,10 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 .hero-art {
   position: relative;
-  border-radius: var(--radius-lg);
+  border-radius: 22px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  min-height: 460px;
   background: #0b0f24;
+  min-height: 440px;
 }
 
 .hero-scene {
@@ -493,14 +486,14 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .hs-dot.active { width: 22px; background: var(--accent-2); }
 
 /* ============================================================
-   Offers strip
+   Offers strip: slideshow + special offer
    ============================================================ */
 
-.offers { padding: 34px 0 8px; }
+.offers { padding: 10px 0 8px; }
 
 .offers-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1fr 1.05fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 18px;
   padding: 10px;
   border-radius: var(--radius-lg);
@@ -515,12 +508,12 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 .offer-main {
   position: relative;
-  padding: 24px;
+  padding: 28px 26px;
   background: var(--grad-main-card);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 .offer-main::after {
   content: "";
@@ -547,65 +540,47 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .offer-badge .icon { width: 15px; height: 15px; }
 
 .offer-title {
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 800;
   line-height: 1.25;
   position: relative;
   z-index: 1;
+  max-width: 320px;
 }
 
 .offer-doodle {
   position: absolute;
-  right: 18px;
-  bottom: 14px;
-  width: 120px;
+  right: 22px;
+  top: 22px;
+  width: 110px;
   opacity: 0.9;
 }
 
-.offer-tile {
-  padding: 20px;
-  background: rgba(13, 17, 38, 0.75);
-  border: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  backdrop-filter: blur(8px);
+.offer-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  background: #ffffff;
+  color: #2a1a4a;
+  position: relative;
+  z-index: 1;
+}
+.offer-btn:hover {
+  background: #f3ecff;
+  box-shadow: 0 14px 30px rgba(20, 8, 40, 0.35);
 }
 
-.offer-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+.btn-light {
+  background: #ffffff;
+  color: #2a1a4a;
 }
-
-.offer-ico {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  background: var(--panel-2);
-  border: 1px solid var(--line);
-  color: var(--accent-2);
+.btn-light:hover {
+  background: #f3ecff;
+  box-shadow: 0 14px 30px rgba(20, 8, 40, 0.3);
 }
-
-.offer-fit .offer-ico { color: var(--cyan); background: rgba(34, 211, 238, 0.1); border-color: rgba(34, 211, 238, 0.3); }
-.offer-ind .offer-ico { color: #f9a8d4; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.3); }
-
-.offer-tile h3 { font-size: 1.06rem; font-weight: 800; }
-
-.offer-desc { color: var(--muted); font-size: 0.88rem; min-height: 2.6em; }
 
 .offer-price { display: flex; align-items: baseline; gap: 8px; margin: 4px 0 10px; }
 .offer-price b { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.02em; }
 .offer-price span { color: var(--muted); font-size: 0.85rem; }
-
-.offer-fit {
-  background: linear-gradient(150deg, rgba(16, 185, 129, 0.16), rgba(34, 211, 238, 0.08) 60%), rgba(13, 17, 38, 0.75);
-  border-color: rgba(52, 211, 153, 0.35);
-}
 
 /* ============================================================
    Quick tiles
@@ -1230,12 +1205,11 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
    ============================================================ */
 
 @media (max-width: 1180px) {
-  .offers-grid { grid-template-columns: 1fr 1fr; }
-  .offer-doodle { display: none; }
+  .offers-grid { grid-template-columns: 1.3fr 1fr; }
 }
 
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 36px; }
   .hero-art { min-height: 380px; }
   .en-grid { grid-template-columns: 1fr; }
   .coach-grid { grid-template-columns: 0.9fr 1.1fr; gap: 32px; }
@@ -1269,6 +1243,8 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
   .hero { padding-top: 28px; }
   .hero-note { font-size: 1.5rem; right: 18px; top: 16px; }
+  .hero-art { min-height: 320px; }
+  .offer-btn { align-self: stretch; justify-content: center; }
 
   .events-grid { grid-template-columns: 1fr; }
   .lessons-grid { grid-template-columns: 1fr; }

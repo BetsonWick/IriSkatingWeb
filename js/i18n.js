@@ -31,12 +31,6 @@
         title: "Book your next lesson and get the best deals!",
         bookNow: "Book now",
       },
-      tiles: {
-        coach: { title: "Coach", desc: "Meet your coach" },
-        lessons: { title: "Lessons", desc: "Online lessons & programs" },
-        news: { title: "News", desc: "Competitions & stories" },
-        contact: { title: "Contact", desc: "Book your first lesson" },
-      },
       events: { title: "Upcoming events", viewall: "View all" },
       event1: {
         badge: "Competition",
@@ -210,12 +204,6 @@
         badge: "Спецпредложение",
         title: "Запишитесь на занятие и получите лучшие условия!",
         bookNow: "Забронировать",
-      },
-      tiles: {
-        coach: { title: "Тренер", desc: "Познакомьтесь с тренером" },
-        lessons: { title: "Занятия", desc: "Онлайн-занятия и программы" },
-        news: { title: "Новости", desc: "Соревнования и истории" },
-        contact: { title: "Контакты", desc: "Запись на первое занятие" },
       },
       events: { title: "Ближайшие события", viewall: "Смотреть все" },
       event1: {
@@ -391,12 +379,6 @@
         title: "预约下一节课程，享受最优惠价格！",
         bookNow: "立即预订",
       },
-      tiles: {
-        coach: { title: "教练", desc: "认识你的教练" },
-        lessons: { title: "课程", desc: "线上课程与计划" },
-        news: { title: "资讯", desc: "比赛与故事" },
-        contact: { title: "联系", desc: "预约第一节课" },
-      },
       events: { title: "近期活动", viewall: "查看全部" },
       event1: {
         badge: "比赛",
@@ -570,12 +552,6 @@
         badge: "Offre spéciale",
         title: "Réservez votre prochain cours et profitez des meilleures offres !",
         bookNow: "Réserver",
-      },
-      tiles: {
-        coach: { title: "Entraîneuse", desc: "Découvrez votre entraîneuse" },
-        lessons: { title: "Cours", desc: "Cours et programmes en ligne" },
-        news: { title: "Actualités", desc: "Compétitions et histoires" },
-        contact: { title: "Contact", desc: "Réservez votre premier cours" },
       },
       events: { title: "Événements à venir", viewall: "Voir tout" },
       event1: {

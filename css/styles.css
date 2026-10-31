@@ -338,7 +338,15 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
    Hero
    ============================================================ */
 
-.hero { padding: 64px 0 34px; }
+.hero {
+  padding: 0 0 20px;
+  min-height: calc(100vh - 72px);
+  min-height: calc(100svh - 72px);
+  display: flex;
+  align-items: center;
+}
+
+.offers { padding: 0 0 8px; }
 
 .hero-copy { max-width: 760px; }
 
@@ -489,8 +497,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
    Offers strip: slideshow + special offer
    ============================================================ */
 
-.offers { padding: 44px 0 8px; }
-
 .offers-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -580,55 +586,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .offer-price { display: flex; align-items: baseline; gap: 8px; margin: 4px 0 10px; }
 .offer-price b { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.02em; }
 .offer-price span { color: var(--muted); font-size: 0.85rem; }
-
-/* ============================================================
-   Quick tiles
-   ============================================================ */
-
-.tiles { padding: 26px 0 10px; }
-
-.tiles-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.tile {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
-  border-radius: 18px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
-}
-
-.tile:hover {
-  border-color: rgba(167, 139, 250, 0.55);
-  background: var(--panel-2);
-  transform: translateY(-2px);
-}
-
-.tile-ico {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: rgba(139, 92, 246, 0.14);
-  border: 1px solid rgba(139, 92, 246, 0.35);
-  color: var(--accent-2);
-  flex: none;
-}
-
-.tile-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.tile-txt b { font-size: 0.98rem; }
-.tile-txt span { color: var(--muted); font-size: 0.82rem; }
-
-.tile-arrow { margin-left: auto; color: var(--muted); transform: rotate(-90deg); }
-.tile:hover .tile-arrow { color: var(--accent-2); }
 
 /* ============================================================
    Events + News
@@ -751,7 +708,13 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   background: #0c1130;
 }
 
-.coach-scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+.coach-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .coach-tag {
   position: absolute;
@@ -1212,7 +1175,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   .hero-art { min-height: 380px; }
   .en-grid { grid-template-columns: 1fr; }
   .coach-grid { grid-template-columns: 0.9fr 1.1fr; gap: 32px; }
-  .tiles-grid { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .hide-sm { display: none; }
 

@@ -79,8 +79,8 @@
           </ul>
         </div>
 
-        <button class="btn btn-ghost hide-sm" data-proto data-i18n="nav.signin">Sign in</button>
-        <button class="btn btn-primary hide-sm" data-proto data-i18n="nav.signup">Sign up</button>
+        <a class="btn btn-ghost hide-sm" href="admin.html" data-i18n="nav.signin">Sign in</a>
+        <a class="btn btn-primary hide-sm" href="admin.html" data-i18n="nav.signup">Sign up</a>
 
         <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -530,7 +530,7 @@
       <div id="bookSuccessView" hidden>
         <div class="success-ico"><svg class="icon"><use href="#i-check"/></svg></div>
         <h3 data-i18n="modal.successTitle">Request sent! 🎉</h3>
-        <p class="modal-sub" data-i18n="modal.successText">Thank you! This is a prototype — your request is saved locally in the browser. Soon it will go straight to Irene's Telegram.</p>
+        <p class="modal-sub" id="bookSuccessNote">Thank you! Your request has been sent — Irene will contact you to confirm the time.</p>
         <p class="success-summary" id="bookSummary"></p>
         <div class="success-actions">
           <button class="btn btn-outline" id="bookAgain"><span data-i18n="modal.another">Book another lesson</span></button>

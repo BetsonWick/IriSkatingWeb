@@ -1,0 +1,21 @@
+# Сайт IriSkating работает в одной docker-сети со стеком бота
+# (см. docs: /opt/iriskating). Caddy из стека бота проксирует www-поддомен на web:8000.
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    networks:
+      - iriskating
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+networks:
+  iriskating:
+    external: true
+    name: iriskating_default

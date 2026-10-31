@@ -242,7 +242,7 @@
     const dateInput = $("#bkDate");
     dateInput.min = new Date().toISOString().split("T")[0];
 
-    $("#bookForm").addEventListener("submit", (e) => {
+    $("#bookForm").addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const name = $("#bkName");
@@ -278,7 +278,28 @@
         time: $("#bkTime").value,
         comment: $("#bkComment").value.trim(),
       };
-      saveBooking(data);
+
+      // Send to the server; when it is unreachable (e.g. local prototype
+      // without a backend) keep the request in localStorage as a fallback.
+      let sentToServer = false;
+      try {
+        const res = await fetch("/api/bookings", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: data.name,
+            contact: data.contact,
+            program: data.type,
+            preferred_date: data.date,
+            preferred_time: data.time,
+            comment: data.comment,
+          }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        sentToServer = true;
+      } catch (err) {
+        saveBooking(data);
+      }
 
       $("#bookSummary").innerHTML = "";
       [typeLabel(data.type), data.date, timeLabel(data.time)].forEach((txt) => {
@@ -286,6 +307,9 @@
         chip.textContent = txt;
         $("#bookSummary").appendChild(chip);
       });
+      $("#bookSuccessNote").textContent = sentToServer
+        ? t(currentLang(), "modal.successSent")
+        : t(currentLang(), "modal.successText");
 
       $("#bookFormView").hidden = true;
       $("#bookSuccessView").hidden = false;

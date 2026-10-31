@@ -1,28 +1,52 @@
 # IriSkating — сайт для записи на курсы
 
-Статичный лендинг (HTML/CSS/JS, без сборки) для записи на занятия по фигурному катанию.
-Прототип интерфейса: тёмная тема, один тренер (Irene), вкладка **Coach**, запись через модальное окно.
-
-## Запуск
-
-Никакой сборки не нужно — просто откройте `index.html` в браузере, либо:
-
-```bash
-python3 -m http.server 8080
-# → http://localhost:8080
-```
+Сайт для записи на занятия по фигурному катанию: лендинг (HTML/CSS/JS, без сборки)
++ небольшой FastAPI-бэкенд (заявки в SQLite, авторизация админа). Тёмная тема,
+один тренер (Irene), вкладка **Coach**, запись через модальное окно.
 
 ## Что внутри
 
 ```
-├── index.html        # вся разметка (тексты по умолчанию — EN, меняются через data-i18n)
-├── css/styles.css    # тема, сетка, адаптив
-├── js/i18n.js        # словарь EN / RU / 中文 / FR (точечные ключи: hero.cta1 и т.п.)
-├── js/slideshow.js   # слайдшоу в хиро (фото/видео с тренировок)
-├── js/main.js        # язык, шапка, модалка записи, toast, анимации
-├── assets/favicon.svg
-└── assets/media/     # фото и видео для слайдшоу (сейчас заглушки)
+├── index.html        # вся разметка лендинга (тексты меняются через data-i18n)
+├── admin.html        # админка: вход + таблица заявок
+├── css/              # styles.css — тема лендинга; admin.css — админка
+├── js/               # i18n.js (словарь EN/RU/中文/FR), slideshow.js, main.js, admin.js
+├── assets/           # favicon + media/ (фото/видео для слайдшоу, сейчас заглушки)
+├── server/           # FastAPI: статика + API заявок с авторизацией (см. server/requirements.txt)
+├── tests/            # pytest для API
+├── Dockerfile        # образ: статика + API в одном контейнере (uvicorn :8000)
+├── docker-compose.yml # сервис web в сети стека бота (iriskating_default)
+└── deploy/           # Caddyfile для сервера + DEPLOY.md (пошаговый деплой на VPS бота)
 ```
+
+## Админка и заявки
+
+Форма записи отправляет заявки в API (`POST /api/bookings`), они хранятся в
+SQLite (`data/site.db`). Если API недоступен (локальный просмотр без бэкенда),
+заявка сохраняется в localStorage браузера.
+
+- `/admin` — вход по `ADMIN_USERNAME` + паролю (в `ADMIN_PASSWORD_HASH` хранится
+  только PBKDF2-хеш). Внутри — таблица заявок: подтвердить ✓ / отменить ✕ / вернуть ↺.
+- Хеш пароля: `python3 -m server.hash_password 'Пароль'`
+- Секреты — только в `.env` (образец: `.env.example`).
+
+## Запуск локально
+
+Статика без бэкенда — просто открыть `index.html` (заявки уйдут в localStorage).
+Полный вариант с API:
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r server/requirements.txt
+.venv/bin/uvicorn server.app:app --reload      # http://127.0.0.1:8000
+```
+
+Админка: http://127.0.0.1:8000/admin (логин/пароль из `.env`, для локальной
+отладки поставьте `COOKIE_SECURE=false`).
+
+## Деплой на сервер бота
+
+Пошагово — [deploy/DEPLOY.md](deploy/DEPLOY.md): сайт встаёт рядом с ботом
+(`www.149.33.58.213.sslip.io` → `web:8000`), HTTPS терминирует Caddy из стека бота.
 
 ## Языки
 

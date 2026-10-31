@@ -1,0 +1,14 @@
+# Обновлённый Caddyfile для VPS (149.33.58.213).
+# Скопировать на сервер в /opt/iriskating/Caddyfile и перезапустить caddy:
+#   docker compose -f /opt/iriskating/docker-compose.yml restart caddy
+#
+# 149.33.58.213.sslip.io — медиа-сервер бота (Instagram качает фото по нему).
+# www.149.33.58.213.sslip.io — сайт IriSkating (статика + API заявок).
+
+149.33.58.213.sslip.io {
+	reverse_proxy bot:8080
+}
+
+www.149.33.58.213.sslip.io {
+	reverse_proxy web:8000
+}

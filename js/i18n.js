@@ -178,8 +178,10 @@
         commentPh: "Anything we should know?",
         submit: "Send request",
         successTitle: "Request sent! 🎉",
+        successSent:
+          "Thank you! Your request has been sent — Irene will contact you to confirm the time.",
         successText:
-          "Thank you! This is a prototype — your request is saved locally in the browser. Soon it will go straight to Irene's Telegram.",
+          "The server is unreachable — the request is saved in this browser for now.",
         another: "Book another lesson",
         close: "Close",
       },
@@ -375,8 +377,10 @@
         commentPh: "Что нам стоит знать?",
         submit: "Отправить заявку",
         successTitle: "Заявка отправлена! 🎉",
+        successSent:
+          "Спасибо! Заявка отправлена — Ирина свяжется с вами, чтобы подтвердить время.",
         successText:
-          "Спасибо! Это прототип — заявка сохранена локально в браузере. Скоро она будет уходить прямо в Telegram Ирины.",
+          "Сервер недоступен — заявка пока сохранена в этом браузере.",
         another: "Записаться ещё раз",
         close: "Закрыть",
       },
@@ -572,8 +576,10 @@
         commentPh: "还有什么我们该知道的吗？",
         submit: "提交预约",
         successTitle: "预约已发送！🎉",
+        successSent:
+          "感谢您！预约已发送，伊琳会尽快与您联系确认时间。",
         successText:
-          "感谢您！当前为原型演示——预约已保存在浏览器本地。不久后将直接发送到伊琳的 Telegram。",
+          "服务器不可用——预约暂时保存在此浏览器中。",
         another: "再约一节",
         close: "关闭",
       },
@@ -769,8 +775,10 @@
         commentPh: "Y a-t-il autre chose à savoir ?",
         submit: "Envoyer la demande",
         successTitle: "Demande envoyée ! 🎉",
+        successSent:
+          "Merci ! Votre demande a été envoyée — Irene vous contactera pour confirmer l'horaire.",
         successText:
-          "Merci ! Ceci est un prototype — votre demande est enregistrée localement dans le navigateur. Bientôt, elle ira directement sur le Telegram d'Irene.",
+          "Serveur injoignable — la demande est enregistrée dans ce navigateur pour l'instant.",
         another: "Réserver un autre cours",
         close: "Fermer",
       },

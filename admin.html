@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IriSkating — Заявки (админ)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20.5c0-3.9 3.6-6.3 8-6.3s8 2.4 8 6.3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5l5.5 5.5-5.5 5.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 3v5h-5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M14 4h4.5a1.5 1.5 0 0 1 1.5 1.5v13a1.5 1.5 0 0 1-1.5 1.5H14M10 8l-4 4 4 4M6 12h10"/></symbol>
+  </svg>
+
+  <header class="site-header admin-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <svg class="brand-mark" viewBox="0 0 40 44" aria-hidden="true">
+          <defs>
+            <linearGradient id="brandG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+          <path d="M31 7.5C29.5 4 25 3 21.5 4.6 16.5 6.9 16 13 20 16c3.2 2.4 8.5 2.3 11.5 5.5 4 4.3 2.5 11.5-3 13.9-4.5 1.9-9.6.5-11.5-3"
+                fill="none" stroke="url(#brandG)" stroke-width="5.5" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">IriSkating <span class="admin-badge">админ</span></span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="/">
+          На сайт
+          <svg class="icon"><use href="#i-arrow"/></svg>
+        </a>
+        <button class="btn btn-ghost" id="logoutBtn" hidden>
+          Выйти
+          <svg class="icon"><use href="#i-out"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <!-- ======== Login ======== -->
+    <section id="loginView" class="login-card">
+      <h1>Вход для администратора</h1>
+      <p class="admin-sub">Заявки с сайта видны только после входа.</p>
+      <form id="loginForm">
+        <label>
+          <span>Логин</span>
+          <input type="text" id="loginUser" name="username" autocomplete="username" required>
+        </label>
+        <label>
+          <span>Пароль</span>
+          <input type="password" id="loginPass" name="password" autocomplete="current-password" required>
+        </label>
+        <p class="form-error" id="loginError" hidden></p>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Войти</button>
+      </form>
+    </section>
+
+    <!-- ======== Dashboard ======== -->
+    <section id="dashView" hidden>
+      <div class="dash-head">
+        <h1>Заявки на занятия</h1>
+        <div class="dash-actions">
+          <button class="btn btn-outline" id="refreshBtn">
+            <svg class="icon"><use href="#i-refresh"/></svg>
+            Обновить
+          </button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="bookings-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Создана</th>
+              <th>Имя</th>
+              <th>Контакт</th>
+              <th>Программа</th>
+              <th>Дата</th>
+              <th>Время</th>
+              <th>Комментарий</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody id="bookingsBody">
+            <tr><td colspan="9" class="empty-row">Загрузка…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="admin-note">Статусы: <b>новая</b> → подтвердить ✓ или отменить ✕. Время на сервере (TZ сервера).</p>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

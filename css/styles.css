@@ -489,7 +489,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
    Offers strip: slideshow + special offer
    ============================================================ */
 
-.offers { padding: 10px 0 8px; }
+.offers { padding: 44px 0 8px; }
 
 .offers-grid {
   display: grid;
@@ -497,7 +497,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   gap: 18px;
   padding: 10px;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(167, 139, 250, 0.5);
   background:
     linear-gradient(120deg, rgba(249, 115, 22, 0.12), rgba(236, 72, 153, 0.12) 45%, rgba(139, 92, 246, 0.14)),
     var(--panel);

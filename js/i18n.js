@@ -12,7 +12,7 @@
       nav: {
         home: "Home",
         coach: "Coach",
-        lessons: "Lessons",
+        lessons: "Programs",
         news: "News",
         contact: "Contact",
       },
@@ -22,7 +22,7 @@
         title2: "inspires.",
         subtitle:
           "Learn, train and grow with a coach who competed at the top level — programs for kids and adults, from first steps on the ice to confident jumps and spins.",
-        cta1: "Start booking",
+        cta1: "Programs",
         cta2: "Watch video",
         mediaAria: "Training photos and videos",
       },
@@ -90,7 +90,7 @@
         office: "Off-ice fitness",
       },
       lessons: {
-        eyebrow: "Lessons",
+        eyebrow: "Programs",
         title: "Choose your format",
         subtitle: "Train with Irene from anywhere in the world — live online lessons, video feedback and a home fitness program.",
       },
@@ -186,7 +186,7 @@
       nav: {
         home: "Главная",
         coach: "Тренер",
-        lessons: "Занятия",
+        lessons: "Программы",
         news: "Новости",
         contact: "Контакты",
       },
@@ -196,7 +196,7 @@
         title2: "вдохновляет.",
         subtitle:
           "Учитесь, тренируйтесь и растите с тренером, который прошёл большой спорт — программы для детей и взрослых: от первых шагов на льду до уверенных прыжков и вращений.",
-        cta1: "Записаться",
+        cta1: "Программы",
         cta2: "Смотреть видео",
         mediaAria: "Фото и видео с тренировок",
       },
@@ -264,7 +264,7 @@
         office: "Тренировки вне льда",
       },
       lessons: {
-        eyebrow: "Занятия",
+        eyebrow: "Программы",
         title: "Выберите свой формат",
         subtitle: "Тренируйтесь с Ириной из любой точки мира — живые онлайн-занятия, разбор видео и домашняя фитнес-программа.",
       },
@@ -370,7 +370,7 @@
         title2: "激励人心。",
         subtitle:
           "与曾活跃于顶级赛场的教练一起学习、训练、成长——为儿童和成人量身定制课程，从冰上第一步到自信的跳跃与旋转。",
-        cta1: "立即预约",
+        cta1: "课程",
         cta2: "观看视频",
         mediaAria: "训练照片与视频",
       },
@@ -534,7 +534,7 @@
       nav: {
         home: "Accueil",
         coach: "Entraîneuse",
-        lessons: "Cours",
+        lessons: "Programmes",
         news: "Actualités",
         contact: "Contact",
       },
@@ -544,7 +544,7 @@
         title2: "inspire.",
         subtitle:
           "Apprenez, entraînez-vous et progressez avec une entraîneuse passée par le haut niveau — des programmes pour enfants et adultes, des premiers pas sur la glace aux sauts et pirouettes assurés.",
-        cta1: "Réserver",
+        cta1: "Programmes",
         cta2: "Voir la vidéo",
         mediaAria: "Photos et vidéos d'entraînement",
       },
@@ -612,7 +612,7 @@
         office: "Fitness hors glace",
       },
       lessons: {
-        eyebrow: "Cours",
+        eyebrow: "Programmes",
         title: "Choisissez votre format",
         subtitle: "Entraînez-vous avec Irene partout dans le monde — cours en ligne en direct, analyse vidéo et programme fitness à la maison.",
       },

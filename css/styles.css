@@ -194,9 +194,9 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(5, 7, 15, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(5, 7, 15, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s ease;
 }

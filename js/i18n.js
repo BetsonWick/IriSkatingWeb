@@ -15,8 +15,6 @@
         lessons: "Lessons",
         news: "News",
         contact: "Contact",
-        signin: "Sign in",
-        signup: "Sign up",
       },
       hero: {
         eyebrow: "Your path to excellence",
@@ -199,6 +197,7 @@
         tagline: "Figure skating lessons for kids and adults — learn, train and grow with IriSkating.",
         rights: "© 2026 IriSkating. All rights reserved.",
         note: "Prototype build",
+        admin: "Admin",
       },
       toast: {
         proto: "Just a prototype — this button will work soon ✨",
@@ -214,8 +213,6 @@
         lessons: "Занятия",
         news: "Новости",
         contact: "Контакты",
-        signin: "Войти",
-        signup: "Регистрация",
       },
       hero: {
         eyebrow: "Твой путь к мастерству",
@@ -398,6 +395,7 @@
         tagline: "Занятия фигурным катанием для детей и взрослых — учитесь, тренируйтесь и растите вместе с IriSkating.",
         rights: "© 2026 IriSkating. Все права защищены.",
         note: "Прототип",
+        admin: "Админ",
       },
       toast: {
         proto: "Это прототип — кнопка скоро заработает ✨",
@@ -413,8 +411,6 @@
         lessons: "课程",
         news: "资讯",
         contact: "联系",
-        signin: "登录",
-        signup: "注册",
       },
       hero: {
         eyebrow: "通往卓越之路",
@@ -597,6 +593,7 @@
         tagline: "面向儿童与成人的花样滑冰课程——与 IriSkating 一起学习、训练、成长。",
         rights: "© 2026 IriSkating. 保留所有权利。",
         note: "原型版本",
+        admin: "管理",
       },
       toast: {
         proto: "这只是原型——该按钮即将上线 ✨",
@@ -612,8 +609,6 @@
         lessons: "Cours",
         news: "Actualités",
         contact: "Contact",
-        signin: "Se connecter",
-        signup: "S'inscrire",
       },
       hero: {
         eyebrow: "Votre voie vers l'excellence",
@@ -796,6 +791,7 @@
         tagline: "Cours de patinage artistique pour enfants et adultes — apprenez, entraînez-vous et progressez avec IriSkating.",
         rights: "© 2026 IriSkating. Tous droits réservés.",
         note: "Version prototype",
+        admin: "Admin",
       },
       toast: {
         proto: "Simple prototype — ce bouton sera bientôt actif ✨",

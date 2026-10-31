@@ -1000,6 +1000,11 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   font-size: 0.82rem;
 }
 
+.footer-meta { display: flex; align-items: center; gap: 14px; }
+
+.footer-admin-link { color: var(--muted); font-weight: 600; }
+.footer-admin-link:hover { color: var(--txt); }
+
 /* ============================================================
    Booking modal
    ============================================================ */

@@ -199,6 +199,15 @@ def create_app() -> FastAPI:
     def admin_page() -> FileResponse:
         return FileResponse(get_base_dir() / "admin.html")
 
+    @app.get("/admin.html", include_in_schema=False)
+    def admin_page_html() -> FileResponse:
+        # относительная ссылка admin.html из шапки должна работать и на проде
+        return FileResponse(get_base_dir() / "admin.html")
+
+    @app.get("/index.html", include_in_schema=False)
+    def index_html() -> FileResponse:
+        return FileResponse(get_base_dir() / "index.html")
+
     @app.get("/favicon.svg", include_in_schema=False)
     def favicon() -> FileResponse:
         return FileResponse(get_base_dir() / "assets" / "favicon.svg", media_type="image/svg+xml")

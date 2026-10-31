@@ -38,15 +38,25 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--txt);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  /* фото ледовой арены под тёмной вуалью + цветовые акценты сверху;
+     если assets/media/hero-bg.jpg отсутствует — просто тёмный фон */
   background-image:
-    radial-gradient(1100px 520px at 85% -5%, rgba(124, 58, 237, 0.16), transparent 60%),
-    radial-gradient(900px 480px at -10% 30%, rgba(34, 211, 238, 0.07), transparent 60%),
-    radial-gradient(900px 600px at 60% 110%, rgba(236, 72, 153, 0.08), transparent 60%);
-  background-attachment: fixed;
+    radial-gradient(1100px 520px at 85% -5%, rgba(124, 58, 237, 0.14), transparent 60%),
+    linear-gradient(180deg, rgba(5, 7, 15, 0.55), rgba(5, 7, 15, 0.62) 45%, rgba(5, 7, 15, 0.8)),
+    url("../assets/media/hero-bg.jpg");
+  background-size: auto, auto, cover;
+  background-position: center, center, 68% 32%;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat;
+}
+
+/* на мобильных fixed-фон дёргается — отключаем */
+@media (hover: none) {
+  body { background-attachment: scroll, scroll, scroll; }
 }
 
 img, svg { display: block; }

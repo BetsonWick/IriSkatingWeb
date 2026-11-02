@@ -24,7 +24,7 @@ def api_env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> pytest.MonkeyPat
     monkeypatch.setenv("ADMIN_PASSWORD_HASH", hash_password(ADMIN_PASSWORD))
     monkeypatch.setenv("SESSION_SECRET", "test-secret")
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "123:abc")
-    monkeypatch.setenv("TELEGRAM_ADMIN_CHAT_ID", "42")
+    monkeypatch.setenv("TELEGRAM_ADMIN_CHAT_IDS", "42,777")
     return monkeypatch
 
 
@@ -216,11 +216,10 @@ def test_telegram_notification_sent(client: TestClient, monkeypatch) -> None:
     monkeypatch.setattr(telegram_module, "send_message", fake_send_message)
     created = create_booking(client, name="Notify Me")
     assert created["ok"] is True
-    assert len(calls) == 1
-    token, chat_id, text = calls[0]
-    assert token == "123:abc"
-    assert chat_id == "42"
-    assert "Notify Me" in text
+    # уведомление уходит обоим получателям из TELEGRAM_ADMIN_CHAT_IDS
+    assert [c for _, c, _ in calls] == ["42", "777"]
+    assert all(text == calls[0][2] for _, _, text in calls)
+    assert "Notify Me" in calls[0][2]
 
 
 def test_telegram_disabled_keeps_booking(
@@ -231,9 +230,9 @@ def test_telegram_disabled_keeps_booking(
     async def fail_send_message(token: str, chat_id: str, text: str) -> bool:
         raise AssertionError("не должно вызываться без TELEGRAM_* в окружении")
 
+    api_env.delenv("TELEGRAM_BOT_TOKEN", raising=False)
+    api_env.delenv("TELEGRAM_ADMIN_CHAT_IDS", raising=False)
     monkeypatch = api_env
-    monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)
-    monkeypatch.delenv("TELEGRAM_ADMIN_CHAT_ID", raising=False)
     monkeypatch.setattr(telegram_module, "send_message", fail_send_message)
 
     created = create_booking(client, name="No Notify")

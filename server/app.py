@@ -54,9 +54,15 @@ class Settings(BaseSettings):
     database_path: Path = Path("data/site.db")
 
     # Уведомления о заявках в Telegram (через бот iriskating-bot). Пустые значения —
-    # заявки просто сохраняются в БД без уведомления.
+    # заявки просто сохраняются в БД без уведомления. Несколько получателей —
+    # через запятую (как ADMIN_TELEGRAM_IDS в .env бота).
     telegram_bot_token: str = ""
-    telegram_admin_chat_id: str = ""
+    telegram_admin_chat_ids: str = ""
+
+    @property
+    def telegram_chat_ids(self) -> list[str]:
+        """Список chat_id из '111,222' (пробелы и пустые части игнорируются)."""
+        return [part.strip() for part in self.telegram_admin_chat_ids.split(",") if part.strip()]
 
 
 def get_settings() -> Settings:
@@ -125,19 +131,24 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
 
 
 async def notify_new_booking(settings: Settings, booking: dict[str, Any]) -> None:
-    """Уведомление владельцу о новой заявке. Ошибки только логируются."""
+    """Уведомление всем получателям из TELEGRAM_ADMIN_CHAT_IDS. Ошибки только логируются."""
     text = telegram.build_booking_message(booking)
-    sent = await telegram.send_message(
-        settings.telegram_bot_token, settings.telegram_admin_chat_id, text
-    )
-    if sent:
-        logger.info(
-            "Заявка #%s отправлена в Telegram (chat %s)",
-            booking.get("id"),
-            settings.telegram_admin_chat_id,
-        )
-    else:
-        logger.warning("Уведомление о заявке #%s не отправлено", booking.get("id"))
+    chat_ids = settings.telegram_chat_ids
+    if not chat_ids:
+        logger.warning("TELEGRAM_ADMIN_CHAT_IDS не заданы — уведомление пропущено")
+        return
+    for chat_id in chat_ids:
+        sent = await telegram.send_message(settings.telegram_bot_token, chat_id, text)
+        if sent:
+            logger.info(
+                "Заявка #%s отправлена в Telegram (chat %s)", booking.get("id"), chat_id
+            )
+        else:
+            logger.warning(
+                "Уведомление о заявке #%s не доставлено в chat %s",
+                booking.get("id"),
+                chat_id,
+            )
 
 
 def create_app() -> FastAPI:
@@ -201,7 +212,7 @@ def create_app() -> FastAPI:
         )
         booking = dict(payload.model_dump())
         booking["id"] = booking_id
-        if settings.telegram_bot_token and settings.telegram_admin_chat_id:
+        if settings.telegram_bot_token and settings.telegram_chat_ids:
             background_tasks.add_task(notify_new_booking, settings, booking)
         return {"ok": True, "id": booking_id}
 

@@ -33,9 +33,10 @@ cp .env.example .env && chmod 600 .env && nano .env
 
 - `ADMIN_PASSWORD_HASH` — хеш пароля админа (генерация — ниже, §3)
 - `SESSION_SECRET` — ключ подписи cookie: `openssl rand -hex 32`
-- `TELEGRAM_BOT_TOKEN` / `TELEGRAM_ADMIN_CHAT_ID` — уведомления о заявках:
-  токен того же бота (из `/opt/iriskating/.env`), chat_id — первый ID из
-  `ADMIN_TELEGRAM_IDS` бота. Пусто — заявки сохраняются без уведомления.
+- `TELEGRAM_BOT_TOKEN` / `TELEGRAM_ADMIN_CHAT_IDS` — уведомления о заявках:
+  токен того же бота (из `/opt/iriskating/.env`), получатели — ID из
+  `ADMIN_TELEGRAM_IDS` бота через запятую. Пусто — заявки сохраняются без
+  уведомления.
 
 `ADMIN_USERNAME` по умолчанию `iren` — можно поменять.
 

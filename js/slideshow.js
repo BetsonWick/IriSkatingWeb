@@ -156,9 +156,9 @@
     clearTimeout(timer);
     const current = slides[index];
     if (current && playVideo(current)) {
-      // advance when the video ends (fallback: 30 s cap)
+      // advance when the video ends (fallback: 3 min in case 'ended' never fires)
       current.video.addEventListener("ended", next, { once: true });
-      timer = setTimeout(next, 30000);
+      timer = setTimeout(next, 180000);
       return;
     }
     timer = setTimeout(next, IMAGE_DELAY);

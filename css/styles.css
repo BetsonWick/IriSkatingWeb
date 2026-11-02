@@ -1057,6 +1057,31 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 #bookForm select option { background: #12163a; color: var(--txt); }
 
+/* сегмент-контрол мессенджера */
+.method-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.method-input { position: absolute; opacity: 0; pointer-events: none; }
+.method-chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.method-input:checked + .method-chip {
+  background: rgba(139, 92, 246, 0.22);
+  border-color: var(--accent);
+  color: var(--txt);
+}
+.method-input:focus-visible + .method-chip {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+.method-chip:hover { color: var(--txt); border-color: var(--line-2); }
+
 #bookForm input.invalid,
 #bookForm select.invalid { border-color: #f87171; box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2); }
 

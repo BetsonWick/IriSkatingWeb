@@ -21,6 +21,12 @@
     any: "Любое время",
   };
 
+  const METHODS = {
+    telegram: "Telegram",
+    instagram: "Instagram",
+    whatsapp: "WhatsApp",
+  };
+
   const STATUS_LABELS = {
     new: "новая",
     confirmed: "подтверждена",
@@ -154,12 +160,12 @@
 
   async function loadBookings() {
     const body = $("#bookingsBody");
-    body.innerHTML = '<tr><td colspan="9" class="empty-row">Загрузка…</td></tr>';
+    body.innerHTML = '<tr><td colspan="10" class="empty-row">Загрузка…</td></tr>';
     try {
       const bookings = await api("/api/bookings");
       if (bookings.length === 0) {
         body.innerHTML =
-          '<tr><td colspan="9" class="empty-row">Пока заявок нет — они появятся здесь после отправки формы на сайте.</td></tr>';
+          '<tr><td colspan="10" class="empty-row">Пока заявок нет — они появятся здесь после отправки формы на сайте.</td></tr>';
         return;
       }
       body.innerHTML = "";
@@ -170,6 +176,7 @@
           b.created_at,
           b.name,
           b.contact,
+          METHODS[b.contact_method] || b.contact_method || "—",
           PROGRAMS[b.program] || b.program,
           b.preferred_date,
           TIMES[b.preferred_time] || b.preferred_time,
@@ -192,7 +199,7 @@
       });
     } catch (err) {
       if (err.message !== "unauthorized") {
-        body.innerHTML = `<tr><td colspan="9" class="empty-row">Ошибка загрузки: ${err.message}</td></tr>`;
+        body.innerHTML = `<tr><td colspan="10" class="empty-row">Ошибка загрузки: ${err.message}</td></tr>`;
       }
     }
   }

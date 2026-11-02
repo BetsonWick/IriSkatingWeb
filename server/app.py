@@ -11,6 +11,7 @@ from environment variables (see .env.example):
 
 from __future__ import annotations
 
+import logging
 import time
 from collections import defaultdict, deque
 from collections.abc import AsyncIterator
@@ -19,12 +20,13 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Annotated, Any, Literal
 
-from fastapi import Depends, FastAPI, HTTPException, Request, Response
+from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Request, Response
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from server import telegram
 from server.auth import create_session_token, verify_password, verify_session_token
 from server.db import BookingsDB
 
@@ -37,6 +39,7 @@ _RATE_LIMITS: dict[str, tuple[int, int]] = {
     "booking": (30, 600),
 }
 _rate_buckets: dict[str, deque[float]] = defaultdict(deque)
+logger = logging.getLogger(__name__)
 
 
 class Settings(BaseSettings):
@@ -47,6 +50,11 @@ class Settings(BaseSettings):
     session_secret: str = "dev-secret-change-me"
     cookie_secure: bool = True
     database_path: Path = Path("data/site.db")
+
+    # Уведомления о заявках в Telegram (через бот iriskating-bot). Пустые значения —
+    # заявки просто сохраняются в БД без уведомления.
+    telegram_bot_token: str = ""
+    telegram_admin_chat_id: str = ""
 
 
 def get_settings() -> Settings:
@@ -97,6 +105,7 @@ class LoginRequest(BaseModel):
 class BookingRequest(BaseModel):
     name: str = Field(min_length=1, max_length=80)
     contact: str = Field(min_length=3, max_length=120)
+    contact_method: Literal["telegram", "instagram", "whatsapp"]
     program: Literal["individual", "group", "video", "fitness"]
     preferred_date: str = Field(pattern=r"^\d{4}-\d{2}-\d{2}$")
     preferred_time: Literal["morning", "afternoon", "evening", "any"]
@@ -111,6 +120,22 @@ class StatusUpdate(BaseModel):
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     app.state.db = BookingsDB(get_settings().database_path)
     yield
+
+
+async def notify_new_booking(settings: Settings, booking: dict[str, Any]) -> None:
+    """Уведомление владельцу о новой заявке. Ошибки только логируются."""
+    text = telegram.build_booking_message(booking)
+    sent = await telegram.send_message(
+        settings.telegram_bot_token, settings.telegram_admin_chat_id, text
+    )
+    if sent:
+        logger.info(
+            "Заявка #%s отправлена в Telegram (chat %s)",
+            booking.get("id"),
+            settings.telegram_admin_chat_id,
+        )
+    else:
+        logger.warning("Уведомление о заявке #%s не отправлено", booking.get("id"))
 
 
 def create_app() -> FastAPI:
@@ -159,16 +184,23 @@ def create_app() -> FastAPI:
     def create_booking(
         payload: BookingRequest,
         request: Request,
+        background_tasks: BackgroundTasks,
+        settings: Annotated[Settings, Depends(get_settings)],
     ) -> dict[str, Any]:
         check_rate_limit("booking", get_client_ip(request))
         booking_id: int = app.state.db.add(
             name=payload.name.strip(),
             contact=payload.contact.strip(),
+            contact_method=payload.contact_method,
             program=payload.program,
             preferred_date=payload.preferred_date,
             preferred_time=payload.preferred_time,
             comment=payload.comment.strip(),
         )
+        booking = dict(payload.model_dump())
+        booking["id"] = booking_id
+        if settings.telegram_bot_token and settings.telegram_admin_chat_id:
+            background_tasks.add_task(notify_new_booking, settings, booking)
         return {"ok": True, "id": booking_id}
 
     @app.get("/api/bookings")

@@ -273,6 +273,7 @@
       const data = {
         name: name.value.trim(),
         contact: contact.value.trim(),
+        method: (document.querySelector('input[name="method"]:checked') || { value: "telegram" }).value,
         type: $("#bkType").value,
         date: date.value,
         time: $("#bkTime").value,
@@ -289,6 +290,7 @@
           body: JSON.stringify({
             name: data.name,
             contact: data.contact,
+            contact_method: data.method,
             program: data.type,
             preferred_date: data.date,
             preferred_time: data.time,

@@ -395,6 +395,17 @@
               <span data-i18n="modal.contact">Phone or email</span>
               <input type="text" id="bkContact" name="contact" required autocomplete="email" data-i18n-ph="modal.contactPh" placeholder="you@example.com">
             </label>
+            <label>
+              <span data-i18n="modal.method">Contact via</span>
+              <div class="method-row" id="methodRow" role="radiogroup" aria-label="Contact via">
+                <input class="method-input" type="radio" name="method" id="mTelegram" value="telegram" checked>
+                <label class="method-chip" for="mTelegram" data-i18n="modal.telegram">Telegram</label>
+                <input class="method-input" type="radio" name="method" id="mInstagram" value="instagram">
+                <label class="method-chip" for="mInstagram" data-i18n="modal.instagram">Instagram</label>
+                <input class="method-input" type="radio" name="method" id="mWhatsapp" value="whatsapp">
+                <label class="method-chip" for="mWhatsapp" data-i18n="modal.whatsapp">WhatsApp</label>
+              </div>
+            </label>
           </div>
 
           <label>

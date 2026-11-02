@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS bookings (
     created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
     name TEXT NOT NULL,
     contact TEXT NOT NULL,
+    contact_method TEXT NOT NULL DEFAULT 'telegram'
+        CHECK (contact_method IN ('telegram', 'instagram', 'whatsapp')),
     program TEXT NOT NULL,
     preferred_date TEXT NOT NULL,
     preferred_time TEXT NOT NULL,
@@ -26,6 +28,7 @@ CREATE TABLE IF NOT EXISTS bookings (
 """
 
 _ALLOWED_STATUS: Final = frozenset({"new", "confirmed", "cancelled"})
+_ALLOWED_METHODS: Final = frozenset({"telegram", "instagram", "whatsapp"})
 
 
 class BookingsDB:
@@ -37,23 +40,43 @@ class BookingsDB:
         self._conn.row_factory = sqlite3.Row
         self._conn.execute("PRAGMA journal_mode=WAL")
         self._conn.executescript(_SCHEMA)
+        self._migrate()
         self._conn.commit()
+
+    def _migrate(self) -> None:
+        """Лёгкие миграции для уже существующих баз (например, добавление contact_method)."""
+        columns = {row["name"] for row in self._conn.execute("PRAGMA table_info(bookings)")}
+        if "contact_method" not in columns:
+            self._conn.execute(
+                "ALTER TABLE bookings ADD COLUMN contact_method TEXT NOT NULL DEFAULT 'telegram'"
+            )
 
     def add(
         self,
         *,
         name: str,
         contact: str,
+        contact_method: str,
         program: str,
         preferred_date: str,
         preferred_time: str,
         comment: str,
     ) -> int:
+        if contact_method not in _ALLOWED_METHODS:
+            raise ValueError(f"unsupported contact method: {contact_method}")
         with self._lock:
             cursor = self._conn.execute(
-                "INSERT INTO bookings (name, contact, program, preferred_date,"
-                " preferred_time, comment) VALUES (?, ?, ?, ?, ?, ?)",
-                (name, contact, program, preferred_date, preferred_time, comment),
+                "INSERT INTO bookings (name, contact, contact_method, program,"
+                " preferred_date, preferred_time, comment) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                (
+                    name,
+                    contact,
+                    contact_method,
+                    program,
+                    preferred_date,
+                    preferred_time,
+                    comment,
+                ),
             )
             self._conn.commit()
             row_id = cursor.lastrowid
@@ -64,8 +87,9 @@ class BookingsDB:
     def list(self) -> list[dict[str, Any]]:
         with self._lock:
             rows = self._conn.execute(
-                "SELECT id, created_at, name, contact, program, preferred_date,"
-                " preferred_time, comment, status FROM bookings ORDER BY id DESC"
+                "SELECT id, created_at, name, contact, contact_method, program,"
+                " preferred_date, preferred_time, comment, status FROM bookings"
+                " ORDER BY id DESC"
             ).fetchall()
         return [dict(row) for row in rows]
 

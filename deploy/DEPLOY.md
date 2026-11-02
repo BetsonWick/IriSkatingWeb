@@ -29,14 +29,13 @@ cd /opt/iriskating-web
 cp .env.example .env && chmod 600 .env && nano .env
 ```
 
-Нужно заполнить два значения:
+Нужно заполнить:
 
-- `ADMIN_PASSWORD_HASH` — хеш пароля админа. Сгенерировать (питон есть на сервере):
-  ```bash
-  python3 -c "import hashlib,os,base64;s=os.urandom(16);d=hashlib.pbkdf2_hmac('sha256',input('password: ').encode(),s,200000);print('pbkdf2$200000$'+base64.b64encode(s).decode()+'$'+base64.b64encode(d).decode())"
-  ```
-  (или локально: `python3 -m server.hash_password 'Пароль'` из корня репозитория)
+- `ADMIN_PASSWORD_HASH` — хеш пароля админа (генерация — ниже, §3)
 - `SESSION_SECRET` — ключ подписи cookie: `openssl rand -hex 32`
+- `TELEGRAM_BOT_TOKEN` / `TELEGRAM_ADMIN_CHAT_ID` — уведомления о заявках:
+  токен того же бота (из `/opt/iriskating/.env`), chat_id — первый ID из
+  `ADMIN_TELEGRAM_IDS` бота. Пусто — заявки сохраняются без уведомления.
 
 `ADMIN_USERNAME` по умолчанию `iren` — можно поменять.
 

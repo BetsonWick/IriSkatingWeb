@@ -7,6 +7,8 @@ services:
     env_file: .env
     volumes:
       - ./data:/app/data
+      # media (фото/видео слайдшоу) обновляются на сервере без пересборки образа
+      - ./assets:/app/assets:ro
     networks:
       - iriskating
     logging:

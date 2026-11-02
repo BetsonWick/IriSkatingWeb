@@ -38,8 +38,10 @@ _RATE_LIMITS: dict[str, tuple[int, int]] = {
     "login": (10, 300),
     "booking": (30, 600),
 }
-_rate_buckets: dict[str, deque[float]] = defaultdict(deque)
 logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+
+_rate_buckets: dict[str, deque[float]] = defaultdict(deque)
 
 
 class Settings(BaseSettings):

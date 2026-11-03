@@ -79,7 +79,6 @@
         specsTitle: "Specialties",
         langsTitle: "Languages",
         langsVal: "English · Русский",
-        cta: "Book a lesson with Irene",
       },
       spec: {
         jumps: "Single, double & triple jumps",
@@ -253,7 +252,6 @@
         specsTitle: "Специализации",
         langsTitle: "Языки",
         langsVal: "Русский · English",
-        cta: "Записаться к Ирине",
       },
       spec: {
         jumps: "Одинарные, двойные и тройные прыжки",
@@ -427,7 +425,6 @@
         specsTitle: "专业方向",
         langsTitle: "语言",
         langsVal: "Русский · English",
-        cta: "预约伊琳的课程",
       },
       spec: {
         jumps: "单周跳、两周跳、三周跳",
@@ -601,7 +598,6 @@
         specsTitle: "Spécialisations",
         langsTitle: "Langues",
         langsVal: "Русский · English",
-        cta: "Réserver avec Irene",
       },
       spec: {
         jumps: "Sauts simples, doubles et triples",

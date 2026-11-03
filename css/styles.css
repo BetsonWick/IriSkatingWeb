@@ -372,8 +372,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   position: relative;
   border-radius: 22px;
   overflow: hidden;
-  background: #0b0f24;
-  aspect-ratio: 9 / 17;
+  height: 560px;
 }
 
 .hero-scene {
@@ -421,7 +420,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   height: 100%;
   object-fit: cover;
 }
-.hs-video { object-fit: contain; background: #0b0f24; }
+.hs-video { object-fit: contain; }
 
 .hs-scrim {
   position: absolute;
@@ -499,7 +498,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 .offers-grid {
   display: grid;
-  grid-template-columns: minmax(280px, 320px) 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 18px;
   padding: 10px;
   border-radius: var(--radius-lg);
@@ -1187,7 +1186,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
    ============================================================ */
 
 @media (max-width: 1180px) {
-  .offers-grid { grid-template-columns: minmax(260px, 300px) 1fr; }
+  .offers-grid { grid-template-columns: 1.5fr 1fr; }
 }
 
 @media (max-width: 1024px) {

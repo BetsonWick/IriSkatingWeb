@@ -28,6 +28,7 @@ METHOD_LABELS = {
     "telegram": "Telegram",
     "instagram": "Instagram",
     "whatsapp": "WhatsApp",
+    "email": "Email",
 }
 
 

@@ -25,6 +25,7 @@
     telegram: "Telegram",
     instagram: "Instagram",
     whatsapp: "WhatsApp",
+    email: "Email",
   };
 
   const STATUS_LABELS = {

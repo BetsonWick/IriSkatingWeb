@@ -157,6 +157,20 @@ def test_booking_validation(client: TestClient) -> None:
     )
     assert response.status_code == 422
 
+    # email — валидный метод
+    response = client.post(
+        "/api/bookings",
+        json={
+            "name": "X",
+            "contact": "a@b.c",
+            "contact_method": "email",
+            "program": "individual",
+            "preferred_date": "2026-11-20",
+            "preferred_time": "evening",
+        },
+    )
+    assert response.status_code == 200
+
     response = client.post(
         "/api/bookings",
         json={
@@ -173,32 +187,42 @@ def test_booking_validation(client: TestClient) -> None:
 # ---------- contact_method migration ----------
 
 
-def test_contact_method_migration(tmp_path: Path, api_env: pytest.MonkeyPatch) -> None:
-    """Старая БД без contact_method должна мигрировать при старте приложения."""
+def test_contact_method_migration(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Прод-схема: contact_method есть, но CHECK без 'email' — таблица пересобирается."""
     import sqlite3
 
     db_path = tmp_path / "old.db"
     conn = sqlite3.connect(db_path)
     conn.execute(
         "CREATE TABLE bookings (id INTEGER PRIMARY KEY AUTOINCREMENT, created_at TEXT,"
-        " name TEXT NOT NULL, contact TEXT NOT NULL, program TEXT NOT NULL,"
-        " preferred_date TEXT NOT NULL, preferred_time TEXT NOT NULL,"
+        " name TEXT NOT NULL, contact TEXT NOT NULL,"
+        " contact_method TEXT NOT NULL DEFAULT 'telegram'"
+        "   CHECK (contact_method IN ('telegram', 'instagram', 'whatsapp')),"
+        " program TEXT NOT NULL, preferred_date TEXT NOT NULL, preferred_time TEXT NOT NULL,"
         " comment TEXT NOT NULL DEFAULT '', status TEXT NOT NULL DEFAULT 'new')"
     )
     conn.execute(
-        "INSERT INTO bookings (created_at, name, contact, program, preferred_date,"
-        " preferred_time) VALUES ('2026-01-01', 'Old Client', 'old@x.io', 'individual',"
-        " '2026-02-01', 'evening')"
+        "INSERT INTO bookings (created_at, name, contact, contact_method, program,"
+        " preferred_date, preferred_time) VALUES ('2026-01-01', 'Old Client',"
+        " 'old@x.io', 'telegram', 'individual', '2026-02-01', 'evening')"
     )
     conn.commit()
     conn.close()
 
-    api_env.setenv("DATABASE_PATH", str(db_path))
+    monkeypatch.setenv("DATABASE_PATH", str(db_path))
+    monkeypatch.setenv("COOKIE_SECURE", "false")
+    monkeypatch.setenv("ADMIN_USERNAME", ADMIN_USER)
+    monkeypatch.setenv("ADMIN_PASSWORD_HASH", hash_password(ADMIN_PASSWORD))
+    monkeypatch.setenv("SESSION_SECRET", "test-secret")
     with TestClient(app) as test_client:
         login(test_client)
         bookings = test_client.get("/api/bookings").json()
-    assert len(bookings) == 1
-    assert bookings[0]["contact_method"] == "telegram"
+        assert len(bookings) == 1
+        assert bookings[0]["contact_method"] == "telegram"
+
+        # пересобранная таблица принимает email
+        created = create_booking(test_client, name="Email Client")
+        assert created["ok"] is True
 
 
 # ---------- telegram notification ----------

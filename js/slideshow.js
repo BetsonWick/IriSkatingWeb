@@ -13,17 +13,18 @@
         the video loads (and if the file is missing).
         `tag` is the little label on the slide, per language. */
   const HERO_MEDIA = [
-    { type: "image", src: "assets/media/on-ice-1.svg",
-      tag: { en: "On-ice", ru: "На льду", zh: "冰上", fr: "Sur glace" } },
-    { type: "image", src: "assets/media/off-ice-1.svg",
-      tag: { en: "Off-ice", ru: "Вне льда", zh: "陆上", fr: "Hors glace" } },
-    { type: "video", src: "assets/media/training-on-ice.mp4",
-      poster: "assets/media/video-poster.svg",
-      tag: { en: "On-ice · video", ru: "На льду · видео", zh: "冰上 · 视频", fr: "Sur glace · vidéo" } },
-    { type: "image", src: "assets/media/on-ice-2.svg",
-      tag: { en: "On-ice", ru: "На льду", zh: "冰上", fr: "Sur glace" } },
-    { type: "image", src: "assets/media/off-ice-2.svg",
-      tag: { en: "Off-ice", ru: "Вне льда", zh: "陆上", fr: "Hors glace" } },
+    { type: "video", src: "assets/media/training-1.mp4",
+      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
+    { type: "video", src: "assets/media/training-2.mp4",
+      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
+    { type: "video", src: "assets/media/training-3.mp4",
+      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
+    { type: "video", src: "assets/media/training-4.mp4",
+      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
+    { type: "video", src: "assets/media/training-5.mp4",
+      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
+    { type: "video", src: "assets/media/training-6.mp4",
+      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
   ];
 
   const IMAGE_DELAY = 5000; // ms per photo

@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS bookings (
     name TEXT NOT NULL,
     contact TEXT NOT NULL,
     contact_method TEXT NOT NULL DEFAULT 'telegram'
-        CHECK (contact_method IN ('telegram', 'instagram', 'whatsapp')),
+        CHECK (contact_method IN ('telegram', 'instagram', 'whatsapp', 'email')),
     program TEXT NOT NULL,
     preferred_date TEXT NOT NULL,
     preferred_time TEXT NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS bookings (
 """
 
 _ALLOWED_STATUS: Final = frozenset({"new", "confirmed", "cancelled"})
-_ALLOWED_METHODS: Final = frozenset({"telegram", "instagram", "whatsapp"})
+_ALLOWED_METHODS: Final = frozenset({"telegram", "instagram", "whatsapp", "email"})
 
 
 class BookingsDB:
@@ -44,11 +44,50 @@ class BookingsDB:
         self._conn.commit()
 
     def _migrate(self) -> None:
-        """Лёгкие миграции для уже существующих баз (например, добавление contact_method)."""
+        """Лёгкие миграции для уже существующих баз.
+
+        1. БД без колонки contact_method — добавляем с default 'telegram'.
+        2. Если CHECK-констрейнт колонки не знает 'email' (старая схема) —
+           пересобираем таблицу (SQLite не умеет менять CHECK через ALTER).
+        """
         columns = {row["name"] for row in self._conn.execute("PRAGMA table_info(bookings)")}
         if "contact_method" not in columns:
             self._conn.execute(
                 "ALTER TABLE bookings ADD COLUMN contact_method TEXT NOT NULL DEFAULT 'telegram'"
+            )
+
+        table_sql_row = self._conn.execute(
+            "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'bookings'"
+        ).fetchone()
+        if table_sql_row and "email" not in (table_sql_row[0] or ""):
+            self._conn.executescript(
+                """
+                BEGIN;
+                CREATE TABLE bookings_new (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+                    name TEXT NOT NULL,
+                    contact TEXT NOT NULL,
+                    contact_method TEXT NOT NULL DEFAULT 'telegram'
+                        CHECK (contact_method IN ('telegram', 'instagram', 'whatsapp', 'email')),
+                    program TEXT NOT NULL,
+                    preferred_date TEXT NOT NULL,
+                    preferred_time TEXT NOT NULL,
+                    comment TEXT NOT NULL DEFAULT '',
+                    status TEXT NOT NULL DEFAULT 'new'
+                        CHECK (status IN ('new', 'confirmed', 'cancelled'))
+                );
+                INSERT INTO bookings_new (
+                    id, created_at, name, contact, contact_method, program,
+                    preferred_date, preferred_time, comment, status
+                )
+                SELECT id, created_at, name, contact, contact_method, program,
+                       preferred_date, preferred_time, comment, status
+                FROM bookings;
+                DROP TABLE bookings;
+                ALTER TABLE bookings_new RENAME TO bookings;
+                COMMIT;
+                """
             )
 
     def add(

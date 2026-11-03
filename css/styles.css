@@ -373,7 +373,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   border-radius: 22px;
   overflow: hidden;
   background: #0b0f24;
-  min-height: 440px;
+  aspect-ratio: 9 / 17;
 }
 
 .hero-scene {
@@ -421,7 +421,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   height: 100%;
   object-fit: cover;
 }
-.hs-video { background: #0b0f24; }
+.hs-video { object-fit: contain; background: #0b0f24; }
 
 .hs-scrim {
   position: absolute;
@@ -499,7 +499,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 .offers-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: minmax(280px, 320px) 1fr;
   gap: 18px;
   padding: 10px;
   border-radius: var(--radius-lg);
@@ -1187,12 +1187,11 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
    ============================================================ */
 
 @media (max-width: 1180px) {
-  .offers-grid { grid-template-columns: 1.3fr 1fr; }
+  .offers-grid { grid-template-columns: minmax(260px, 300px) 1fr; }
 }
 
 @media (max-width: 1024px) {
   .hero { padding-top: 36px; }
-  .hero-art { min-height: 380px; }
   .en-grid { grid-template-columns: 1fr; }
   .coach-grid { grid-template-columns: 0.9fr 1.1fr; gap: 32px; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -1224,7 +1223,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
   .hero { padding-top: 28px; }
   .hero-note { font-size: 1.5rem; right: 18px; top: 16px; }
-  .hero-art { min-height: 320px; }
   .offer-btn { align-self: stretch; justify-content: center; }
 
   .events-grid { grid-template-columns: 1fr; }

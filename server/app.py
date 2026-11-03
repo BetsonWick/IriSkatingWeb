@@ -261,6 +261,19 @@ def create_app() -> FastAPI:
     app.mount("/js", StaticFiles(directory=get_base_dir() / "js"), name="js")
     app.mount("/assets", StaticFiles(directory=get_base_dir() / "assets"), name="assets")
 
+    @app.middleware("http")
+    async def revalidate_static(request: Request, call_next: Any) -> Any:
+        """Статика и страницы: хранится, но каждый раз перепроверяется (etag) —
+        правки CSS/JS видны у пользователей сразу после деплоя."""
+        response = await call_next(request)
+        path = request.url.path
+        if (
+            path.startswith(("/css/", "/js/", "/assets/"))
+            or path in ("/", "/admin", "/admin.html", "/index.html", "/favicon.svg")
+        ):
+            response.headers["Cache-Control"] = "no-cache"
+        return response
+
     return app
 
 

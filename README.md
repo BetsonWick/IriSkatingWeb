@@ -88,3 +88,7 @@ python3 -m venv .venv && .venv/bin/pip install -r server/requirements.txt
 ## Хостинг
 
 Статика: VPS (nginx / Caddy), GitHub Pages, Netlify, Cloudflare Pages — деплой = копирование папки.
+
+**Кеш статики**: CSS/JS подключены с версионным параметром (`styles.css?v=6`) —
+после изменений CSS/JS поднимите `?v=` в `index.html` / `admin.html`, чтобы у
+посетителей точно обновился кеш (страховка от агрессивных прокси/кешей).

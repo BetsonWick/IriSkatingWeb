@@ -40,11 +40,13 @@
     el.className = "hs-slide";
 
     if (item.type === "video") {
-      const poster = document.createElement("img");
-      poster.className = "hs-media";
-      poster.src = item.poster || "";
-      poster.alt = "";
-      el.appendChild(poster);
+      if (item.poster) {
+        const poster = document.createElement("img");
+        poster.className = "hs-media";
+        poster.src = item.poster;
+        poster.alt = "";
+        el.appendChild(poster);
+      }
 
       let video = null;
       if (item.src) {

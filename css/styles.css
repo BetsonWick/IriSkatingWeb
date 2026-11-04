@@ -372,7 +372,8 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   position: relative;
   border-radius: 22px;
   overflow: hidden;
-  height: 560px;
+  height: calc(100svh - 132px);
+  min-height: 480px;
 }
 
 .hero-scene {

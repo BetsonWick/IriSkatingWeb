@@ -385,8 +385,8 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 .hero-note {
   position: absolute;
-  right: 16px;
-  top: 12px;
+  right: 12px;
+  top: 10px;
   font-family: var(--font-hand);
   font-size: 1.9rem;
   line-height: 1.05;
@@ -423,6 +423,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 }
 .hs-video {
   object-fit: contain;
+  background: #0b0f24;
   border-radius: 18px;
 }
 

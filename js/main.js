@@ -323,7 +323,7 @@
      ============================================================ */
 
   function initReveal() {
-    const targets = $$(".offer-card, .tile, .event-card, .news-card, .lesson-card, .contact-row, .coach-photo, .coach-info, .hero-copy, .hero-art");
+    const targets = $$(".offer-card, .tile, .lesson-card, .contact-row, .coach-photo, .coach-info, .hero-copy, .hero-art");
     targets.forEach((el) => el.classList.add("reveal"));
 
     // Reveal whatever is inside the viewport. IntersectionObserver is not

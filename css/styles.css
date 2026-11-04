@@ -385,8 +385,8 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 .hero-note {
   position: absolute;
-  right: 26px;
-  top: 26px;
+  right: 16px;
+  top: 12px;
   font-family: var(--font-hand);
   font-size: 1.9rem;
   line-height: 1.05;
@@ -421,7 +421,10 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   height: 100%;
   object-fit: cover;
 }
-.hs-video { object-fit: contain; }
+.hs-video {
+  object-fit: contain;
+  border-radius: 18px;
+}
 
 .hs-scrim {
   position: absolute;
@@ -487,12 +490,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 18px;
-  padding: 10px;
-  border-radius: var(--radius-lg);
-  background:
-    linear-gradient(120deg, rgba(249, 115, 22, 0.12), rgba(236, 72, 153, 0.12) 45%, rgba(139, 92, 246, 0.14)),
-    var(--panel);
-  box-shadow: 0 0 60px rgba(236, 72, 153, 0.14);
+  align-items: end;
 }
 
 .offer-card { border-radius: 22px; }
@@ -572,104 +570,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .offer-price { display: flex; align-items: baseline; gap: 8px; margin: 4px 0 10px; }
 .offer-price b { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.02em; }
 .offer-price span { color: var(--muted); font-size: 0.85rem; }
-
-/* ============================================================
-   Events + News
-   ============================================================ */
-
-.events-news { padding: 44px 0 10px; }
-
-.en-grid {
-  display: grid;
-  grid-template-columns: 1.55fr 1fr;
-  gap: 44px;
-  align-items: start;
-}
-
-.sec-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.view-all {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  color: var(--accent-2);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-.view-all .icon { width: 16px; height: 16px; transition: transform 0.18s ease; }
-.view-all:hover .icon { transform: translateX(3px); }
-
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.event-card, .news-card {
-  position: relative;
-  border-radius: 20px;
-  padding: 18px;
-  border: 1px solid var(--line);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-height: 190px;
-}
-
-.ev-1 { background: linear-gradient(160deg, rgba(124, 58, 237, 0.5), rgba(30, 27, 75, 0.85) 65%), #12163a; }
-.ev-2 { background: linear-gradient(160deg, rgba(37, 99, 235, 0.45), rgba(13, 20, 48, 0.9) 65%), #101736; }
-.ev-3 { background: linear-gradient(160deg, rgba(244, 114, 82, 0.4), rgba(236, 72, 153, 0.3) 45%, rgba(24, 16, 48, 0.9) 80%), #180f33; }
-.nw-1 { background: linear-gradient(160deg, rgba(139, 92, 246, 0.35), rgba(16, 20, 48, 0.9) 70%), #12163a; }
-.nw-2 { background: linear-gradient(160deg, rgba(34, 211, 238, 0.22), rgba(16, 20, 48, 0.92) 70%), #101736; }
-
-.ev-date { color: rgba(238, 241, 255, 0.75); font-size: 0.84rem; font-weight: 600; }
-
-.event-card h3, .news-card h3 {
-  font-size: 1.05rem;
-  font-weight: 800;
-  line-height: 1.3;
-  padding-right: 8px;
-}
-
-.ev-place {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(238, 241, 255, 0.75);
-  font-size: 0.86rem;
-  margin-top: auto;
-}
-.ev-place .icon { width: 16px; height: 16px; }
-
-.news-excerpt { color: var(--muted); font-size: 0.86rem; margin-top: auto; }
-
-.round-btn {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  border: 1px solid var(--line-2);
-  background: rgba(10, 13, 30, 0.75);
-  color: var(--txt);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.18s ease, transform 0.18s ease;
-}
-.round-btn .icon { width: 17px; height: 17px; }
-.round-btn:hover { background: var(--accent-deep); transform: translateX(2px); }
-
-.news-list { display: grid; gap: 16px; }
-.news-card { min-height: 130px; }
 
 /* ============================================================
    Coach
@@ -1211,7 +1111,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   .hero-note { font-size: 1.5rem; right: 18px; top: 16px; }
   .offer-btn { align-self: stretch; justify-content: center; }
 
-  .events-grid { grid-template-columns: 1fr; }
   .lessons-grid { grid-template-columns: 1fr; }
   .coach-grid { grid-template-columns: 1fr; }
   .coach-photo { max-width: 420px; margin-inline: auto; }
@@ -1220,7 +1119,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   .stat { padding: 10px 12px; }
   .stat b { font-size: 1.2rem; }
 
-  .offers-grid { grid-template-columns: 1fr; padding: 8px; }
+  .offers-grid { grid-template-columns: 1fr; }
 
   .form-row { grid-template-columns: 1fr; }
 

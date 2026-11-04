@@ -13,7 +13,6 @@
         home: "Home",
         coach: "Coach",
         lessons: "Programs",
-        news: "News",
         contact: "Contact",
       },
       hero: {
@@ -30,40 +29,7 @@
         badge: "Special offer",
         title: "Book your next lesson and get the best deals!",
         bookNow: "Book now",
-      },
-      events: { title: "Upcoming events", viewall: "View all" },
-      event1: {
-        badge: "Competition",
-        date: "Nov 12–16, 2026",
-        name: "Grand Prix Final 2026",
-        place: "Tokyo, Japan",
-      },
-      event2: {
-        badge: "Workshop",
-        date: "Apr 5, 2027",
-        name: "Jump technique workshop",
-        place: "Online",
-      },
-      event3: {
-        badge: "Camp",
-        date: "Jul 14–28, 2027",
-        name: "Summer training camp",
-        place: "Lake Placid, USA",
-      },
-      news: { title: "Latest news", viewall: "View all" },
-      news1: {
-        badge: "Results",
-        date: "Oct 18, 2026",
-        title: "Our students' first medals",
-        excerpt: "Medals, personal bests and highlights from the autumn cup…",
-      },
-      news2: {
-        badge: "Training",
-        date: "Oct 2, 2026",
-        title: "5 ways to improve your spin",
-        excerpt: "Simple tips from coach Irene for faster, more centered spins…",
-      },
-      coach: {
+      },      coach: {
         eyebrow: "Your coach",
         name: "Irene",
         role: "Certified Figure Skating & Fitness Coach",
@@ -186,7 +152,6 @@
         home: "Главная",
         coach: "Тренер",
         lessons: "Программы",
-        news: "Новости",
         contact: "Контакты",
       },
       hero: {
@@ -203,40 +168,7 @@
         badge: "Спецпредложение",
         title: "Запишитесь на занятие и получите лучшие условия!",
         bookNow: "Забронировать",
-      },
-      events: { title: "Ближайшие события", viewall: "Смотреть все" },
-      event1: {
-        badge: "Соревнование",
-        date: "12–16 ноя 2026",
-        name: "Финал Гран-при 2026",
-        place: "Токио, Япония",
-      },
-      event2: {
-        badge: "Мастер-класс",
-        date: "5 апр 2027",
-        name: "Воркшоп по технике прыжков",
-        place: "Онлайн",
-      },
-      event3: {
-        badge: "Сборы",
-        date: "14–28 июл 2027",
-        name: "Летний тренировочный лагерь",
-        place: "Лейк-Плэсид, США",
-      },
-      news: { title: "Последние новости", viewall: "Смотреть все" },
-      news1: {
-        badge: "Результаты",
-        date: "18 окт 2026",
-        title: "Первые медали наших учеников",
-        excerpt: "Награды, личные рекорды и яркие моменты осеннего кубка…",
-      },
-      news2: {
-        badge: "Тренировки",
-        date: "2 окт 2026",
-        title: "5 способов улучшить вращение",
-        excerpt: "Простые советы от тренера Ирины для быстрого и уверенного вращения…",
-      },
-      coach: {
+      },      coach: {
         eyebrow: "Ваш тренер",
         name: "Ирина",
         role: "Сертифицированный тренер по фигурному катанию и фитнесу",
@@ -359,7 +291,6 @@
         home: "首页",
         coach: "教练",
         lessons: "课程",
-        news: "资讯",
         contact: "联系",
       },
       hero: {
@@ -376,40 +307,7 @@
         badge: "特别优惠",
         title: "预约下一节课程，享受最优惠价格！",
         bookNow: "立即预订",
-      },
-      events: { title: "近期活动", viewall: "查看全部" },
-      event1: {
-        badge: "比赛",
-        date: "2026年11月12–16日",
-        name: "2026花样滑冰大奖赛总决赛",
-        place: "日本·东京",
-      },
-      event2: {
-        badge: "研习班",
-        date: "2027年4月5日",
-        name: "跳跃技术研习班",
-        place: "线上",
-      },
-      event3: {
-        badge: "训练营",
-        date: "2027年7月14–28日",
-        name: "夏季训练营",
-        place: "美国·普莱西德湖",
-      },
-      news: { title: "最新资讯", viewall: "查看全部" },
-      news1: {
-        badge: "赛果",
-        date: "2026年10月18日",
-        title: "学员们的首枚奖牌",
-        excerpt: "秋季杯的奖牌、个人最佳成绩与精彩瞬间……",
-      },
-      news2: {
-        badge: "训练",
-        date: "2026年10月2日",
-        title: "提升旋转的5个方法",
-        excerpt: "来自伊琳教练的简单建议，让旋转更快更稳……",
-      },
-      coach: {
+      },      coach: {
         eyebrow: "您的教练",
         name: "伊琳",
         role: "认证花样滑冰与体能教练",
@@ -532,7 +430,6 @@
         home: "Accueil",
         coach: "Entraîneuse",
         lessons: "Programmes",
-        news: "Actualités",
         contact: "Contact",
       },
       hero: {
@@ -549,40 +446,7 @@
         badge: "Offre spéciale",
         title: "Réservez votre prochain cours et profitez des meilleures offres !",
         bookNow: "Réserver",
-      },
-      events: { title: "Événements à venir", viewall: "Voir tout" },
-      event1: {
-        badge: "Compétition",
-        date: "12–16 nov. 2026",
-        name: "Finale du Grand Prix 2026",
-        place: "Tokyo, Japon",
-      },
-      event2: {
-        badge: "Atelier",
-        date: "5 avr. 2027",
-        name: "Atelier technique de sauts",
-        place: "En ligne",
-      },
-      event3: {
-        badge: "Stage",
-        date: "14–28 juil. 2027",
-        name: "Stage d'entraînement d'été",
-        place: "Lake Placid, États-Unis",
-      },
-      news: { title: "Dernières actualités", viewall: "Voir tout" },
-      news1: {
-        badge: "Résultats",
-        date: "18 oct. 2026",
-        title: "Premières médailles pour nos élèves",
-        excerpt: "Médailles, records personnels et temps forts de la coupe d'automne…",
-      },
-      news2: {
-        badge: "Entraînement",
-        date: "2 oct. 2026",
-        title: "5 façons d'améliorer votre rotation",
-        excerpt: "Des conseils simples de l'entraîneuse Irene pour tourner plus vite et plus droit…",
-      },
-      coach: {
+      },      coach: {
         eyebrow: "Votre entraîneuse",
         name: "Irene",
         role: "Entraîneuse certifiée de patinage artistique et de fitness",

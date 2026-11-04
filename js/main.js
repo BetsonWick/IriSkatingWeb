@@ -111,32 +111,46 @@
       burger.setAttribute("aria-expanded", String(open));
     });
 
-    // close mobile nav after clicking a link
+    // close mobile nav after clicking a link + явный скролл к разделу
+    // (надёжнее нативного якоря: не зависит от прерываний smooth-scroll)
     $$(".main-nav .nav-link").forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
         document.body.classList.remove("nav-open");
         burger.setAttribute("aria-expanded", "false");
+        const target = $(link.getAttribute("href"));
+        if (target) {
+          const y = target.getBoundingClientRect().top + window.scrollY - 92;
+          window.scrollTo({ top: y, behavior: "smooth" });
+          history.replaceState(null, "", link.getAttribute("href"));
+        }
       });
     });
 
-    // highlight active section
+    // highlight active section — детерминированно по позиции скролла
+    // (IntersectionObserver не ловит последнюю короткую секцию у низа страницы)
     const links = $$(".main-nav .nav-link");
     const sections = links
       .map((link) => $(link.getAttribute("href")))
       .filter(Boolean);
 
-    const spy = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          links.forEach((link) =>
-            link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`)
-          );
-        });
-      },
-      { rootMargin: "-35% 0px -55% 0px" }
-    );
-    sections.forEach((sec) => spy.observe(sec));
+    const activateByScroll = () => {
+      const marker = window.innerHeight * 0.4;
+      let current = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= marker) current = section;
+      }
+      // страница прокручена до конца — активен последний раздел
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        current = sections[sections.length - 1];
+      }
+      links.forEach((link) =>
+        link.classList.toggle("active", link.getAttribute("href") === `#${current.id}`)
+      );
+    };
+    window.addEventListener("scroll", activateByScroll, { passive: true });
+    window.addEventListener("resize", activateByScroll, { passive: true });
+    activateByScroll();
   }
 
   /* ============================================================

@@ -431,21 +431,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   background: linear-gradient(180deg, transparent, rgba(5, 7, 15, 0.55));
 }
 
-.hs-tag {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 5px 12px;
-  border-radius: 999px;
-  background: rgba(5, 7, 15, 0.65);
-  border: 1px solid rgba(167, 139, 250, 0.45);
-  color: #e9d5ff;
-  font-size: 0.78rem;
-  font-weight: 700;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
 .hs-arrow {
   position: absolute;
   top: 50%;
@@ -467,8 +452,9 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .hs-arrow:hover { background: var(--accent-deep); }
 .hs-arrow .icon { width: 18px; height: 18px; }
 .hs-prev { left: 14px; }
-.hs-prev .icon { transform: rotate(180deg); }
+.hs-prev .icon { transform: rotate(90deg); }   /* шеврон вниз -> влево */
 .hs-next { right: 14px; }
+.hs-next .icon { transform: rotate(-90deg); }  /* шеврон вниз -> вправо */
 
 .hs-dots {
   position: absolute;

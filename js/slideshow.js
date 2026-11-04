@@ -13,18 +13,12 @@
         the video loads (and if the file is missing).
         `tag` is the little label on the slide, per language. */
   const HERO_MEDIA = [
-    { type: "video", src: "assets/media/training-1.mp4",
-      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
-    { type: "video", src: "assets/media/training-2.mp4",
-      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
-    { type: "video", src: "assets/media/training-3.mp4",
-      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
-    { type: "video", src: "assets/media/training-4.mp4",
-      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
-    { type: "video", src: "assets/media/training-5.mp4",
-      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
-    { type: "video", src: "assets/media/training-6.mp4",
-      tag: { en: "Training", ru: "Тренировка", zh: "训练", fr: "Entraînement" } },
+    { type: "video", src: "assets/media/training-1.mp4" },
+    { type: "video", src: "assets/media/training-4.mp4" },
+    { type: "video", src: "assets/media/training-5.mp4" },
+    { type: "video", src: "assets/media/training-2.mp4" },
+    { type: "video", src: "assets/media/training-3.mp4" },
+    { type: "video", src: "assets/media/training-6.mp4" },
   ];
 
   const IMAGE_DELAY = 5000; // ms per photo
@@ -37,11 +31,6 @@
 
   function lang() {
     return (document.documentElement.getAttribute("lang") || "en").slice(0, 2);
-  }
-
-  function tagText(item) {
-    const t = item.tag || {};
-    return t[lang()] || t.en || "";
   }
 
   /* ---------- build ---------- */
@@ -78,11 +67,7 @@
       scrim.className = "hs-scrim";
       el.appendChild(scrim);
 
-      const tag = document.createElement("span");
-      tag.className = "hs-tag";
-      el.appendChild(tag);
-
-      slides.push({ el, tag, video, playing: false });
+      slides.push({ el, video, playing: false });
       return el;
     }
 
@@ -96,11 +81,7 @@
     scrim.className = "hs-scrim";
     el.appendChild(scrim);
 
-    const tag = document.createElement("span");
-    tag.className = "hs-tag";
-    el.appendChild(tag);
-
-    slides.push({ el, tag, video: null, playing: false });
+    slides.push({ el, video: null, playing: false });
     return el;
   }
 
@@ -208,10 +189,6 @@
       } else {
         schedule();
       }
-    });
-
-    document.addEventListener("irilang", () => {
-      slides.forEach((s, i) => { s.tag.textContent = tagText(HERO_MEDIA[i]); });
     });
 
     index = 0;

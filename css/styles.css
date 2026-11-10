@@ -1113,6 +1113,31 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 }
 
 @media (max-width: 760px) {
+  /* Фон: вертикальный кроп + мягкий фокус. Исходное фото 1280×720 на телефоне
+     (DPR 3) растягивается втрое и мылится, а cover с position 68% 32% вырезает
+     случайный фрагмент. Отдельный слой под контентом решает обе проблемы. */
+  body {
+    position: relative;
+    z-index: 0; /* стек-контекст: ::before с z -1 над фоном body, но под контентом */
+    background-image: none;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -24px; /* запас под blur, чтобы не светились края слоя */
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(1100px 520px at 85% -5%, rgba(124, 58, 237, 0.14), transparent 60%),
+      linear-gradient(180deg, rgba(5, 7, 15, 0.55), rgba(5, 7, 15, 0.62) 45%, rgba(5, 7, 15, 0.8)),
+      url("../assets/media/hero-bg-mobile.jpg");
+    background-size: auto, auto, cover;
+    background-position: center, center, center 30%;
+    background-repeat: no-repeat;
+    filter: blur(2px);
+  }
+
   .container { width: min(1220px, 100% - 32px); }
 
   .hero { padding-top: 28px; }

@@ -13,9 +13,13 @@
         the video loads (and if the file is missing).
         `tag` is the little label on the slide, per language. */
   const HERO_MEDIA = [
+    { type: "video", src: "assets/media/training-7.mp4" },   // IMG_9780 — позиция 1
     { type: "video", src: "assets/media/training-1.mp4" },
+    { type: "video", src: "assets/media/training-8.mp4" },   // IMG_9781 — позиция 3
     { type: "video", src: "assets/media/training-4.mp4" },
+    { type: "video", src: "assets/media/training-9.mp4" },   // IMG_9782 — позиция 5
     { type: "video", src: "assets/media/training-5.mp4" },
+    { type: "video", src: "assets/media/training-10.mp4" },  // IMG_9783 — позиция 7
     { type: "video", src: "assets/media/training-2.mp4" },
     { type: "video", src: "assets/media/training-3.mp4" },
     { type: "video", src: "assets/media/training-6.mp4" },

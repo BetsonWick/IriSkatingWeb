@@ -196,9 +196,9 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   z-index: 50;
   /* страница тянется под статус-бар (viewport-fit=cover) — шапка опускается ниже safe-area */
   padding-top: env(safe-area-inset-top);
-  background: rgba(5, 7, 15, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* backdrop-filter убран: на iOS вместе с fixed-слоем фона вызывал мерцание
+     и «пропадание» шапки при скролле — вместо него более плотный фон */
+  background: rgba(6, 9, 20, 0.92);
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s ease;
 }
@@ -1119,9 +1119,13 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 @media (max-width: 760px) {
   /* шапка статичная и уезжает при скролле — якорям нужен только отступ статус-бара */
-  html { scroll-padding-top: env(safe-area-inset-top); }
+  html { scroll-padding-top: calc(72px + env(safe-area-inset-top)); }
 
-  /* Фон: фиксированный слой с вертикальным кропом и мягким фокусом.
+  /* шапка на мобильном — sticky, всегда видна при скролле.
+     backdrop-filter убран (глобально ниже): на iOS он + fixed-слой фона
+     вызывали мерцание и «пропадание» шапки при прокрутке */
+
+  /* фон: фиксированный слой с вертикальным кропом и мягким фокусом.
      Исходное фото 1280×720 на телефоне (DPR 3) растягивается втрое и мылится,
      а cover с position 68% 32% вырезает случайный фрагмент. */
   body {
@@ -1133,25 +1137,22 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   body::before {
     content: "";
     position: fixed;
-    inset: -24px; /* запас под blur, чтобы не светились края слоя */
+    inset: -120px; /* большой запас: даже если слой отстанет при инерции — край не покажется */
     z-index: -1;
     pointer-events: none;
     /* вуаль на мобильном: верх/середина как в дизайне, к низу экрана почти
-       прозрачная — там была чёрная полоса, теперь видно лёд */
+       прозрачная — там была чёрная полоса, теперь видно лёд.
+       блюр запечён в саму картинку (hero-bg-mobile-blur.jpg) — без CSS-фильтра */
     background-image:
       radial-gradient(1100px 520px at 85% -5%, rgba(124, 58, 237, 0.14), transparent 60%),
       linear-gradient(180deg, rgba(5, 7, 15, 0.45), rgba(5, 7, 15, 0.42) 40%, rgba(5, 7, 15, 0.15) 100%),
-      url("../assets/media/hero-bg-mobile.jpg");
+      url("../assets/media/hero-bg-mobile-blur.jpg");
     background-size: auto, auto, cover;
     background-position: center, center, center top;
     background-repeat: no-repeat;
-    filter: blur(2px);
   }
 
-  /* шапка на мобильном — не sticky: уезжает при скролле вместе со страницей */
-  .site-header { position: static; }
-
-  /* шапка: на мобильном меню выпадает из потока — прижимаем действия вправо */
+  /* шапка sticky на мобильном — базовое правило (позиция sticky) остаётся */
   .header-actions { margin-left: auto; }
 
   /* hero занимает первый экран с учётом шапки и статус-бара */

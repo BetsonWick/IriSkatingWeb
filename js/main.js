@@ -120,8 +120,12 @@
         burger.setAttribute("aria-expanded", "false");
         const target = $(link.getAttribute("href"));
         if (target) {
-          // офсет = реальная высота шапки (включая safe-area при viewport-fit=cover)
-          const offset = header.offsetHeight + 20;
+          // на десктопе шапка sticky (офсет = её высота), на мобильном она
+          // статичная — секция встаёт под статус-бар (env(safe-area-inset-top))
+          const sticky = getComputedStyle(header).position === "sticky";
+          const offset = sticky
+            ? header.offsetHeight + 20
+            : header.offsetHeight - header.querySelector(".header-inner").offsetHeight + 12;
           const y = target.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top: y, behavior: "smooth" });
           history.replaceState(null, "", link.getAttribute("href"));

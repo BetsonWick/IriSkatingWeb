@@ -120,7 +120,9 @@
         burger.setAttribute("aria-expanded", "false");
         const target = $(link.getAttribute("href"));
         if (target) {
-          const y = target.getBoundingClientRect().top + window.scrollY - 92;
+          // офсет = реальная высота шапки (включая safe-area при viewport-fit=cover)
+          const offset = header.offsetHeight + 20;
+          const y = target.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top: y, behavior: "smooth" });
           history.replaceState(null, "", link.getAttribute("href"));
         }

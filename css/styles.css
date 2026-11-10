@@ -32,7 +32,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 92px;
+  scroll-padding-top: calc(92px + env(safe-area-inset-top));
 }
 
 body {
@@ -194,6 +194,8 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   position: sticky;
   top: 0;
   z-index: 50;
+  /* страница тянется под статус-бар (viewport-fit=cover) — шапка опускается ниже safe-area */
+  padding-top: env(safe-area-inset-top);
   background: rgba(5, 7, 15, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -835,7 +837,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 16px 0 22px;
+  padding: 16px 0 calc(22px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.82rem;
@@ -873,6 +875,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   background: linear-gradient(165deg, #12163a, #0a0e22 70%);
   box-shadow: 0 30px 80px rgba(2, 4, 12, 0.7);
   padding: 30px 28px;
+  padding-bottom: calc(30px + env(safe-area-inset-bottom));
   transform: translateY(14px) scale(0.97);
   transition: transform 0.22s ease;
 }
@@ -1039,7 +1042,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .toast {
   position: fixed;
   left: 50%;
-  bottom: 28px;
+  bottom: calc(28px + env(safe-area-inset-bottom));
   z-index: 99;
   transform: translate(-50%, 16px);
   background: rgba(18, 22, 58, 0.95);
@@ -1097,7 +1100,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
   .main-nav {
     position: absolute;
-    top: 72px;
+    top: calc(72px + env(safe-area-inset-top));
     left: 0;
     right: 0;
     flex-direction: column;

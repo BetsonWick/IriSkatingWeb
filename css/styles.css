@@ -867,6 +867,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   width: min(540px, 100%);
   max-height: calc(100vh - 32px);
   overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 24px;
   border: 1px solid var(--line-2);
   background: linear-gradient(165deg, #12163a, #0a0e22 70%);
@@ -948,7 +949,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 /* сегмент-контрол мессенджера */
 .method-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.method-input { position: absolute; opacity: 0; pointer-events: none; }
+.method-input { position: absolute; top: 0; left: 0; width: 1px; height: 1px; margin: 0; opacity: 0; pointer-events: none; }
 .method-chip {
   padding: 8px 14px;
   border-radius: 999px;
@@ -1133,7 +1134,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
       linear-gradient(180deg, rgba(5, 7, 15, 0.55), rgba(5, 7, 15, 0.62) 45%, rgba(5, 7, 15, 0.8)),
       url("../assets/media/hero-bg-mobile.jpg");
     background-size: auto, auto, cover;
-    background-position: center, center, center 30%;
+    background-position: center, center, center top;
     background-repeat: no-repeat;
     filter: blur(2px);
   }

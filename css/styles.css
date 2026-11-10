@@ -1121,7 +1121,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
   .lessons-grid { grid-template-columns: 1fr; }
   .coach-grid { grid-template-columns: 1fr; }
-  .coach-photo { max-width: 420px; margin-inline: auto; }
+  .coach-photo { width: 100%; max-width: 420px; margin-inline: auto; }
 
   .coach-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .stat { padding: 10px 12px; }

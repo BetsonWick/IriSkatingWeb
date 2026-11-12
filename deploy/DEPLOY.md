@@ -72,6 +72,10 @@ docker compose -f /opt/iriskating/docker-compose.yml restart caddy
 Первый заход на `https://www.149.33.58.213.sslip.io` — Caddy сам выпустит
 Let's Encrypt сертификат (до минуты).
 
+> Основной домен `iriskating.com` / `www.iriskating.com` обслуживается через
+> Cloudflare (прокси, Full strict, real IP через `trusted_proxies` в Caddyfile).
+> Пошаговая настройка и чек-лист — `docs/cloudflare.md` в репозитории бота.
+
 ## 5. Админка
 
 - `https://www.149.33.58.213.sslip.io/admin` — вход по `ADMIN_USERNAME`/паролю,

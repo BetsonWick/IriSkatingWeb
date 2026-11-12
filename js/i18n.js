@@ -29,6 +29,23 @@
         badge: "Special offer",
         title: "Book your next lesson and get the best deals!",
         bookNow: "Book now",
+      },
+      benefit: {
+        aria: "Why choose IriSkating",
+        who: {
+          title: "Who benefits from lessons",
+          text: "For beginners and experienced skaters alike: you progress faster, build up your fitness and perform elements on the ice with confidence. Live lessons on the platform — with personal feedback from your coach.",
+        },
+        why: {
+          title: "Why it works",
+          text: "Lessons follow a proven figure skating training method: safe exercises matched to your age and level, continuous feedback, and a step-by-step system that leads to real results.",
+        },
+        how: {
+          title: "How to book",
+          step1: "Leave a request on the website",
+          step2: "We agree on a convenient time with the coach",
+          step3: "You receive a link to join — Zoom or another service",
+        },
       },      coach: {
         eyebrow: "Your coach",
         name: "Irene",
@@ -168,6 +185,23 @@
         badge: "Спецпредложение",
         title: "Запишитесь на занятие и получите лучшие условия!",
         bookNow: "Забронировать",
+      },
+      benefit: {
+        aria: "Почему выбирают IriSkating",
+        who: {
+          title: "Кому полезны тренировки",
+          text: "Подойдут и новичкам, и опытным фигуристам: вы быстрее прогрессируете, улучшаете физическую форму и увереннее выполняете элементы на льду. Живые занятия на платформе — с обратной связью от тренера.",
+        },
+        why: {
+          title: "Почему это работает",
+          text: "Занятия построены на проверенной методике подготовки фигуристов: безопасные упражнения с учётом возраста и уровня, постоянная обратная связь и последовательная система развития, которая ведёт к результату.",
+        },
+        how: {
+          title: "Как записаться",
+          step1: "Оставляете заявку на сайте",
+          step2: "Согласуем с тренером удобное время",
+          step3: "Получаете ссылку на подключение — Zoom или другой сервис",
+        },
       },      coach: {
         eyebrow: "Ваш тренер",
         name: "Ирина",
@@ -307,6 +341,23 @@
         badge: "特别优惠",
         title: "预约下一节课程，享受最优惠价格！",
         bookNow: "立即预订",
+      },
+      benefit: {
+        aria: "为什么选择 IriSkating",
+        who: {
+          title: "适合哪些人",
+          text: "初学者和有经验的滑冰者都适用：更快地进步、增强体能，在冰上更自信地完成动作。平台直播授课，教练实时反馈。",
+        },
+        why: {
+          title: "为什么有效",
+          text: "课程采用经过验证的花样滑冰训练方法：根据年龄和水平安排安全的练习，持续的反馈，循序渐进，直达成果。",
+        },
+        how: {
+          title: "如何报名",
+          step1: "在网站上提交申请",
+          step2: "与教练确认方便的时间",
+          step3: "收到参加链接——Zoom 或其他平台",
+        },
       },      coach: {
         eyebrow: "您的教练",
         name: "伊琳",
@@ -446,6 +497,23 @@
         badge: "Offre spéciale",
         title: "Réservez votre prochain cours et profitez des meilleures offres !",
         bookNow: "Réserver",
+      },
+      benefit: {
+        aria: "Pourquoi choisir IriSkating",
+        who: {
+          title: "À qui s'adressent les cours",
+          text: "Débutants comme patineurs confirmés : vous progressez plus vite, améliorez votre condition physique et réalisez vos éléments sur la glace en toute confiance. Des cours en direct sur la plateforme, avec un retour personnalisé de l'entraîneuse.",
+        },
+        why: {
+          title: "Pourquoi c'est efficace",
+          text: "Les cours s'appuient sur une méthode éprouvée de formation au patinage artistique : des exercices sûrs adaptés à l'âge et au niveau, des retours constants et une progression étape par étape, orientée vers les résultats.",
+        },
+        how: {
+          title: "Comment réserver",
+          step1: "Laissez une demande sur le site",
+          step2: "Nous convenons d'un horaire avec l'entraîneuse",
+          step3: "Vous recevez le lien de connexion — Zoom ou un autre service",
+        },
       },      coach: {
         eyebrow: "Votre entraîneuse",
         name: "Irene",

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=18">
+  <link rel="stylesheet" href="css/styles.css?v=20">
 </head>
 <body>
 
@@ -119,17 +119,50 @@
           <button class="hs-arrow hs-next" type="button" aria-label="Next slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
         </div>
 
-        <div class="offer-card offer-main">
-          <span class="offer-badge"><svg class="icon"><use href="#i-flame"/></svg><span data-i18n="offer.badge">Special offer</span></span>
-          <p class="offer-title" data-i18n="offer.title">Book your next lesson and get the best deals!</p>
-          <svg class="offer-doodle" viewBox="0 0 140 60" aria-hidden="true">
-            <path d="M8 44 C 40 50, 80 40, 112 16" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-            <path d="M100 14 L 114 14 L 108 27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-          </svg>
-          <a class="btn btn-light btn-lg offer-btn" href="#lessons">
-            <span data-i18n="offer.bookNow">Book now</span>
-            <svg class="icon"><use href="#i-arrow"/></svg>
-          </a>
+        <div class="offers-side">
+          <div class="tslider" id="benefitSlider" aria-roledescription="carousel" data-i18n-aria="benefit.aria" aria-label="Why choose IriSkating">
+            <div class="ts-track">
+              <div class="ts-slide">
+                <span class="ts-badge"><svg class="icon"><use href="#i-users"/></svg><span data-i18n="benefit.who.title">Who benefits</span></span>
+                <p class="ts-text" data-i18n="benefit.who.text">Progress faster, improve your fitness and perform elements on the ice confidently — live training sessions on the platform with feedback.</p>
+              </div>
+
+              <div class="ts-slide">
+                <span class="ts-badge"><svg class="icon"><use href="#i-chart"/></svg><span data-i18n="benefit.why.title">Why it works</span></span>
+                <p class="ts-text" data-i18n="benefit.why.text">Coaches work with a proven figure skating training method. Safe exercises tailored to age and level. Constant feedback. A step-by-step development system aimed at results.</p>
+              </div>
+
+              <div class="ts-slide">
+                <span class="ts-badge"><svg class="icon"><use href="#i-calendar"/></svg><span data-i18n="benefit.how.title">How to book</span></span>
+                <ol class="ts-steps">
+                  <li data-i18n="benefit.how.step1">Leave a request</li>
+                  <li data-i18n="benefit.how.step2">Agree on a time with the coach</li>
+                  <li data-i18n="benefit.how.step3">Get a link to connect via Zoom, etc.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="ts-nav">
+              <div class="ts-dots"></div>
+              <div class="ts-arrows">
+                <button class="ts-arrow ts-prev" type="button" aria-label="Previous slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
+                <button class="ts-arrow ts-next" type="button" aria-label="Next slide"><svg class="icon"><use href="#i-chevron"/></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-card offer-main">
+            <span class="offer-badge"><svg class="icon"><use href="#i-flame"/></svg><span data-i18n="offer.badge">Special offer</span></span>
+            <p class="offer-title" data-i18n="offer.title">Book your next lesson and get the best deals!</p>
+            <svg class="offer-doodle" viewBox="0 0 140 60" aria-hidden="true">
+              <path d="M8 44 C 40 50, 80 40, 112 16" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+              <path d="M100 14 L 114 14 L 108 27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+            </svg>
+            <a class="btn btn-light btn-lg offer-btn" href="#lessons">
+              <span data-i18n="offer.bookNow">Book now</span>
+              <svg class="icon"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
         </div>
 
         <div class="hero-note">Better<br>Skaters<br>Together</div>
@@ -384,7 +417,8 @@
   <!-- ============ Toast ============ -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/i18n.js?v=8"></script>
+  <script src="js/i18n.js?v=10"></script>
+  <script src="js/text-slider.js?v=1"></script>
   <script src="js/slideshow.js?v=9"></script>
   <script src="js/main.js?v=10"></script>
 </body>

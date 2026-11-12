@@ -10,7 +10,7 @@
 ├── index.html        # вся разметка лендинга (тексты меняются через data-i18n)
 ├── admin.html        # админка: вход + таблица заявок
 ├── css/              # styles.css — тема лендинга; admin.css — админка
-├── js/               # i18n.js (словарь EN/RU/中文/FR), slideshow.js, main.js, admin.js
+├── js/               # i18n.js (словарь EN/RU/中文/FR), slideshow.js, text-slider.js, main.js, admin.js
 ├── assets/           # favicon + media/ (фото/видео для слайдшоу, сейчас заглушки)
 ├── server/           # FastAPI: статика + API заявок с авторизацией (см. server/requirements.txt)
 ├── tests/            # pytest для API

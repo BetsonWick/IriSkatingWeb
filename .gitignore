@@ -12,3 +12,4 @@ __pycache__/
 # хранятся только заглушки/постеры (svg/jpg)
 assets/media/*.MOV
 assets/media/*.MP4
+assets/media/*.mp4

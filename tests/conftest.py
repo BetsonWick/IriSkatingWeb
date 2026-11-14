@@ -25,6 +25,8 @@ def api_env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> pytest.MonkeyPat
     monkeypatch.setenv("SESSION_SECRET", "test-secret")
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "123:abc")
     monkeypatch.setenv("TELEGRAM_ADMIN_CHAT_IDS", "42,777")
+    # порт 1 — соединение мгновенно отвергается, тесты ходят в сеть только по ошибке
+    monkeypatch.setenv("PROMETHEUS_URL", "http://127.0.0.1:1")
     return monkeypatch
 
 

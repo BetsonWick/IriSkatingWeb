@@ -31,7 +31,7 @@ from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-from server import telegram
+from server import stats, telegram
 from server.auth import create_session_token, verify_password, verify_session_token
 from server.db import BookingsDB
 from server.metrics import VISIT_PATHS, booking_requests, site_visits, visitor_country
@@ -58,6 +58,10 @@ class Settings(BaseSettings):
     session_secret: str = "dev-secret-change-me"
     cookie_secure: bool = True
     database_path: Path = Path("data/site.db")
+
+    # Prometheus для /api/stats (админка: статистика посещений по странам).
+    # Имя prometheus резолвится в docker-сети iriskating_default.
+    prometheus_url: str = "http://prometheus:9090"
 
     # Уведомления о заявках в Telegram (через бот iriskating-bot). Пустые значения —
     # заявки просто сохраняются в БД без уведомления. Несколько получателей —
@@ -231,6 +235,16 @@ def create_app() -> FastAPI:
     ) -> list[dict[str, Any]]:
         result: list[dict[str, Any]] = app.state.db.list()
         return result
+
+    @app.get("/api/stats")
+    def get_site_stats(
+        settings: Annotated[Settings, Depends(get_settings)],
+        _: Annotated[str, Depends(get_current_user)],
+    ) -> dict[str, Any]:
+        """Статистика посещений/заявок по странам для админки. Источник —
+        Prometheus (те же счётчики, что в Grafana); при его недоступности
+        возвращается prometheus_ok=false."""
+        return stats.fetch_stats(settings.prometheus_url)
 
     @app.patch("/api/bookings/{booking_id}")
     def update_booking(

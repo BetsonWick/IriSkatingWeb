@@ -149,6 +149,73 @@ body.admin-body {
 
 .admin-note { color: var(--muted); font-size: 0.82rem; margin-top: 14px; }
 
+/* ---------- stats (visits / bookings by country) ---------- */
+
+.stats-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 34px 0 14px;
+}
+.stats-head h2 { font-size: 1.15rem; font-weight: 800; }
+
+.stats-toggle { display: flex; gap: 8px; }
+.chip-btn {
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.chip-btn:hover { color: var(--txt); border-color: var(--line-2); }
+.chip-btn.active {
+  color: #fff;
+  background: rgba(139, 92, 246, 0.35);
+  border-color: rgba(139, 92, 246, 0.65);
+}
+
+.stats-wrap { margin-top: 0; }
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  min-width: 420px;
+}
+.stats-table th {
+  text-align: left;
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.stats-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.stats-table tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
+.stats-table tbody tr:last-child td { border-bottom: none; }
+.stats-table th.num, .stats-table td.num, .stats-table tfoot td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.stats-table tfoot td {
+  padding: 11px 14px;
+  border-top: 1px solid var(--line-2);
+  font-weight: 800;
+  color: var(--txt);
+}
+
 @media (max-width: 640px) {
   .dash-head { flex-direction: column; align-items: flex-start; }
+  .stats-head { flex-direction: column; align-items: flex-start; gap: 10px; }
 }

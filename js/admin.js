@@ -205,12 +205,98 @@
     }
   }
 
+  /* ---------- stats (visits / bookings by country) ---------- */
+
+  const statsState = { data: null, window: "24h" };
+
+  function statsRow(text, colspan = 4) {
+    return `<tr><td colspan="${colspan}" class="empty-row">${text}</td></tr>`;
+  }
+
+  function renderStats() {
+    const body = $("#statsBody");
+    const foot = $("#statsFoot");
+    const note = $("#statsNote");
+    const data = statsState.data;
+    if (!data) return;
+
+    const baseNote =
+      "Источник — Prometheus (те же данные, что в Grafana). «XX» — страна посетителя не определена (заход не через Cloudflare).";
+
+    if (!data.prometheus_ok) {
+      body.innerHTML = statsRow("Prometheus недоступен — статистика появится, когда он ответит.");
+      foot.hidden = true;
+      note.textContent = baseNote;
+      return;
+    }
+
+    const window_ = data.windows.find((w) => w.key === statsState.window);
+    if (!window_ || window_.countries.length === 0) {
+      body.innerHTML = statsRow(`Пока нет визитов за ${window_ ? window_.label : statsState.window}.`);
+      foot.hidden = true;
+      note.textContent = baseNote;
+      return;
+    }
+
+    body.innerHTML = "";
+    window_.countries.forEach((row) => {
+      const conversion =
+        row.visits > 0 ? ((row.bookings / row.visits) * 100).toFixed(1) + "%" : "—";
+      const tr = document.createElement("tr");
+      tr.innerHTML =
+        `<td>${row.country}</td>` +
+        `<td class="num">${Math.round(row.visits)}</td>` +
+        `<td class="num">${Math.round(row.bookings)}</td>` +
+        `<td class="num">${conversion}</td>`;
+      body.appendChild(tr);
+    });
+
+    const totalConversion =
+      window_.visits > 0 ? ((window_.bookings / window_.visits) * 100).toFixed(1) + "%" : "—";
+    foot.hidden = false;
+    foot.innerHTML =
+      `<tr><td>Итого</td>` +
+      `<td class="num">${Math.round(window_.visits)}</td>` +
+      `<td class="num">${Math.round(window_.bookings)}</td>` +
+      `<td class="num">${totalConversion}</td></tr>`;
+
+    const at = data.generated_at ? new Date(data.generated_at).toLocaleString("ru-RU") : "";
+    note.textContent = baseNote + (at ? ` Данные на ${at}.` : "");
+  }
+
+  async function loadStats() {
+    const body = $("#statsBody");
+    body.innerHTML = statsRow("Загрузка…");
+    try {
+      statsState.data = await api("/api/stats");
+      renderStats();
+    } catch (err) {
+      if (err.message !== "unauthorized") {
+        body.innerHTML = statsRow(`Ошибка загрузки статистики: ${err.message}`);
+      }
+    }
+  }
+
+  $("#statsToggle").addEventListener("click", (event) => {
+    const btn = event.target.closest(".chip-btn");
+    if (!btn) return;
+    statsState.window = btn.dataset.window;
+    document
+      .querySelectorAll("#statsToggle .chip-btn")
+      .forEach((b) => b.classList.toggle("active", b === btn));
+    renderStats();
+  });
+
   async function enterDashboard() {
     showView("dash");
     await loadBookings();
+    loadStats();
   }
 
-  $("#refreshBtn").addEventListener("click", loadBookings);
+  $("#refreshBtn").addEventListener("click", async () => {
+    await loadBookings();
+    loadStats();
+  });
 
   /* ---------- boot ---------- */
 

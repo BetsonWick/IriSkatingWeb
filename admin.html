@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=18">
-  <link rel="stylesheet" href="css/admin.css?v=8">
+  <link rel="stylesheet" href="css/admin.css?v=9">
 </head>
 <body class="admin-body">
 
@@ -102,11 +102,37 @@
         </table>
       </div>
       <p class="admin-note">Статусы: <b>новая</b> → подтвердить ✓ или отменить ✕. Время на сервере (TZ сервера).</p>
+
+      <!-- ======== Stats (Prometheus: visits / bookings by country) ======== -->
+      <div class="stats-head">
+        <h2>Статистика посещений</h2>
+        <div class="stats-toggle" id="statsToggle">
+          <button class="chip-btn active" data-window="24h">24 часа</button>
+          <button class="chip-btn" data-window="7d">7 дней</button>
+        </div>
+      </div>
+      <div class="table-wrap stats-wrap">
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>Страна</th>
+              <th class="num">Визиты</th>
+              <th class="num">Заявки</th>
+              <th class="num">Конверсия</th>
+            </tr>
+          </thead>
+          <tbody id="statsBody">
+            <tr><td colspan="4" class="empty-row">Загрузка…</td></tr>
+          </tbody>
+          <tfoot id="statsFoot" hidden></tfoot>
+        </table>
+      </div>
+      <p class="admin-note" id="statsNote">Источник — Prometheus (те же данные, что в Grafana). «XX» — страна посетителя не определена (заход не через Cloudflare).</p>
     </section>
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/admin.js?v=8"></script>
+  <script src="js/admin.js?v=9"></script>
 </body>
 </html>

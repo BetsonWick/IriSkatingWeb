@@ -37,8 +37,8 @@ cp .env.example .env && chmod 600 .env && nano .env
   токен того же бота (из `/opt/iriskating/.env`), получатели — ID из
   `ADMIN_TELEGRAM_IDS` бота через запятую. Пусто — заявки сохраняются без
   уведомления.
-- `GRAFANA_ADMIN_USER` / `GRAFANA_ADMIN_PASSWORD` — вход в Grafana
-  (`openssl rand -hex 16` для пароля).
+- `GF_SECURITY_ADMIN_USER` / `GF_SECURITY_ADMIN_PASSWORD` — вход в Grafana
+  (`openssl rand -hex 16` для пароля; Grafana читает только `GF_*`).
 
 `ADMIN_USERNAME` по умолчанию `iren` — можно поменять.
 
@@ -156,7 +156,7 @@ ssh -L 3000:127.0.0.1:3000 root@149.33.58.213
    # в двух блоках сайта должен появиться: respond @webMetrics 404
    ```
 
-3. В `.env` сайта задать `GRAFANA_ADMIN_USER` / `GRAFANA_ADMIN_PASSWORD`
+3. В `.env` сайта задать `GF_SECURITY_ADMIN_USER` / `GF_SECURITY_ADMIN_PASSWORD`
    и `docker compose up -d` (пересоздаёт grafana).
 
 ### Эксплуатация

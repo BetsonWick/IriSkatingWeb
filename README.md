@@ -66,7 +66,7 @@ retention 30d) → **grafana** (источник и дашборд «IriSkating 
 by region» провижинятся автоматически из `deploy/grafana/`). Графана слушает
 только `127.0.0.1:3000` — на сервере доступ через SSH-туннель
 (см. [deploy/DEPLOY.md](deploy/DEPLOY.md), §9). Креды админа Grafana —
-`GRAFANA_ADMIN_USER` / `GRAFANA_ADMIN_PASSWORD` в `.env`.
+`GF_SECURITY_ADMIN_USER` / `GF_SECURITY_ADMIN_PASSWORD` в `.env`.
 
 ## Деплой на сервер бота
 

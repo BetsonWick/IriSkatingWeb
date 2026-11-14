@@ -107,6 +107,15 @@ docker builder prune -f && docker image prune -f
 ## 8. Безопасность
 
 - Пароль админа существует только в виде PBKDF2-хеша в `.env` (chmod 600).
+- **Экранирование `$`**: compose интерполирует `$` в значениях `.env`, поэтому
+  каждый `$` хеша записывается как `$$` (`ADMIN_PASSWORD_HASH=pbkdf2$$200000$$…`).
+  Сырой `$` молча обрезает значение до первого `$имя-как-переменной` — логин
+  ломается без видимых ошибок. Резервная копия старого хеша: `/root/admin_password_hash.bak`.
+- Сброс пароля /admin (если забыли): локально из корня репо
+  `.venv/bin/python -m server.hash_password 'НовыйПароль'`, в выводе заменить
+  каждый `$` на `$$`, записать строку `ADMIN_PASSWORD_HASH=…` в `.env` на
+  сервере, затем `docker compose up -d web`. Проверка:
+  `curl -X POST https://iriskating.com/api/login -H 'Content-Type: application/json' -d '{"username":"iren","password":"…"}'` → `{"ok":true}`.
 - Сессионная cookie: HttpOnly + SameSite=Lax + Secure, подпись HMAC-SHA256.
 - Лимиты: логин 10 попыток / 5 мин с одного IP, заявки 30 / 10 мин.
 - UFW на сервере остаётся как для бота: снаружи только 22/80/443.

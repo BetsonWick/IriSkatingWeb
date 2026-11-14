@@ -7,5 +7,8 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 
-# исходные видео с iPhone (на прод уходят конвертированные mp4)
+# видео (исходные MOV с iPhone и конвертированные MP4) — живут только на
+# сервере (assets/ монтируется volume'ом, см. docker-compose.yml), в git
+# хранятся только заглушки/постеры (svg/jpg)
 assets/media/*.MOV
+assets/media/*.MP4

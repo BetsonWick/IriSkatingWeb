@@ -13,10 +13,12 @@
 ├── js/               # i18n.js (словарь EN/RU/中文/FR), slideshow.js, text-slider.js, main.js, admin.js
 ├── assets/           # favicon + media/ (фото/видео для слайдшоу, сейчас заглушки)
 ├── server/           # FastAPI: статика + API заявок с авторизацией (см. server/requirements.txt)
-├── tests/            # pytest для API
+│                     #   + метрики посещений по странам (server/metrics.py, /metrics)
+├── tests/            # pytest для API и метрик
 ├── Dockerfile        # образ: статика + API в одном контейнере (uvicorn :8000)
-├── docker-compose.yml # сервис web в сети стека бота (iriskating_default)
-└── deploy/           # Caddyfile для сервера + DEPLOY.md (пошаговый деплой на VPS бота)
+├── docker-compose.yml # web + prometheus + grafana в сети стека бота (iriskating_default)
+└── deploy/           # Caddyfile для сервера + DEPLOY.md; prometheus.yml и
+                      #   провижининг Grafana (datasource + дашборд)
 ```
 
 ## Админка и заявки
@@ -42,6 +44,29 @@ python3 -m venv .venv && .venv/bin/pip install -r server/requirements.txt
 
 Админка: http://127.0.0.1:8000/admin (логин/пароль из `.env`, для локальной
 отладки поставьте `COOKIE_SECURE=false`).
+
+Метрики: http://127.0.0.1:8000/metrics — Prometheus-формат.
+
+## Метрики посещений по регионам
+
+Каждое посещение лендинга (`/`, `/index.html`) и каждая заявка считаются
+по стране посетителя. Страна берётся из заголовка **`CF-IPCountry`**, который
+Cloudflare добавляет ко всем запросам к origin (основной домен идёт через CF).
+Нет заголовка (локальный запуск, прямой заход) — метрика с кодом `XX`.
+`/admin` и статика (CSS/JS/картинки) посещениями не считаются.
+
+Метрики (эндпоинт `/metrics`, наружу закрыт Caddy — только Prometheus внутри
+docker-сети):
+
+- `iriskating_site_visits_total{country, page}` — посещения лендинга;
+- `iriskating_booking_requests_total{country, program}` — заявки (конверсия).
+
+Стек в `docker-compose.yml`: **prometheus** (скрейпит `web:8000`, 15s,
+retention 30d) → **grafana** (источник и дашборд «IriSkating · Site visits
+by region» провижинятся автоматически из `deploy/grafana/`). Графана слушает
+только `127.0.0.1:3000` — на сервере доступ через SSH-туннель
+(см. [deploy/DEPLOY.md](deploy/DEPLOY.md), §9). Креды админа Grafana —
+`GRAFANA_ADMIN_USER` / `GRAFANA_ADMIN_PASSWORD` в `.env`.
 
 ## Деплой на сервер бота
 

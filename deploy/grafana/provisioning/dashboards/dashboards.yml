@@ -1,0 +1,12 @@
+# Автозагрузка дашбордов из каталога /dashboards (монтируется в compose).
+apiVersion: 1
+
+providers:
+  - name: iriskating
+    folder: IriSkating
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    options:
+      path: /dashboards
+      foldersFromFilesStructure: false

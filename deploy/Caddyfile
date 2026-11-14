@@ -16,6 +16,9 @@ eat-market.149.33.58.213.sslip.io {
 }
 
 www.149.33.58.213.sslip.io {
+	# /metrics отдаётся только Prometheus'у внутри docker-сети; наружу — 404
+	@webMetrics path /metrics
+	respond @webMetrics 404
 	reverse_proxy web:8000
 }
 

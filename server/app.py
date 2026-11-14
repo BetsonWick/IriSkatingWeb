@@ -7,6 +7,10 @@ from environment variables (see .env.example):
 - SESSION_SECRET — HMAC key for session cookies
 - COOKIE_SECURE — set the Secure flag on the session cookie (true behind HTTPS)
 - DATABASE_PATH — SQLite file for booking requests
+
+GET /metrics serves Prometheus counters (visits/bookings by country from the
+CF-IPCountry header, see server/metrics.py); scraped by Prometheus inside the
+docker network and blocked at the edge by Caddy.
 """
 
 from __future__ import annotations
@@ -23,12 +27,14 @@ from typing import Annotated, Any, Literal
 from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Request, Response
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from server import telegram
 from server.auth import create_session_token, verify_password, verify_session_token
 from server.db import BookingsDB
+from server.metrics import VISIT_PATHS, booking_requests, site_visits, visitor_country
 
 SESSION_COOKIE = "iriskating_session"
 _BASE_DIR = Path(__file__).resolve().parent.parent
@@ -212,6 +218,9 @@ def create_app() -> FastAPI:
         )
         booking = dict(payload.model_dump())
         booking["id"] = booking_id
+        booking_requests.labels(
+            country=visitor_country(request.headers), program=payload.program
+        ).inc()
         if settings.telegram_bot_token and settings.telegram_chat_ids:
             background_tasks.add_task(notify_new_booking, settings, booking)
         return {"ok": True, "id": booking_id}
@@ -260,6 +269,21 @@ def create_app() -> FastAPI:
     app.mount("/css", StaticFiles(directory=get_base_dir() / "css"), name="css")
     app.mount("/js", StaticFiles(directory=get_base_dir() / "js"), name="js")
     app.mount("/assets", StaticFiles(directory=get_base_dir() / "assets"), name="assets")
+
+    @app.get("/metrics", include_in_schema=False)
+    def metrics_endpoint() -> Response:
+        """Прометеус-метрики. Наружу закрыты (respond 404 в Caddyfile):
+        эндпоинт скрейпится только Prometheus'ом внутри docker-сети."""
+        return Response(content=generate_latest(), media_type=CONTENT_TYPE_LATEST)
+
+    @app.middleware("http")
+    async def count_visits(request: Request, call_next: Any) -> Any:
+        """Посещения лендинга по стране посетителя (CF-IPCountry от Cloudflare)."""
+        if request.url.path in VISIT_PATHS:
+            site_visits.labels(
+                country=visitor_country(request.headers), page="landing"
+            ).inc()
+        return await call_next(request)
 
     @app.middleware("http")
     async def revalidate_static(request: Request, call_next: Any) -> Any:

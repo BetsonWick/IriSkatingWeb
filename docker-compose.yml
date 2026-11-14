@@ -1,5 +1,10 @@
 # Сайт IriSkating работает в одной docker-сети со стеком бота
 # (см. docs: /opt/iriskating). Caddy из стека бота проксирует www-поддомен на web:8000.
+#
+# Мониторинг: prometheus скрейпит web:8000/metrics внутри docker-сети,
+# grafana читает prometheus (провижининг источника и дашборда — deploy/grafana/).
+# Графана торчит только на 127.0.0.1:3000 — снаружи закрыта UFW,
+# доступ по SSH-туннелю (см. deploy/DEPLOY.md §9).
 services:
   web:
     build: .
@@ -16,6 +21,51 @@ services:
       options:
         max-size: "5m"
         max-file: "3"
+
+  prometheus:
+    image: prom/prometheus:v3.4.1
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      # запас на будущее: метрик мало (пара сотен серий), 30 дней — единицы МБ
+      - --storage.tsdb.retention.time=30d
+    volumes:
+      - ./deploy/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - iriskating
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  grafana:
+    image: grafana/grafana:12.1.0
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # регистрация чужих пользователей выключена, админ — из .env
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./deploy/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./deploy/grafana/dashboards:/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - iriskating
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+volumes:
+  prometheus-data:
+  grafana-data:
 
 networks:
   iriskating:

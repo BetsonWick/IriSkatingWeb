@@ -773,22 +773,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
 .coach-slider .hs-arrow { z-index: 2; }
 
-.coach-tag {
-  position: absolute;
-  left: 18px;
-  bottom: 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
-  border-radius: 999px;
-  background: rgba(10, 13, 30, 0.8);
-  border: 1px solid rgba(167, 139, 250, 0.5);
-  font-weight: 800;
-  backdrop-filter: blur(8px);
-}
-.coach-tag .icon { width: 16px; height: 16px; color: var(--accent-2); }
-
 .coach-info h2 { font-size: clamp(2rem, 3.4vw, 2.8rem); margin: 10px 0 6px; }
 
 .coach-role { color: var(--accent-2); font-weight: 700; font-size: 1.02rem; }

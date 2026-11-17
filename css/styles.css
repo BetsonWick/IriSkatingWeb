@@ -1224,9 +1224,13 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
     right: 0;
   }
 
-  /* фон: фиксированный слой с вертикальным кропом и мягким фокусом.
+  /* фон: НЕ fixed. На iOS 26 Safari плавающая панель с URL парит над
+     страницей, а fixed-слои обрезаются по нижней границе layout-вьюпорта —
+     под панелью оставалась тёмная полоса без фото. Абсолютный слой живёт
+     в документе и рисуется на весь первый экран, включая зону под панелью;
+     при скролле фон уезжает вместе со страницей, растворяясь в тёмный.
      Исходное фото 1280×720 на телефоне (DPR 3) растягивается втрое и мылится,
-     а cover с position 68% 32% вырезает случайный фрагмент. */
+     блюр запечён в саму картинку (hero-bg-mobile-blur.jpg) — без CSS-фильтра */
   body {
     position: relative;
     z-index: 0; /* стек-контекст: ::before с z -1 над фоном body, но под контентом */
@@ -1237,19 +1241,26 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
   body::before {
     content: "";
-    position: fixed;
-    inset: -120px; /* большой запас: даже если слой отстанет при инерции — край не покажется */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* первый экран (100svh) + зона под плавающей панелью + запас;
+       запас и растворение подобраны так, чтобы fade начинался за экраном */
+    height: calc(100vh + 280px);
+    height: calc(100svh + 280px);
     z-index: -1;
     pointer-events: none;
-    /* вуаль на мобильном: верх/середина как в дизайне, к низу экрана почти
-       прозрачная — там была чёрная полоса, теперь видно лёд.
-       блюр запечён в саму картинку (hero-bg-mobile-blur.jpg) — без CSS-фильтра */
+    /* верхний градиент — растворение фото в тёмный фон body у нижней кромки
+       слоя (за пределами первого экрана), чтобы не было резкого края.
+       Вуаль: верх/середина как в дизайне, к низу экрана почти прозрачная */
     background-image:
+      linear-gradient(to top, #05070f 0, rgba(5, 7, 15, 0) 280px),
       radial-gradient(1100px 520px at 85% -5%, rgba(124, 58, 237, 0.14), transparent 60%),
       linear-gradient(180deg, rgba(5, 7, 15, 0.45), rgba(5, 7, 15, 0.42) 40%, rgba(5, 7, 15, 0.15) 100%),
       url("../assets/media/hero-bg-mobile-blur.jpg?v=2");
-    background-size: auto, auto, cover;
-    background-position: center, center, center top;
+    background-size: auto, auto, auto, cover;
+    background-position: center, center, center, center top;
     background-repeat: no-repeat;
   }
 

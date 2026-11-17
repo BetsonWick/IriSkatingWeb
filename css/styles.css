@@ -47,7 +47,7 @@ body {
   background-image:
     radial-gradient(1100px 520px at 85% -5%, rgba(124, 58, 237, 0.14), transparent 60%),
     linear-gradient(180deg, rgba(5, 7, 15, 0.55), rgba(5, 7, 15, 0.62) 45%, rgba(5, 7, 15, 0.8)),
-    url("../assets/media/hero-bg.jpg");
+    url("../assets/media/hero-bg.jpg?v=2");
   background-size: auto, auto, cover;
   background-position: center, center, 68% 32%;
   background-attachment: fixed, fixed, fixed;
@@ -1295,7 +1295,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
     background-image:
       radial-gradient(1100px 520px at 85% -5%, rgba(124, 58, 237, 0.14), transparent 60%),
       linear-gradient(180deg, rgba(5, 7, 15, 0.45), rgba(5, 7, 15, 0.42) 40%, rgba(5, 7, 15, 0.15) 100%),
-      url("../assets/media/hero-bg-mobile-blur.jpg");
+      url("../assets/media/hero-bg-mobile-blur.jpg?v=2");
     background-size: auto, auto, cover;
     background-position: center, center, center top;
     background-repeat: no-repeat;

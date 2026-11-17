@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=24">
+  <link rel="stylesheet" href="css/styles.css?v=25">
 </head>
 <body>
 
@@ -173,7 +173,15 @@
     <section class="coach" id="coach">
       <div class="container coach-grid">
         <div class="coach-photo">
-          <img class="coach-scene" src="assets/media/hero.jpg" alt="Irene — figure skating coach">
+          <div class="coach-slider" id="coachSlider" aria-roledescription="carousel" aria-label="Irene — training photos">
+            <img class="coach-scene coach-slide active" src="assets/media/hero1.jpg" alt="Irene — figure skating coach" fetchpriority="high">
+            <img class="coach-scene coach-slide" src="assets/media/hero2.jpg" alt="Off-ice balance training with Irene" loading="lazy" decoding="async">
+            <img class="coach-scene coach-slide" src="assets/media/hero3.jpg" alt="Figure skating lesson at the rink" loading="lazy" decoding="async">
+            <img class="coach-scene coach-slide" src="assets/media/hero4.jpg" alt="Irene coaching a student" loading="lazy" decoding="async">
+            <button class="hs-arrow hs-prev" type="button" aria-label="Previous photo"><svg class="icon"><use href="#i-chevron"/></svg></button>
+            <button class="hs-arrow hs-next" type="button" aria-label="Next photo"><svg class="icon"><use href="#i-chevron"/></svg></button>
+            <div class="coach-dots"></div>
+          </div>
           <span class="coach-tag"><svg class="icon"><use href="#i-sparkle"/></svg> IriSkating</span>
         </div>
 
@@ -420,6 +428,7 @@
   <script src="js/i18n.js?v=10"></script>
   <script src="js/text-slider.js?v=1"></script>
   <script src="js/slideshow.js?v=9"></script>
+  <script src="js/coach-slider.js?v=1"></script>
   <script src="js/main.js?v=12"></script>
 </body>
 </html>

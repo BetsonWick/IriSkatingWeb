@@ -196,9 +196,9 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   z-index: 50;
   /* страница тянется под статус-бар (viewport-fit=cover) — шапка опускается ниже safe-area */
   padding-top: env(safe-area-inset-top);
-  /* backdrop-filter убран: на iOS вместе с fixed-слоем фона вызывал мерцание
-     и «пропадание» шапки при скролле — вместо него более плотный фон */
-  background: rgba(6, 9, 20, 0.92);
+  /* полупрозрачный фон как у футера. backdrop-filter не добавлять:
+     на iOS вместе с fixed-слоем фона вызывал мерцание и «пропадание» шапки */
+  background: rgba(5, 7, 15, 0.6);
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s ease;
 }
@@ -1261,19 +1261,15 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   html { scroll-padding-top: calc(72px + env(safe-area-inset-top)); }
 
   /* Шапка на мобильном — position: fixed: гарантированно видна при любом скролле.
-     sticky в Chrome на iOS ненадёжен: при прокрутке вниз браузерная панель
-     схлопывается, вьюпорт ресайзится, и липкая шапка «слетает»/пропадает
-     (известный класс багов WebKit/Chrome iOS). fixed не участвует в скролле
-     документа, а translateZ(0) держит шапку отдельным композитным слоем —
-     слой фона ниже не перекроет её при repaint. backdrop-filter по-прежнему
-     нет: на iOS он вместе с fixed-слоем фона вызывал мерцание и «пропадание». */
+     sticky в Chrome на iOS дополнительно ненадёжен. «Уносит» шапку при скролле
+     вниз сам Chrome iOS 26 (issues.chromium.org/446714234): чинит watchdog
+     в js/main.js (initHeaderPin). backdrop-filter не добавлять: на iOS вместе
+     с fixed-слоем фона вызывал мерцание. */
   .site-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    transform: translateZ(0);
-    background: #060914; /* непрозрачный: под ним ничего не просвечивает при инерции */
   }
 
   /* фон: фиксированный слой с вертикальным кропом и мягким фокусом.

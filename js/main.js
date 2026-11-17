@@ -158,6 +158,60 @@
     window.addEventListener("scroll", activateByScroll, { passive: true });
     window.addEventListener("resize", activateByScroll, { passive: true });
     activateByScroll();
+
+    initHeaderPin();
+  }
+
+  /* ============================================================
+     Chrome iOS 26: watchdog, удерживающий шапку на месте
+     ============================================================ */
+
+  // В Chrome на iOS при схлопывании нижней панели браузера fixed/sticky шапка
+  // «уезжает» со страницей при скролле вниз и возвращается при скролле вверх
+  // (issues.chromium.org/446714234, WebKit 297779; Safari и Firefox iOS не
+  // затронуты). CSS-позиционирование это не лечит, поэтому измеряем фактическое
+  // положение шапки и досмещаем её transform'ом до top: 0. В браузерах без бага
+  // дрейф нулевой — transform не применяется вовсе, поведение не меняется.
+  function initHeaderPin() {
+    const header = $("#siteHeader");
+    const vv = window.visualViewport;
+    let correction = 0;
+    let scheduled = false;
+
+    const update = () => {
+      scheduled = false;
+      if (modal().classList.contains("open")) return; // модалка: скролл заблокирован
+      if (window.scrollY <= 0) {
+        correction = 0; // у верхнего края не вмешиваемся в «резинку» iOS
+      } else if (vv && vv.scale > 1.01) {
+        /* пинч-зум: измерения ненадёжны — держим прежнюю коррекцию */
+      } else {
+        // getBoundingClientRect включает уже применённый transform:
+        // newC = C − (drift + C) = −drift — без накопления и осцилляций
+        correction -= header.getBoundingClientRect().top;
+      }
+
+      if (Math.abs(correction) < 0.5) {
+        correction = 0;
+        header.style.removeProperty("transform");
+      } else {
+        header.style.transform = `translate3d(0, ${correction.toFixed(1)}px, 0)`;
+      }
+    };
+
+    const schedule = () => {
+      if (!scheduled) {
+        scheduled = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    if (vv) {
+      vv.addEventListener("resize", schedule);
+      vv.addEventListener("scroll", schedule);
+    }
   }
 
   /* ============================================================

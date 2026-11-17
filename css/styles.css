@@ -1240,7 +1240,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 
   .main-nav {
     position: absolute;
-    top: 72px; /* относительно .header-inner (шапка теперь статичная) */
+    top: 72px; /* относительно .header-inner — едет вместе со sticky/fixed шапкой */
     left: 0;
     right: 0;
     flex-direction: column;
@@ -1257,12 +1257,24 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 }
 
 @media (max-width: 760px) {
-  /* шапка статичная и уезжает при скролле — якорям нужен только отступ статус-бара */
+  /* якорям нужен отступ на высоту фиксированной шапки + статус-бар */
   html { scroll-padding-top: calc(72px + env(safe-area-inset-top)); }
 
-  /* шапка на мобильном — sticky, всегда видна при скролле.
-     backdrop-filter убран (глобально ниже): на iOS он + fixed-слой фона
-     вызывали мерцание и «пропадание» шапки при прокрутке */
+  /* Шапка на мобильном — position: fixed: гарантированно видна при любом скролле.
+     sticky в Chrome на iOS ненадёжен: при прокрутке вниз браузерная панель
+     схлопывается, вьюпорт ресайзится, и липкая шапка «слетает»/пропадает
+     (известный класс багов WebKit/Chrome iOS). fixed не участвует в скролле
+     документа, а translateZ(0) держит шапку отдельным композитным слоем —
+     слой фона ниже не перекроет её при repaint. backdrop-filter по-прежнему
+     нет: на iOS он вместе с fixed-слоем фона вызывал мерцание и «пропадание». */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateZ(0);
+    background: #060914; /* непрозрачный: под ним ничего не просвечивает при инерции */
+  }
 
   /* фон: фиксированный слой с вертикальным кропом и мягким фокусом.
      Исходное фото 1280×720 на телефоне (DPR 3) растягивается втрое и мылится,
@@ -1271,6 +1283,8 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
     position: relative;
     z-index: 0; /* стек-контекст: ::before с z -1 над фоном body, но под контентом */
     background-image: none;
+    /* контент стартует ниже фиксированной шапки (72px + статус-бар) */
+    padding-top: calc(72px + env(safe-area-inset-top));
   }
 
   body::before {
@@ -1291,7 +1305,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
     background-repeat: no-repeat;
   }
 
-  /* шапка sticky на мобильном — базовое правило (позиция sticky) остаётся */
+  /* шапка фиксированная (см. .site-header выше) */
   .header-actions { margin-left: auto; }
 
   /* hero занимает первый экран с учётом шапки и статус-бара */

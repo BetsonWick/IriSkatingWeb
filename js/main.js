@@ -120,10 +120,11 @@
         burger.setAttribute("aria-expanded", "false");
         const target = $(link.getAttribute("href"));
         if (target) {
-          // на десктопе шапка sticky (офсет = её высота), на мобильном она
-          // статичная — секция встаёт под статус-бар (env(safe-area-inset-top))
-          const sticky = getComputedStyle(header).position === "sticky";
-          const offset = sticky
+          // шапка sticky (десктоп/планшет) или fixed (мобильный) перекрывает
+          // контент — офсет равен её полной высоте (включая safe-area);
+          // статичной не остаётся ни в одном брейкпоинте
+          const pinned = ["sticky", "fixed"].includes(getComputedStyle(header).position);
+          const offset = pinned
             ? header.offsetHeight + 20
             : header.offsetHeight - header.querySelector(".header-inner").offsetHeight + 12;
           const y = target.getBoundingClientRect().top + window.scrollY - offset;
